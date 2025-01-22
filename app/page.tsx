@@ -3,7 +3,6 @@ import Services from "@/app/components/Services";
 import About from "@/app/components/About";
 import Studio from "@/app/components/Studio";
 import { Divider } from "@nextui-org/react";
-import { Analytics } from "@vercel/analytics/react"
 
 export default function Home() {
   return (
@@ -22,7 +21,6 @@ export default function Home() {
       {/* <div className="bg-[url('/kucko_ala.svg')] h-64 mt-[-100px] bg-cover bg-bottom
         mb-[-100px] md:mb-[-80px]"></div>
       <Blog/> */}
-      <Analytics/>
     </div>
   );
 }
