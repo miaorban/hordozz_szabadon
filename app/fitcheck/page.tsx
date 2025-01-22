@@ -1,6 +1,6 @@
 'use client';
 import { Form, Input, Button, Textarea, Divider,
- Checkbox, Alert, Card, CardBody, CardFooter } from '@nextui-org/react';
+ Checkbox, Alert, Card, CardFooter } from '@nextui-org/react';
 import { useState } from 'react';
 import CustomFileInput from '@/app/components/file-input/CustomFileInput';
 
@@ -28,7 +28,7 @@ export default function FitCheck() {
       const { referenceId } = await res.json();
 
       window.location.href = `${process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK}?client_reference_id=${referenceId}`;
-    } catch (e) {
+    } catch () {
       setShowError(true);
     }
   };
@@ -72,7 +72,7 @@ export default function FitCheck() {
       <div className="w-10/12 my-12 flex flex-wrap justify-center gap-8">
           {
             steps.map((step, index) => 
-              <Card isPressable shadow="sm" className="drop-shadow-xl w-72 sm:w-[380px]">
+              <Card isPressable shadow="sm" className="drop-shadow-xl w-72 sm:w-[380px]" key={index}>
                 {/* <CardBody className="overflow-visible p-0 drop-shadow-xl h-[20rem]"
                 style={{boxShadow: 
                   "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset"}}>
