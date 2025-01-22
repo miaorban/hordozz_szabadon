@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function SocialMedia() {
   return (
     <div className="flex">
-        <Link className="mr-3 md:mr-10" href="https://www.tiktok.com/@hordozasi.tancsadas">
+        <Link className="mr-3 md:mr-10" href="https://www.tiktok.com/@hordozz.szabadon">
           <Image
             alt="Instagram"
             src="/tiktok.png"
@@ -12,7 +12,7 @@ export default function SocialMedia() {
             height={50}
           />
         </Link>
-        <Link href="https://www.facebook.com/profile.php?id=61565683569688">
+        <Link href="https://www.facebook.com/hordozz.szabadon">
           <Image
             alt="Facebook"
             src="/facebook.png"

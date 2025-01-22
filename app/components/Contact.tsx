@@ -24,7 +24,7 @@ export default function Introduction() {
             <h3 className="font-light">mia@hordozzszabadon.hu</h3>
           </div>
           <div className="flex">
-          <Link className="mr-3 md:mr-10" href="https://www.tiktok.com/@hordozasi.tancsadas">
+          <Link className="mr-3 md:mr-10" href="https://www.tiktok.com/@hordozz.szabadon">
             <Image
               width={150}
               height={50}
@@ -32,7 +32,7 @@ export default function Introduction() {
               src="/tiktok.png"
             />
           </Link>
-            <Link href="https://www.facebook.com/profile.php?id=61565683569688">
+            <Link href="https://www.facebook.com/hordozz.szabadon">
               <Image
                 alt="Facebook"
                 src="/facebook.png"
