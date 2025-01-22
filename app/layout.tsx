@@ -11,12 +11,12 @@ export const metadata: Metadata = {
   description: "Teljeskörű tanácsadás Neked, hogy babáddal együtt megélhesd a hordozás örömét. Bérelj hordozót vagy hordozós ruházatot.",
   openGraph: {
     type: "website",
-    url: "https://hordozaskeszthely.hu",
+    url: "https://hordozzszabadon.hu",
     title: "Babahordozási tanácsadás",
     description: "Teljeskörű tanácsadás Neked, hogy babáddal együtt megélhesd a hordozás örömét. Bérelj hordozót vagy hordozós ruházatot.",
-    siteName: "Hordozási tanácsadás Keszthely",
+    siteName: "Hordozási tanácsadás",
     images: [{
-      url: "https://hordozaskeszthely.hu/mia.jpg",
+      url: "https://hordozzszabadon.hu/intro_bg.png",
     }],
   }
 };
