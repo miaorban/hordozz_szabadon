@@ -1,12 +1,14 @@
-import nodemailer from 'nodemailer'
+import nodemailer from 'nodemailer';
+import { NextResponse } from "next/server";
+
 
 const transporter = nodemailer.createTransport({
-  host: 'mail.hordozaskeszthely.hu', 
+  host: process.env.MAIL_DOMAIN, 
   port: 465,
   secure: true,
   auth: {
-    user: 'fitcheck@hordozaskeszthely.hu',
-    pass: 'N8QtBC3FqGm9RYt'
+    user: process.env.MAIL_EMAIL,
+    pass: process.env.MAIL_PASS
   }
 });
  
@@ -30,15 +32,18 @@ export const POST = async (req) => {
       }
     }
 
+  const referenceId = Math.random().toString(36).substring(7);
   const mailOptions = {
-    from: 'fitcheck@hordozaskeszthely.hu',
-    to: 'hordozaskeszthely@gmail.com',
+    from: process.env.MAIL_EMAIL,
+    to: 'miaorban@gmail.com',
     subject: 'Form Submission with Files',
     html: `
             <p>Email: ${formData.get('email')} </p>
+            <p>referenceId: ${referenceId} </p>
             <p>Name: ${formData.get('name')} </p>
             <p>babyAge: ${formData.get('babyAge')} </p>
             <p>babyWeight: ${formData.get('babyWeight')} </p>
+            <p>carrierType: ${formData.get('carrierType')} </p>
             <p>description: ${formData.get('description')} </p>
             `,
     attachments
@@ -50,4 +55,6 @@ export const POST = async (req) => {
     }
     console.log('Message sent: %s', info.messageId);
   });
+
+  return NextResponse.json({ referenceId });
 }
