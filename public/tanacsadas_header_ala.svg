@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Réteg_2" data-name="Réteg 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 189.16">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #ab967f;
+        opacity: .05;
+      }
+
+      .cls-3 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-1" width="1920" height="189.16"/>
+    </clipPath>
+  </defs>
+  <g id="Réteg_1" data-name="Réteg 1">
+    <g class="cls-3">
+      <path class="cls-2" d="M-200.52,162.22C-113.33,101.63,641.68-20.27,516.84,110.29c-124.84,130.56,368.59,62.13,537.03,21.69,168.44-40.44,691.6-103.58,998.75,37.63,307.16,141.21,0-169.68,0-169.68L-79.64-23.16l-120.88,185.38Z"/>
+    </g>
+  </g>
+</svg>
