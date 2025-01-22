@@ -51,7 +51,7 @@ export const POST = async (req) => {
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      return console.log(error);
+      return console.log('error sending mail', error);
     }
     console.log('Message sent: %s', info.messageId);
   });
