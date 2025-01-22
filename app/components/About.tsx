@@ -39,10 +39,12 @@ export default function About() {
                   Megtalálni azt a hordozót/hordozókat, amik babánk egyes életszakaszaiban tökéletesen kiszolgálnak, 
                   nem egyszerű. Ha pedig megvan az eszköz, azt meg kell kötni, be kell állítani úgy, hogy kényelmes 
                   legyen babának és mamának is.
-                  Hordozási tanácsadóként célom támogató segítséget nyújtani a családoknak ezen az úton. 
-                  Kérdezni, megismerni őket és együtt megtalálni azt a megoldást, ami igazán illik hozzájuk.
+                  
 
                 </p>
+                <p className="my-2"></p>
+                <p>Hordozási tanácsadóként célom támogató segítséget nyújtani a családoknak ezen az úton. 
+                Kérdezni, megismerni őket és együtt megtalálni azt a megoldást, ami igazán illik hozzájuk.</p>
             </span>
         </div>
       </div>

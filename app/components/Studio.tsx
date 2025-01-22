@@ -20,7 +20,7 @@ export default function Studio() {
             <p className="w-full sm:w-1/2">Szeretettel várlak a kuckómban, ahol nyugodt körülmények között tanulhatod
               meg a kötéseket, a csatos hordozók használatát vagy éppen amire szükséged van.
               Ha szoptatni szeretnél vagy cumisüvegből etetni, peluscserére van szükség, akkor
-              azt is nyugodtan elvégetheted.
+              azt is nyugodtan elvégezheted.
             </p>
             <p className="w-full sm:w-1/2
             mt-2 sm:mt-0">
