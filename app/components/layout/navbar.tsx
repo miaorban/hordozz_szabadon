@@ -12,6 +12,7 @@ import {
 } from "@nextui-org/react";
 import Image from "next/image";
 import { usePathname } from 'next/navigation';
+import { montserrat_real } from '@/app/fonts';
 
 const ClosedIcon = () => {
   return (
@@ -60,7 +61,7 @@ export default function App() {
 
   return (
     <Navbar isBordered isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}
-    className="bg-[url('/navbar_bg.svg')] bg-no-repeat bg-cover bg-center border-0 h-24">
+    className="bg-[url('/navbar_bg.svg')] bg-no-repeat bg-cover bg-center border-0 h-20">
       <NavbarContent className="sm:hidden" justify="start">
         <NavbarMenuToggle 
           icon={isMenuOpen ? <OpenIcon/> : <ClosedIcon/>}
@@ -83,7 +84,11 @@ export default function App() {
         <NavbarBrand className="text-white">
           <Link href="/" className="text-white">
             <Image src="/csak_logo.svg" alt="Orbán Mia babahordozási tanácsadó logo" 
-              width={60} height={40} className="hidden sm:block"/>
+              width={50} height={40} className="hidden sm:block"/>
+            <div className="grid grid-cols-1 pl-1">
+              <div className={`text-[white] uppercase ${montserrat_real.className}`}><b>Baba</b>Hordozás</div>
+              <div className={`text-[white] italic ${montserrat_real.className} mt-[-7px]`}>by Orbán Mia</div>
+            </div>
           </Link>
           <div>
             

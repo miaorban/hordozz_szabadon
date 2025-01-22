@@ -49,16 +49,19 @@ export default function Services() {
                       fill
                     />
                   </CardBody>
-                  <CardFooter className="sm:h-30 pt-4">
+                  <CardFooter className="sm:h-28 pt-4">
                     <b className="w-full
                     text-lg md:text-4xl font-semibold text-secondary">{service.title}</b>
                   </CardFooter>
-                  <CardFooter className="hidden sm:block sm:h-42">
+                  <CardFooter className="hidden sm:block sm:h-36">
                     <p className="text-primary md:text-xl">{service.description}</p>
                   </CardFooter>
-                  <CardFooter className="sm:h-12">
-                    <p className="text-primary text-sm">{service.smallDescription}</p>
-                  </CardFooter>
+                  {
+                    service.smallDescription &&
+                      <CardFooter className="sm:h-4">
+                        <p className="text-primary text-sm">{service.smallDescription}</p>
+                      </CardFooter>
+                  }
               </Card>
             </Link>
           ))} 
