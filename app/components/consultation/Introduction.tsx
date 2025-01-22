@@ -14,7 +14,7 @@ export default function Introduction() {
       <div className="flex flex-wrap sm:flex-no-wrap justify-center
       gap-x-6
       text-[white]">
-        <div className="text-5xl md:text-5xl font-bold
+        <div className="text-5xl font-bold
         sm:max-w-96">Hordozási tanácsadás stúdiómban</div>
         <div className="italic text-xl
           sm:max-w-96 

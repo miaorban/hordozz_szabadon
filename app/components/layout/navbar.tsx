@@ -60,7 +60,7 @@ export default function App() {
 
   return (
     <Navbar isBordered isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}
-    className="bg-[url('/navbar_bg.svg')] bg-no-repeat bg-cover bg-center border-0">
+    className="bg-[url('/navbar_bg.svg')] bg-no-repeat bg-cover bg-center border-0 h-24">
       <NavbarContent className="sm:hidden" justify="start">
         <NavbarMenuToggle 
           icon={isMenuOpen ? <OpenIcon/> : <ClosedIcon/>}
@@ -82,8 +82,8 @@ export default function App() {
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarBrand className="text-white">
           <Link href="/" className="text-white">
-            <Image src="/logo_jobbra_nev.svg" alt="Orbán Mia babahordozási tanácsadó logo" 
-              width={180} height={120} className="hidden sm:block"/>
+            <Image src="/csak_logo.svg" alt="Orbán Mia babahordozási tanácsadó logo" 
+              width={60} height={40} className="hidden sm:block"/>
           </Link>
           <div>
             

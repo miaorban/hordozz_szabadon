@@ -57,7 +57,7 @@ export default function FitCheck() {
     [background-position-y:75rem] lg:[background-position-y:30rem]">
 
       <div className="max-w-[700px]">
-        <div className="text-5xl md:text-5xl font-bold text-secondary text-left mb-4
+        <div className="text-5xl font-bold text-secondary text-left mb-4
           max-w-64">
           <h1>Hordozóeszköz</h1>
           <h1>beállításának ellenőrzése</h1>

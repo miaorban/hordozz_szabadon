@@ -16,7 +16,7 @@ export default function Introduction() {
     ">
       <div className="flex flex-col 
       justify-between
-      w-full lg:w-2/3 xl:w-1/2
+      w-full md:max-w-[600px]
       gap-y-12
       ">
         <div className="flex justify-center md:hidden my-8">
@@ -25,7 +25,7 @@ export default function Introduction() {
         </div>
         
         <div>
-          <div className="flex-1 text-5xl md:text-5xl  font-bold
+          <div className="flex-1 text-5xl font-bold
           text-[white] sm:text-secondary 
           text-center md:text-right">
             Mert a babád
