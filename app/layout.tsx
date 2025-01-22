@@ -30,13 +30,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="light">
       <Head>
-        <title>Babahordozási tanácsadás | Keszthely és környéke  | Hordozó kölcsönzés</title>
+        <title>Babahordozási tanácsadás | Hordozó kölcsönzés</title>
         <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
         <meta name="google" content="notranslate" key="notranslate" />
-        <script
-          async
-          src="https://js.stripe.com/v3/buy-button.js">
-        </script>
       </Head>
       <body
         className={`antialiased ${montserrat.className}`}
