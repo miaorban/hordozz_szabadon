@@ -45,7 +45,7 @@ export default function Introduction() {
             className="shadow-xl text-bold text-secondary font-bold bg-[white]
             w-48 lg:w-72 text-xl py-8 rounded-3xl">TANÁCSADÁS</Button>
           <Button as={Link} href="/fitcheck" size="lg" color="secondary" 
-            className="shadow-xl text-bold text-primary font-bold 
+            className="shadow-xl text-bold text-[white] font-bold 
             w-48 lg:w-72 text-xl  py-8 rounded-3xl">FIT CHECK</Button>
         </div>
       </div>
