@@ -66,8 +66,9 @@ export default function App() {
       <NavbarContent justify="start">
         <NavbarMenuToggle 
           className="sm:hidden" 
-          icon={isMenuOpen ? <OpenIcon/> : <ClosedIcon/>}
-          aria-label={isMenuOpen ? "Menü bezárása" : "Menü kinyitása"} />
+          // icon={isMenuOpen ? <OpenIcon/> : <ClosedIcon/>}
+          // aria-label={isMenuOpen ? "Menü bezárása" : "Menü kinyitása"} 
+        />
         <NavbarBrand className="text-[white] hidden sm:block">
           <Link href="/" className="text-[white]">
               <Image src="/csak_logo.svg" alt="Orbán Mia babahordozási tanácsadó logo" 
