@@ -18,7 +18,7 @@ const consultations = [
       'ha nagyobb gyerkőcöt szeretnél hordozni.',
       'ha szoptatós, cumisüveges pozíciókat szeretnél megismerni.'
     ],
-    bookingUrl: 'https://app.minup.io/book/hordozasitanacsadas/service/25699'
+    bookingUrl: 'https://app.minup.io/book/hordozz-szabadon/service/25699'
   },
   {
     title: 'Maxi',
@@ -40,7 +40,7 @@ const consultations = [
         kétely, akkor személyesen vagy online a fennmaradó időben azzal
         foglalkozunk, amire szükséged van.`
     ],
-    bookingUrl: 'https://app.minup.io/book/hordozasitanacsadas/service/25704'
+    bookingUrl: 'https://app.minup.io/book/hordozz-szabadon/service/25704'
   }
 ];
 
