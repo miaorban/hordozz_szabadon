@@ -60,44 +60,30 @@ export default function App() {
   ];
 
   return (
-    <Navbar isBordered isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}
-    className="bg-[url('/navbar_bg.svg')] bg-no-repeat bg-cover bg-center border-0 h-20"
-    position="static">
-      <NavbarContent className="sm:hidden" justify="start">
+    <Navbar isBordered onMenuOpenChange={setIsMenuOpen}
+      className="bg-[url('/navbar_bg.svg')] bg-no-repeat bg-cover bg-center border-0 h-20"
+      position="static">
+      <NavbarContent justify="start">
         <NavbarMenuToggle 
+          className="sm:hidden" 
           icon={isMenuOpen ? <OpenIcon/> : <ClosedIcon/>}
           aria-label={isMenuOpen ? "Menü bezárása" : "Menü kinyitása"} />
-      </NavbarContent>
-
-      <NavbarContent className="sm:hidden pr-3" justify="center">
-      <NavbarBrand className="text-[white]">
+        <NavbarBrand className="text-[white] hidden sm:block">
           <Link href="/" className="text-[white]">
-            <Image src="/csak_logo.svg" alt="Orbán Mia babahordozási tanácsadó logo" 
-              width={130} height={80} className="hidden sm:block mt-16"/>
-          </Link>
+              <Image src="/csak_logo.svg" alt="Orbán Mia babahordozási tanácsadó logo" 
+                width={50} height={40}/>
+              <div className="grid grid-cols-1 pl-1">
+                <div className={`text-[white] uppercase ${montserrat_real.className}`}><b>Baba</b>Hordozás</div>
+                <div className={`text-[white] italic ${montserrat_real.className} mt-[-7px]`}>by Orbán Mia</div>
+              </div>
+            </Link>
           <div>
             
           </div>
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarBrand className="text-[white]">
-          <Link href="/" className="text-[white]">
-            <Image src="/csak_logo.svg" alt="Orbán Mia babahordozási tanácsadó logo" 
-              width={50} height={40} className="hidden sm:block"/>
-            <div className="grid grid-cols-1 pl-1">
-              <div className={`text-[white] uppercase ${montserrat_real.className}`}><b>Baba</b>Hordozás</div>
-              <div className={`text-[white] italic ${montserrat_real.className} mt-[-7px]`}>by Orbán Mia</div>
-            </div>
-          </Link>
-          <div>
-            
-          </div>
-        </NavbarBrand>
-      </NavbarContent>
-
-      <NavbarContent className="hidden sm:flex uppercase" justify="center">
+      <NavbarContent className="hidden sm:flex uppercase gap-1 md:gap-4" justify="center">
         {menuItems.map((item, index) => (
             <NavbarItem isActive={item.href == pathName} key={`${item}-${index}`}>
             <Link href={item.href}
