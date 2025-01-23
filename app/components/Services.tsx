@@ -38,7 +38,7 @@ export default function Services() {
 
           { services.map((service, i) => (
             <Link href={service.href} key={i}>
-              <Card isPressable shadow="sm" key={i} className="drop-shadow-xl w-72 sm:w-[380px]">
+              <Card shadow="sm" key={i} className="drop-shadow-xl w-72 sm:w-[380px]">
                   <CardBody className="overflow-visible p-0 drop-shadow-xl h-[20rem]"
                   style={{boxShadow: 
                     "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset"}}>

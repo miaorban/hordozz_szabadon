@@ -61,7 +61,8 @@ export default function App() {
 
   return (
     <Navbar isBordered isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}
-    className="bg-[url('/navbar_bg.svg')] bg-no-repeat bg-cover bg-center border-0 h-20">
+    className="bg-[url('/navbar_bg.svg')] bg-no-repeat bg-cover bg-center border-0 h-20"
+    position="static">
       <NavbarContent className="sm:hidden" justify="start">
         <NavbarMenuToggle 
           icon={isMenuOpen ? <OpenIcon/> : <ClosedIcon/>}
