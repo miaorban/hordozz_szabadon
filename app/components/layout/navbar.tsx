@@ -69,7 +69,7 @@ export default function App() {
       </NavbarContent>
 
       <NavbarContent className="sm:hidden pr-3" justify="center">
-      <NavbarBrand className="text-white">
+      <NavbarBrand className="text-[white]">
           <Link href="/" className="text-[white]">
             <Image src="/csak_logo.svg" alt="Orbán Mia babahordozási tanácsadó logo" 
               width={130} height={80} className="hidden sm:block mt-16"/>
@@ -81,8 +81,8 @@ export default function App() {
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarBrand className="text-white">
-          <Link href="/" className="text-white">
+        <NavbarBrand className="text-[white]">
+          <Link href="/" className="text-[white]">
             <Image src="/csak_logo.svg" alt="Orbán Mia babahordozási tanácsadó logo" 
               width={50} height={40} className="hidden sm:block"/>
             <div className="grid grid-cols-1 pl-1">
@@ -111,10 +111,10 @@ export default function App() {
       </NavbarContent>
 
       <NavbarMenu className="uppercase">
-        <NavbarMenuItem >
+        <NavbarMenuItem className="pt-4">
             <Link
               className={`
-                text-xl text-primary
+                text-xl text-[white]
                ${'/' == pathName ? 'font-bold' : ''}` 
               }
               href="/"
@@ -127,7 +127,7 @@ export default function App() {
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
               className={`
-                text-xl text-primary
+                text-xl text-[white]
                ${item.href == pathName ? 'font-bold' : ''}` 
               }
               href={item.href}
