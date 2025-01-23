@@ -23,7 +23,7 @@ export default function Footer() {
 
           <div className="flex flex-row items-center">
             <Image src="/Mail_black.svg" alt="Image" width={50} height={50}/>
-            <span className="ml-2 italic">mia@hordozzszabadon.hu</span>
+            <span className="ml-2 italic">miaorban@gmail.com</span>
           </div>
         </div>
         <SocialMedia/>

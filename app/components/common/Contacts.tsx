@@ -30,7 +30,7 @@ export default function Contacts() {
           <Image src="/Mail.svg" alt="Image" width={50} height={50}/>
         </div>
         <div className="flex justify-center">
-          <i>mia@hordozzszabadon.hu</i>
+          <i>miaorban@gmail.com</i>
         </div>
       </div>
     </div>

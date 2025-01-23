@@ -21,7 +21,7 @@ export default function Introduction() {
             <p className="font-medium uppercase">Telefon</p>
             <h3 className="mb-4 font-light">+36 70 320 0967</h3>
             <p className="font-medium uppercase">Email</p>
-            <h3 className="font-light">mia@hordozzszabadon.hu</h3>
+            <h3 className="font-light">miaorban@gmail.com</h3>
           </div>
           <div className="flex">
           <Link className="mr-3 md:mr-10" href="https://www.tiktok.com/@hordozz.szabadon">
