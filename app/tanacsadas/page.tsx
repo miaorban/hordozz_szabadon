@@ -13,7 +13,7 @@ const consultations = [
         csatos hordozód.`,
       `ha sír a babád a hordozóban és nem tudod, miért. Minden baba
         szereti a hordozást, úgyhogy biztos, hogy megtaláljuk az okát.`,
-      'ha eddig elöl hordoztál, de már úgy érzed, ideje hátratenni a babát',
+      'ha eddig elöl hordoztál, de már úgy érzed, ideje hátratenni a babát.',
       'ha fel szeretnél próbálni két-három különböző eszközt.',
       'ha nagyobb gyerkőcöt szeretnél hordozni.',
       'ha szoptatós, cumisüveges pozíciókat szeretnél megismerni.'
