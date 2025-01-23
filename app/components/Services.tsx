@@ -38,19 +38,19 @@ export default function Services() {
 
           { services.map((service, i) => (
             <Link href={service.href} key={i}>
-              <Card shadow="sm" key={i} className="drop-shadow-xl w-72 sm:w-[380px]">
-                  <CardBody className="overflow-visible p-0 drop-shadow-xl h-[20rem]"
+              <Card shadow="sm" key={i} className="w-72 sm:w-[380px]">
+                  <CardBody className="overflow-visible p-0 h-[20rem]"
                   style={{boxShadow: 
                     "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset"}}>
                     <Image
-                      className="drop-shadow-xl object-cover rounded-lg"
+                      className="object-cover rounded-lg"
                       alt="Image"
                       src={service.image}
                       fill
                     />
                   </CardBody>
                   <CardFooter className="sm:h-28 pt-4">
-                    <b className="w-full
+                    <b className="w-full text-center
                     text-lg md:text-4xl font-semibold text-secondary">{service.title}</b>
                   </CardFooter>
                   <CardFooter className="hidden sm:block sm:h-36">
