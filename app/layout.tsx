@@ -4,7 +4,8 @@ import { montserrat } from '@/app/fonts';
 import Head from "next/head";
 import Navbar from '@/app/components/layout/navbar';
 import Footer from "@/app/components/layout/footer";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "Babahordozási tanácsadás Keszthelyi stúdiómban | Hordozó kölcsönzés",
@@ -45,6 +46,7 @@ export default function RootLayout({
           <Footer/>
         </div>
         <Analytics/>
+        <SpeedInsights/>
       </body>
     </html>
   );
