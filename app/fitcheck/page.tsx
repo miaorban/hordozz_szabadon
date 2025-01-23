@@ -42,7 +42,7 @@ export default function FitCheck() {
     {
       title: 'Töltsd fel a fotókat a lenti űrlapon',
       description: `Add meg adataitokat és töltsd fel az elkészített fotókat. 
-        Babád életkora, súlya és a hordozó típusa fontos információ a beállításhoz`
+        Babád életkora, súlya és a hordozó típusa fontos információ a beállításhoz.`
     },
     {
       title: 'Kövesd a válaszvideó instrukcióit',

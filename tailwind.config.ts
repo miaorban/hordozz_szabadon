@@ -8,11 +8,13 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/**/*.{ts,tsx}",
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+    
   ],
   theme: {
     colors: {
       'hordozas-brown': '#bda78f',
       'hordozas-beige': '#eceada',
+      current: "#000000",
     },
     extend: {
       colors: {
