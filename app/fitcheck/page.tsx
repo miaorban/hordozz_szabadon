@@ -66,7 +66,7 @@ export default function FitCheck() {
           kényelmetlennek érzed a beállítást, akkor küldj néhány fotót
           magatokról az eszközben és egy válaszvideóban segítek megtalálni a
           tökéletes beállítást, kötést.</p>
-        <p className="text-left font-bold mt-2 text-xl">A szolgáltatás ára 3500 Ft</p>
+        <p className="text-left font-bold mt-2 text-xl">Most bevezető áron 4000 Ft-ért</p>
       </div>
 
       <div className="w-10/12 my-12 flex flex-wrap justify-center gap-8">

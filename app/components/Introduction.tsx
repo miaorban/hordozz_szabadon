@@ -5,7 +5,7 @@ export default function Introduction() {
   return (
     // xl:pt-[10rem] 2xl:pt-[24rem]
     <div className="
-    bg-[url('/intro_bg.png')] bg-cover 
+    bg-[url('/Mobil.png')] sm:bg-[url('/intro_bg.png')] bg-cover 
     [background-position-x:1000px] sm:bg-bottom
     flex justify-end 
     pt-28 sm:pt-74 
@@ -19,9 +19,9 @@ export default function Introduction() {
       w-full md:max-w-[600px]
       gap-y-12
       ">
-        <div className="flex justify-center md:hidden my-8">
+        <div className="flex justify-center md:hidden my-8 ">
           <Image src="/logo_alul_nev.svg" alt="Orbán Mia babahordozási tanácsadó logo" 
-              width={180} height={120} />
+              width={180} height={120} className=""/>
         </div>
         
         <div>

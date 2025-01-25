@@ -39,7 +39,7 @@ export default function RootLayout({
         className={`antialiased ${montserrat.className}`}
       >
        <Navbar/>
-        <div className="mt-[-66px]">
+        <div className="mt-[-10px] sm:mt-[-66px]">
           {children}
         </div>
         <div className="hidden sm:block">
