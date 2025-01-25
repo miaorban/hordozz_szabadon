@@ -10,7 +10,7 @@ export default function PaymentSuccesful() {
         <p className="text-md my-12">A válaszvideót 2 munkanapon belül az általad megadott e-mail címre küldöm.
           Amennyiben további kérdésed van, keres bátran elérhetőségeim bármelyikén.
         </p>
-        <Contacts/>
+        <Contacts useBlackIcons/>
       </Card>
     </div>
   );
