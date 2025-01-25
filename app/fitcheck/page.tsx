@@ -66,7 +66,8 @@ export default function FitCheck() {
           kényelmetlennek érzed a beállítást, akkor küldj néhány fotót
           magatokról az eszközben és egy válaszvideóban segítek megtalálni a
           tökéletes beállítást, kötést.</p>
-        <p className="text-left font-bold mt-2 text-xl">Most bevezető áron 4000 Ft-ért</p>
+        <p className="text-left font-bold mt-2 text-xl">Most bevezető áron 4 000 Ft-ért.</p>
+        <p className="text-left mt-2 text-xl">Fizetésnél használd az <b>FITCHECK20</b> kódot!</p>
       </div>
 
       <div className="w-10/12 my-12 flex flex-wrap justify-center gap-8">
@@ -193,6 +194,7 @@ export default function FitCheck() {
             <CustomFileInput imageFiles={files} setImageFiles={setFiles}/>
           <Divider className='my-4'/>
           <Checkbox className="hidden" isSelected={isSelected} onValueChange={setIsSelected}>Elolvastam és megértettem a feltételeket</Checkbox>
+          <p>Fizetésnél alkalmazd a <b>FITCHECK20</b> kuponkódot!</p>
           <div className='flex justify-center sm:justify-end w-full'>
             <Button type="submit" color="secondary" size="lg" className='text-[white] shadow-lg hover:shadow-xl text-xl'
               isDisabled={!isSelected}>
