@@ -110,28 +110,6 @@ export default function FitCheck() {
       </div>
 
         <Form className="max-w-[700px] py-8" validationBehavior="native" onSubmit={onSubmit}>
-          {/* <div className='flex gap-x-8'>
-            <Input
-              isRequired
-              label="Név"
-              errorMessage="Kérlek, add meg a neved"
-              labelPlacement="outside"
-              name="name"
-              placeholder="Neved"
-              size='lg'
-              />
-            <Input
-              isRequired
-              errorMessage="Kérlek, valós email címet adj meg"
-              label="Email"
-              labelPlacement="outside"
-              name="email"
-              placeholder="Email cím"
-              type="email"
-              size='lg'
-            />
-          </div> */}
-
           <div className='flex flex-wrap 
           justify-center sm:justify-between 
           gap-8 mt-4'>
@@ -207,7 +185,7 @@ export default function FitCheck() {
           <p>Fizetésnél alkalmazd a <b>FITCHECK20</b> kuponkódot!</p>
           <div className='flex justify-center sm:justify-end w-full'>
             <Button type="submit" color="secondary" size="lg" className='text-[white] shadow-lg hover:shadow-xl text-xl'
-              isDisabled={!isSelected}>
+              isDisabled={!isSelected} isLoading={isLoading}>
               Tovább a fizetéshez
             </Button>
           </div>
