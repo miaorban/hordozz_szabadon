@@ -7,8 +7,6 @@ export default function CustomFileInput({ accept = "image/*", imageFiles, setIma
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleImageUploadClick = () => {
-    console.log('ddd');
-    
     fileInputRef.current?.click();
   };
 

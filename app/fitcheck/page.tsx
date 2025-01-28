@@ -25,7 +25,10 @@ export default function FitCheck() {
         method: 'POST',
         body: formData,
       });
-      const { referenceId } = await res.json();
+      const response = await res.json();
+      console.log('response', response);
+      
+      const { referenceId } = response;
 
       window.location.href = `${process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK}?client_reference_id=${referenceId}`;
     } catch (e) {
