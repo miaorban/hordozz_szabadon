@@ -22,6 +22,7 @@ export default function FitCheck() {
         formData.append(`file${index}`, file);
       });
       console.log('Form Data:', Array.from(formData.entries()));
+      console.log('rr', formData.get('carrierType'))
       setIsLoading(true);
       const res = await fetch('/fitcheck/api/', {
         method: 'POST',
