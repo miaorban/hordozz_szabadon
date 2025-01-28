@@ -29,6 +29,7 @@ export default function FitCheck() {
       console.log('response', response);
       
       const { referenceId } = response;
+      console.log('referenceId ', referenceId);
 
       window.location.href = `${process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK}?client_reference_id=${referenceId}`;
     } catch (e) {
