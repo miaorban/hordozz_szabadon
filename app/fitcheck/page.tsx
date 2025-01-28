@@ -9,6 +9,7 @@ export default function FitCheck() {
 
   const [isSelected, setIsSelected] = useState(true);
   const [showError, setShowError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   // @ts-expect-error any type
   const onSubmit = async (e) => {
@@ -21,7 +22,7 @@ export default function FitCheck() {
         formData.append(`file${index}`, file);
       });
       console.log('formData ', formData);
-      
+      setIsLoading(true);
       const res = await fetch('/fitcheck/api/', {
         method: 'POST',
         body: formData,
@@ -37,6 +38,8 @@ export default function FitCheck() {
       console.log(e);
       
       setShowError(true);
+    } finally {
+      setIsLoading(false);
     }
   };
 
