@@ -51,14 +51,10 @@ export const POST = async (req) => {
     attachments
   };
 
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.log('error sending mail', error);
-      return NextResponse.json({ error }, { status: 500 })
-    }
-    console.log('Message sent: %s', info.messageId);
+  try {
+    await transporter.sendMail(mailOptions);
     return NextResponse.json({ referenceId });
-  });
-
-  
+  } catch (error) {
+    return NextResponse.json({ error }, { status: 500 })
+  }
 }
