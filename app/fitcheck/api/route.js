@@ -17,6 +17,8 @@ const transporter = nodemailer.createTransport({
 export const POST = async (req) => { 
   const formData = await req.formData();
 
+  console.log('Form Data:', Array.from(formData.entries()));
+
   const attachments = []
 
     // Get all image Files from form data
