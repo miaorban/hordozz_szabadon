@@ -20,6 +20,7 @@ export default function FitCheck() {
       files.forEach((file, index) => {
         formData.append(`file${index}`, file);
       });
+      console.log('formData ', formData);
       
       const res = await fetch('/fitcheck/api/', {
         method: 'POST',
