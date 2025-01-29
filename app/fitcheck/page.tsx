@@ -1,8 +1,9 @@
 'use client';
 import { Form, Input, Button, Textarea, Divider,
- Checkbox, Alert, Card, CardFooter } from '@nextui-org/react';
+ Checkbox, Alert, Card, CardFooter, CardBody } from '@nextui-org/react';
 import { useState } from 'react';
 import CustomFileInput from '@/app/components/file-input/CustomFileInput';
+import Image from 'next/image';
 
 export default function FitCheck() {
   const [files, setFiles] = useState<File[]>([])
@@ -48,17 +49,20 @@ export default function FitCheck() {
     {
       title: 'Vedd fel a hordozót és fotózd le benne magatokat',
       description: `Figyelj arra, hogy a telefonnal, kezeddel ne takard ki a babád fejét, lábát és a derékpántot.
-                    Készíts egy-egy fotót a két oldalról, hátulról és szemből is.`
+                    Készíts egy-egy fotót a két oldalról, hátulról és szemből is.`,
+      image: '/fitcheck_step1.jpg'
     },
     {
       title: 'Töltsd fel a fotókat a lenti űrlapon',
       description: `Add meg adataitokat és töltsd fel az elkészített fotókat. 
-        Babád életkora, súlya és a hordozó típusa fontos információ a beállításhoz.`
+        Babád életkora, súlya és a hordozó típusa fontos információ a beállításhoz.`,
+      image: '/fitcheck_step2.jpg'
     },
     {
       title: 'Kövesd a válaszvideó instrukcióit',
       description: `Az email címedre küldöm a részletes válaszvideót, amiben megmutatom, hogy hol és hogyan módosíts a kötésen,
-        beállításon hogy tökéletesen passzoljon a hordozó rátok és a lehető legjobb pozícióban hordozd babádat.`
+        beállításon hogy tökéletesen passzoljon a hordozó rátok és a lehető legjobb pozícióban hordozd babádat.`,
+      image: '/fitcheck_step3.jpg'
     }
   ]
 
@@ -85,16 +89,17 @@ export default function FitCheck() {
           {
             steps.map((step, index) => 
               <Card isPressable shadow="sm" className="drop-shadow-xl w-72 sm:w-[380px]" key={index}>
-                {/* <CardBody className="overflow-visible p-0 drop-shadow-xl h-[20rem]"
+                <CardBody className="overflow-visible p-0 drop-shadow-xl 
+                min-h-[300px] max-h-[300px]"
                 style={{boxShadow: 
                   "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset"}}>
                   <Image
                     className="drop-shadow-xl object-cover rounded-lg"
                     alt="Image"
-                    src={service.image}
+                    src={step.image}
                     fill
                   />
-                </CardBody> */}
+                </CardBody>
                 <CardFooter className="h-30 pt-4">
                   <b className="w-full
                   text-lg md:text-4xl font-semibold text-secondary">{index + 1}. lépés</b>
