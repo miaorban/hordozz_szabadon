@@ -6,6 +6,7 @@ import Navbar from '@/app/components/layout/navbar';
 import Footer from "@/app/components/layout/footer";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import HotjarInit from "./hotjarInit";
 
 export const metadata: Metadata = {
   title: "Babahordozási tanácsadás Keszthelyi stúdiómban | Hordozó kölcsönzés",
@@ -47,6 +48,7 @@ export default function RootLayout({
         </div>
         <Analytics/>
         <SpeedInsights/>
+        <HotjarInit/>
       </body>
     </html>
   );
