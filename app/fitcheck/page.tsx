@@ -32,7 +32,7 @@ export default function FitCheck() {
       console.log('res', res);
       
       const response = await res.json();
-      console.log('response', response);
+      console.log('response', JSON.stringify(response));
       
       const { referenceId } = response;
       console.log('referenceId ', referenceId);
