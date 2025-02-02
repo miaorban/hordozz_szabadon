@@ -6,7 +6,7 @@ const loggingWinston = new LoggingWinston({
   projectId: process.env.GCP_PROJECT_ID,
   credentials: {
     client_email: process.env.GCP_SA_CLIENT_EMAIL,
-    private_key: process.env.GCP_PRIVATE_KEY,
+    private_key: process.env.GCP_PRIVATE_KEY.split(String.raw`\n`).join('\n'),
   }
 });
 
