@@ -2,7 +2,7 @@ export const dynamic = 'force-dynamic'
 
 import nodemailer from 'nodemailer';
 import { NextResponse } from "next/server";
-
+import { logger } from '@/app/winston';
 
 const transporter = nodemailer.createTransport({
   host: process.env.MAIL_DOMAIN, 
@@ -15,7 +15,7 @@ const transporter = nodemailer.createTransport({
 });
  
 export const POST = async (req) => { 
-  
+  logger.info('POST /api/fitcheck');
 
   try {
     const formData = await req.formData();
@@ -66,6 +66,7 @@ export const POST = async (req) => {
     await transporter.sendMail(mailOptions);
     return NextResponse.json({ referenceId });
   } catch (error) {
-    return NextResponse.json({ error }, { status: 500 })
+    logger.error('Error sending mail:', error);
+    return NextResponse.json({ error }, { status: 500 });
   }
 }
