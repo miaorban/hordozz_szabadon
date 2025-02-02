@@ -3,7 +3,6 @@ export const dynamic = 'force-dynamic'
 import nodemailer from 'nodemailer';
 import { NextResponse } from "next/server";
 import { logger } from '@/app/winston';
-import { log } from 'console';
 
 const transporter = nodemailer.createTransport({
   host: process.env.MAIL_DOMAIN, 
