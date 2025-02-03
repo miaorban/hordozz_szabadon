@@ -162,25 +162,24 @@ export default function FitCheck() {
               size='lg'
               className='max-w-[45%]'
             />
-            <Input
+            {/* <Input
               label="Hordozó típusa"
               labelPlacement="outside"
               name="carrierType"
               placeholder="Ha nem tudod pontosan, akkor írd le, amit tudsz róla"
               type="text"
               size='lg'
-            />
+            /> */}
           </div>
-          
           
           <Textarea
             className='my-4'
             isRequired
-            errorMessage="Kérlek, írd le, hogy miben segíthetek"
+            errorMessage="Kérlek, írd le, hogy milyen hordozód van és milyennek érzed a beállítást"
             label="Leírás"
             labelPlacement="outside"
             name="description"
-            placeholder="Írd le, miben van pontosan szükséged segítégre. 
+            placeholder="Milyan hordozód van? Írd le, milyennek érzed a beállítást. 
             Valahol kényelmetlennek érzed a hordozót? 
             Bizonytalan vagy abban, hogy megfelelő-e a méret a babádnak? 
             A baba pozícióját szeretnéd leellenőrizni?"
