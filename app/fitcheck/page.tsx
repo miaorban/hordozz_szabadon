@@ -162,14 +162,15 @@ export default function FitCheck() {
               size='lg'
               className='max-w-[45%]'
             />
-            {/* <Input
+            <Input
+              className='hidden'
               label="Hordozó típusa"
               labelPlacement="outside"
               name="carrierType"
               placeholder="Ha nem tudod pontosan, akkor írd le, amit tudsz róla"
               type="text"
               size='lg'
-            /> */}
+            />
           </div>
           
           <Textarea
