@@ -29,7 +29,7 @@ export default function FitCheck() {
         method: 'POST',
         body: formData,
       });
-      console.log('res', res);
+      console.log('res', JSON.stringify(res));
       
       const response = await res.json();
       console.log('response', JSON.stringify(response));
