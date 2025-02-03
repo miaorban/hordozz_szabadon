@@ -21,7 +21,7 @@ export const POST = async (req) => {
     const formData = await req.formData();
     logger.info('fitcheck form data', formData);
 
-    const sanitize = (str) => str.replace(/[^\w\s]/gi, '');
+    const sanitize = (str) => str;
 
     const email = sanitize(formData.get('email'));
     const name = sanitize(formData.get('name'));
