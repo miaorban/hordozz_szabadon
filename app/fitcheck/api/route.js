@@ -19,7 +19,7 @@ export const POST = async (req) => {
 
   try {
     const formData = await req.formData();
-    logger.info('fitcheck form data', formData);
+    logger.info('fitcheck form data', { formData });
 
     const sanitize = (str) => str;
 
@@ -54,9 +54,9 @@ export const POST = async (req) => {
         attachments.push(attachment);
       }
     }
-    logger.info('fitcheck attachments', attachments);
+    logger.info('fitcheck attachments', { attachments });
     const referenceId = Math.random().toString(36).substring(7);
-    logger.info('fitcheck referenceId', referenceId);
+    logger.info('fitcheck referenceId', { referenceId });
     const mailOptions = {
       from: process.env.MAIL_EMAIL,
       to: 'miaorban@gmail.com',
@@ -77,7 +77,7 @@ export const POST = async (req) => {
     logger.info('Mail sent successfully');
     return NextResponse.json({ referenceId });
   } catch (error) {
-    logger.error('Error sending mail:', error);
+    logger.error('Error sending mail:', { error });
     return NextResponse.json({ error }, { status: 500 });
   }
 }
