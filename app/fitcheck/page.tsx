@@ -163,6 +163,7 @@ export default function FitCheck() {
               className='max-w-[45%]'
             />
             <Input
+              className='hidden'
               label="Hordozó típusa"
               labelPlacement="outside"
               name="carrierType"
