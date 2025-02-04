@@ -2,7 +2,7 @@ export const dynamic = 'force-dynamic'
 
 import nodemailer from 'nodemailer';
 import { NextResponse } from "next/server";
-
+import { logger } from '@/app/winston';
 
 const transporter = nodemailer.createTransport({
   host: process.env.MAIL_DOMAIN, 
@@ -15,10 +15,11 @@ const transporter = nodemailer.createTransport({
 });
  
 export const POST = async (req) => { 
-  
+  logger.info('POST /api/fitcheck');
 
   try {
     const formData = await req.formData();
+    logger.info('fitcheck form data', { formData });
 
     const sanitize = (str) => str;
 
@@ -29,6 +30,14 @@ export const POST = async (req) => {
     const carrierType = sanitize(formData.get('carrierType'));
     const description = sanitize(formData.get('description'));
 
+    logger.info('fitcheck sanitized data', {
+      email,
+      name,
+      babyAge,
+      babyWeight,
+      carrierType,
+      description
+    });
     const attachments = []
 
     // Get all image Files from form data
@@ -45,8 +54,9 @@ export const POST = async (req) => {
         attachments.push(attachment);
       }
     }
-
+    logger.info('fitcheck attachments', { attachments });
     const referenceId = Math.random().toString(36).substring(7);
+    logger.info('fitcheck referenceId', { referenceId });
     const mailOptions = {
       from: process.env.MAIL_EMAIL,
       to: 'miaorban@gmail.com',
@@ -64,8 +74,10 @@ export const POST = async (req) => {
     };
 
     await transporter.sendMail(mailOptions);
+    logger.info('Mail sent successfully');
     return NextResponse.json({ referenceId });
   } catch (error) {
-    return NextResponse.json({ error }, { status: 500 })
+    logger.error('Error sending mail:', { error });
+    return NextResponse.json({ error }, { status: 500 });
   }
 }

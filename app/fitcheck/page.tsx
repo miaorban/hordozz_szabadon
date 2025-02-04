@@ -32,7 +32,7 @@ export default function FitCheck() {
       console.log('res', JSON.stringify(res));
       
       const response = await res.json();
-      console.log('response', response);
+      console.log('response', JSON.stringify(response));
       
       const { referenceId } = response;
       console.log('referenceId ', referenceId);
@@ -176,12 +176,12 @@ export default function FitCheck() {
           <Textarea
             className='my-4'
             isRequired
-            errorMessage="Kérlek, írd le, hogy milyen hordozód van és milyennek érzed a beállítást"
+            errorMessage="Kérlek, írd le, hogy milyennek érzed a beállítást, hogy érzi magát benne a babád"
             label="Leírás"
             labelPlacement="outside"
             name="description"
             placeholder="Milyan hordozód van? Írd le, milyennek érzed a beállítást. 
-            Valahol kényelmetlennek érzed a hordozót? 
+            Valahol kényelmetlennek érzed a hordozót? A babád hogy érzi benne magát?
             Bizonytalan vagy abban, hogy megfelelő-e a méret a babádnak? 
             A baba pozícióját szeretnéd leellenőrizni?"
             size='lg'/>
