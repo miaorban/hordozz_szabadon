@@ -40,7 +40,7 @@ export default function FitCheck() {
         console.log('newBlob', newBlob);
       });
     
-      window.location.href = `${process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK}?client_reference_id=${referenceId}`;
+      // window.location.href = `${process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK}?client_reference_id=${referenceId}`;
     } catch (e) {
       console.log(e);
       setShowError(true);
