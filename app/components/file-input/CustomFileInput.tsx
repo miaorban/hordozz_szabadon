@@ -44,11 +44,10 @@ export default function CustomFileInput({ accept = "image/*", imageFiles, setIma
             {
               // @ts-expect-error any type
               imageFiles.map((file, index) => (
-                <img
-                  className="w-40"
-                  key={index}
-                  src={URL.createObjectURL(file)}
-                  alt={`Uploaded ${index + 1}`}
+                <img className="w-40"
+                     key={index}
+                     src={URL.createObjectURL(file)}
+                     alt={`Uploaded ${index + 1}`}
                 />
               ))
             }
