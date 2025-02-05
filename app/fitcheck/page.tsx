@@ -20,7 +20,7 @@ export default function FitCheck() {
 
     try {
       const formData = new FormData(e.currentTarget);
-
+      setIsLoading(true);
       const res = await fetch('/fitcheck/api/', {
         method: 'POST',
         body: formData,
@@ -34,13 +34,13 @@ export default function FitCheck() {
 
       files.forEach(async (file, index) => {
         const newBlob = await upload(`${referenceId}_${index}`, file, {
-          access: 'public',
+          access: 'private',
           handleUploadUrl: '/photos/api',
         });
         console.log('newBlob', newBlob);
       });
     
-      // window.location.href = `${process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK}?client_reference_id=${referenceId}`;
+      window.location.href = `${process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK}?client_reference_id=${referenceId}`;
     } catch (e) {
       console.log(e);
       setShowError(true);
