@@ -38,25 +38,9 @@ export const POST = async (req) => {
       carrierType,
       description
     });
-    const attachments = []
-
-    // Get all image Files from form data
-    for(const pair of formData.entries())
-    {
-      if (pair[1] instanceof File) {
-        const attachment = {
-          filename: pair[1].name,
-          // Use buffer to retrieve data from file
-          content: Buffer.from(await pair[1].arrayBuffer()),
-          contentType: pair[1].type
-        };
-        
-        attachments.push(attachment);
-      }
-    }
-    logger.info('fitcheck attachments', { attachments });
     const referenceId = Math.random().toString(36).substring(7);
     logger.info('fitcheck referenceId', { referenceId });
+
     const mailOptions = {
       from: process.env.MAIL_EMAIL,
       to: 'miaorban@gmail.com',
@@ -69,8 +53,7 @@ export const POST = async (req) => {
               <p>babyWeight: ${babyWeight} </p>
               <p>carrierType: ${carrierType} </p>
               <p>description: ${description} </p>
-              `,
-      attachments
+              `
     };
 
     await transporter.sendMail(mailOptions);

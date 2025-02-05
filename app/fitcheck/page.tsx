@@ -4,6 +4,7 @@ import { Form, Input, Button, Textarea, Divider,
 import { useState } from 'react';
 import CustomFileInput from '@/app/components/file-input/CustomFileInput';
 import Image from 'next/image';
+import { upload } from '@vercel/blob/client';
 
 export default function FitCheck() {
   const [files, setFiles] = useState<File[]>([])
@@ -19,12 +20,7 @@ export default function FitCheck() {
 
     try {
       const formData = new FormData(e.currentTarget);
-      files.forEach((file, index) => {
-        formData.append(`file${index}`, file);
-      });
-      console.log('Form Data:', Array.from(formData.entries()));
-      console.log('rr', formData.get('carrierType'))
-      setIsLoading(true);
+
       const res = await fetch('/fitcheck/api/', {
         method: 'POST',
         body: formData,
@@ -35,9 +31,16 @@ export default function FitCheck() {
       console.log('response', JSON.stringify(response));
       
       const { referenceId } = response;
-      console.log('referenceId ', referenceId);
 
-      window.location.href = `${process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK}?client_reference_id=${referenceId}`;
+      files.forEach(async (file, index) => {
+        const newBlob = await upload(`${referenceId}_${index}`, file, {
+          access: 'public',
+          handleUploadUrl: '/photos/api',
+        });
+        console.log('newBlob', newBlob);
+      });
+    
+      // window.location.href = `${process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK}?client_reference_id=${referenceId}`;
     } catch (e) {
       console.log(e);
       setShowError(true);
@@ -185,8 +188,6 @@ export default function FitCheck() {
             Bizonytalan vagy abban, hogy megfelelő-e a méret a babádnak? 
             A baba pozícióját szeretnéd leellenőrizni?"
             size='lg'/>
-            {/* Tölts fel egy fotót szemből, egyet-egyet a két oldalról és hátulról is.
-            Figyelj arra, hogy a telefonnal vagy a kezeddel ne takard ki a baba fejét, combjait és lábait! */}
             <CustomFileInput imageFiles={files} setImageFiles={setFiles}/>
           <Divider className='my-4'/>
           <Checkbox className="hidden" isSelected={isSelected} onValueChange={setIsSelected}>Elolvastam és megértettem a feltételeket</Checkbox>
