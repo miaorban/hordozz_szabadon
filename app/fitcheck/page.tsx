@@ -34,7 +34,7 @@ export default function FitCheck() {
 
       files.forEach(async (file, index) => {
         const newBlob = await upload(`${referenceId}_${index}`, file, {
-          access: 'private',
+          access: 'public',
           handleUploadUrl: '/photos/api',
         });
         console.log('newBlob', newBlob);
