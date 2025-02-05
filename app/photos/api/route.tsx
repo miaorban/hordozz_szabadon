@@ -1,9 +1,10 @@
 import { handleUpload, type HandleUploadBody } from '@vercel/blob/client';
 import { NextResponse } from 'next/server';
+import { logger } from '@/app/winston';
  
 export async function POST(request: Request): Promise<NextResponse> {
   const body = (await request.json()) as HandleUploadBody;
- 
+  logger.info('POST /photos/api', { body });
   try {
     const jsonResponse = await handleUpload({
       body,
@@ -28,9 +29,8 @@ export async function POST(request: Request): Promise<NextResponse> {
         // Get notified of client upload completion
         // ⚠️ This will not work on `localhost` websites,
         // Use ngrok or similar to get the full upload flow
- 
-        console.log('blob upload completed', blob, tokenPayload);
- 
+
+        logger.info('blob upload completed', { blob, tokenPayload });
         // try {
         //   // Run any logic after the file upload completed
         //   // const { userId } = JSON.parse(tokenPayload);
@@ -40,9 +40,10 @@ export async function POST(request: Request): Promise<NextResponse> {
         // }
       },
     });
- 
+    logger.info('POST /photos/api response', { jsonResponse });
     return NextResponse.json(jsonResponse);
   } catch (error) {
+    logger.error('POST /photos/api error', { error: (error as Error).message });
     return NextResponse.json(
       { error: (error as Error).message },
       { status: 400 }, // The webhook will retry 5 times waiting for a 200
