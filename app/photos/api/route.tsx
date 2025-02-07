@@ -1,52 +1,57 @@
-import { handleUpload, type HandleUploadBody } from '@vercel/blob/client';
-import { NextResponse } from 'next/server';
+export const dynamic = 'force-dynamic'
+import nodemailer from 'nodemailer';
+import { NextResponse } from "next/server";
 import { logger } from '@/app/winston';
- 
-export async function POST(request: Request): Promise<NextResponse> {
-  const body = (await request.json()) as HandleUploadBody;
-  logger.info('POST /photos/api', { body });
-  try {
-    const jsonResponse = await handleUpload({
-      body,
-      request,
-      onBeforeGenerateToken: async (
-        // pathname,
-        // clientPayload
-      ) => {
-        // Generate a client token for the browser to upload the file
-        // ⚠️ Authenticate and authorize users before generating the token.
-        // Otherwise, you're allowing anonymous uploads.
- 
-        return {
-        //   allowedContentTypes: ['image/jpeg', 'image/png', 'image/gif'],
-          tokenPayload: JSON.stringify({
-            // optional, sent to your server on upload completion
-            // you could pass a user id from auth, or a value from clientPayload
-          }),
-        };
-      },
-      onUploadCompleted: async ({ blob, tokenPayload }) => {
-        // Get notified of client upload completion
-        // ⚠️ This will not work on `localhost` websites,
-        // Use ngrok or similar to get the full upload flow
 
-        logger.info('blob upload completed', { blob, tokenPayload });
-        // try {
-        //   // Run any logic after the file upload completed
-        //   // const { userId } = JSON.parse(tokenPayload);
-        //   // await db.update({ avatar: blob.url, userId });
-        // } catch (error) {
-        //   throw new Error('Could not update user');
-        // }
-      },
-    });
-    logger.info('POST /photos/api response', { jsonResponse });
-    return NextResponse.json(jsonResponse);
+const transporter = nodemailer.createTransport({
+  host: process.env.MAIL_DOMAIN, 
+  port: 465,
+  secure: true,
+  auth: {
+    user: process.env.MAIL_EMAIL,
+    pass: process.env.MAIL_PASS
+  }
+});
+ 
+export const POST = async (req) => { 
+  logger.info('POST /api/photos');
+
+  try {
+    const formData = await req.formData();
+    logger.info('photos email', { email: formData.get('email') });
+
+    const attachments = []
+    // Get all image Files from form data
+    for(const pair of formData.entries())
+    {
+      if (pair[1] instanceof File) {
+        const attachment = {
+          filename: pair[1].name,
+          // Use buffer to retrieve data from file
+          content: Buffer.from(await pair[1].arrayBuffer()),
+          contentType: pair[1].type
+        };
+        
+        attachments.push(attachment);
+      }
+    }
+    logger.info('fitcheck attachments', { attachments });
+
+    const mailOptions = {
+      from: process.env.MAIL_EMAIL,
+      to: 'miaorban@gmail.com',
+      subject: 'Form Submission with Files',
+      html: `
+              <p>Email: ${formData.get('email')} </p>
+              `,
+      attachments
+    };
+    logger.info('mail sent with attachment', { email: formData.get('email') });
+    await transporter.sendMail(mailOptions);
+    logger.info('Mail sent successfully');
+    return NextResponse.json({ message: 'Mail sent successfully' });
   } catch (error) {
-    logger.error('POST /photos/api error', { error: (error as Error).message });
-    return NextResponse.json(
-      { error: (error as Error).message },
-      { status: 400 }, // The webhook will retry 5 times waiting for a 200
-    );
+    logger.error('Error sending mail:', { error });
+    return NextResponse.json({ error }, { status: 500 });
   }
 }

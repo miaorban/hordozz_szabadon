@@ -4,7 +4,6 @@ import { Form, Input, Button, Textarea, Divider,
 import { useState } from 'react';
 import CustomFileInput from '@/app/components/file-input/CustomFileInput';
 import Image from 'next/image';
-import { upload } from '@vercel/blob/client';
 
 export default function FitCheck() {
   const [files, setFiles] = useState<File[]>([])
@@ -20,6 +19,7 @@ export default function FitCheck() {
 
     try {
       const formData = new FormData(e.currentTarget);
+      formData.append('photoCount', files.length.toString());
       setIsLoading(true);
       const res = await fetch('/fitcheck/api/', {
         method: 'POST',
@@ -30,17 +30,19 @@ export default function FitCheck() {
       const response = await res.json();
       console.log('response', JSON.stringify(response));
       
-      const { referenceId } = response;
-
+      // const { referenceId } = response;
+      console.log('files', files);
       files.forEach(async (file, index) => {
-        const newBlob = await upload(`${referenceId}_${index}`, file, {
-          access: 'public',
-          handleUploadUrl: '/photos/api',
+        formData.append(`file${index}`, file);
+        console.log('formData', formData);
+        fetch('/photos/api/', {
+          method: 'POST',
+          body: formData
         });
-        console.log('newBlob', newBlob);
+        formData.delete(`file${index}`, file);
       });
     
-      // window.location.href = `${process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK}?client_reference_id=${referenceId}`;
+      window.location.href = `${process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK}?client_reference_id=${referenceId}`;
     } catch (e) {
       console.log(e);
       setShowError(true);
