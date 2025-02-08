@@ -4,6 +4,18 @@ import Consultation from '../components/consultation/Consultation';
 
 const consultations = [
   {
+    title: 'Babaváró - ONLINE!',
+    price: '5 000 Ft',
+    duration: 20,
+    items: [
+      `babádat várod és már tudod, hogy hordozni szeretnéd`,
+      `szeretnél előre jó minőségű eszközt választani`,
+      `fel szeretnél készülni, hogy mikortól, hogyan és mennyit hordozhatsz`,
+      `bizonytalan vagy, hogy miért lenne jó a hordozás a babádnak és neked`,
+    ],
+    bookingUrl: 'https://app.minup.io/book/hordozz-szabadon/service/28949'
+  },
+  {
     title: 'Mini',
     price: '8 000 Ft',
     duration: 30,

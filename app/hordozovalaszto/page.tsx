@@ -4,9 +4,8 @@ import { Form, Input, Button, Textarea, Divider,
 import { useState } from 'react';
 import CustomFileInput from '@/app/components/file-input/CustomFileInput';
 import Image from 'next/image';
-import { upload } from '@vercel/blob/client';
 
-export default function FitCheck() {
+export default function CarrierSelector() {
   const [files, setFiles] = useState<File[]>([])
 
   const [isSelected, setIsSelected] = useState(true);
@@ -20,28 +19,9 @@ export default function FitCheck() {
 
     try {
       const formData = new FormData(e.currentTarget);
+      formData.append('photoCount', files.length.toString());
       setIsLoading(true);
-      const res = await fetch('/fitcheck/api/', {
-        method: 'POST',
-        body: formData,
-      });
-      console.log('res', JSON.stringify(res));
-      
-      const response = await res.json();
-      console.log('response', JSON.stringify(response));
-      
-      const { referenceId } = response;
-
-      files.forEach(async (file, index) => {
-        const newBlob = await upload(`${referenceId}_${index}`, file, {
-          access: 'public',
-          handleUploadUrl: '/photos/api',
-        });
-        console.log('newBlob', newBlob);
-      });
-    
-      window.location.href = `${process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK}?client_reference_id=${referenceId}`;
-    } catch (e) {
+      } catch (e) {
       console.log(e);
       setShowError(true);
       throw e;

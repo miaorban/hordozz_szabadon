@@ -29,6 +29,7 @@ export const POST = async (req) => {
     const babyWeight = sanitize(formData.get('babyWeight'));
     const carrierType = sanitize(formData.get('carrierType'));
     const description = sanitize(formData.get('description'));
+    const photoCount = sanitize(formData.get('photoCount'));
 
     logger.info('fitcheck sanitized data', {
       email,
@@ -52,6 +53,7 @@ export const POST = async (req) => {
               <p>babyAge: ${babyAge} </p>
               <p>babyWeight: ${babyWeight} </p>
               <p>carrierType: ${carrierType} </p>
+              <p>photoCount: ${photoCount} </p>
               <p>description: ${description} </p>
               `
     };
