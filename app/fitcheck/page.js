@@ -6,7 +6,7 @@ import CustomFileInput from '@/app/components/file-input/CustomFileInput';
 import Image from 'next/image';
 
 export default function FitCheck() {
-  const [files, setFiles] = useState<File[]>([])
+  const [files, setFiles] = useState([])
 
   const [isSelected, setIsSelected] = useState(true);
   const [showError, setShowError] = useState(false);
