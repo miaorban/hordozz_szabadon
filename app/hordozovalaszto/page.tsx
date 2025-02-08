@@ -21,29 +21,7 @@ export default function CarrierSelector() {
       const formData = new FormData(e.currentTarget);
       formData.append('photoCount', files.length.toString());
       setIsLoading(true);
-      const res = await fetch('/fitcheck/api/', {
-        method: 'POST',
-        body: formData,
-      });
-      console.log('res', JSON.stringify(res));
-      
-      const response = await res.json();
-      console.log('response', JSON.stringify(response));
-      
-      const { referenceId } = response;
-      
-      files.forEach(async (file, index) => {
-        formData.append(`file${index}`, file);
-        console.log('formData', formData);
-        fetch('/photos/api/', {
-          method: 'POST',
-          body: formData
-        });
-        formData.delete(`file${index}`);
-      });
-    
-      window.location.href = `${process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK}?client_reference_id=${referenceId}`;
-    } catch (e) {
+      } catch (e) {
       console.log(e);
       setShowError(true);
       throw e;
@@ -168,7 +146,6 @@ export default function CarrierSelector() {
               className='max-w-[45%]'
             />
             <Input
-              className='hidden'
               label="Hordozó típusa"
               labelPlacement="outside"
               name="carrierType"
