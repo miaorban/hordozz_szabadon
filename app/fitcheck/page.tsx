@@ -30,7 +30,7 @@ export default function FitCheck() {
       const response = await res.json();
       console.log('response', JSON.stringify(response));
       
-      const { referenceId } = response;
+      // const { referenceId } = response;
       
       files.forEach(async (file, index) => {
         formData.append(`file${index}`, file);
@@ -42,7 +42,7 @@ export default function FitCheck() {
         formData.delete(`file${index}`);
       });
     
-      window.location.href = `${process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK}?client_reference_id=${referenceId}`;
+      // window.location.href = `${process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK}?client_reference_id=${referenceId}`;
     } catch (e) {
       console.log(e);
       setShowError(true);

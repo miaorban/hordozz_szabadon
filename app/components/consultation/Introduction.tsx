@@ -19,10 +19,9 @@ export default function Introduction() {
         <div className="italic text-xl
           sm:max-w-96 
           sm:text-left
-          mt-4 sm:mt-0">Látogass el stúdiómba, ahol együtt kiválasztjuk a számodra
-          és babád számára megfelelő hordozóeszközt.
-          A biztonságos és egészséges babahordozást szem előtt tartva megtanulhatod, hogyan
-          állítsd be a hordozót, és hogyan helyezd bele babádat.
+          mt-4 sm:mt-0">Látogass el stúdiómba vagy beszéljünk online, hogy együtt kiválasszuk a számodra
+          és babád számára megfelelő hordozóeszközt az egészséges és biztonságos hordozás szempontjait
+          szem előtt tartva.
         </div>
       </div>
       <div className="flex
