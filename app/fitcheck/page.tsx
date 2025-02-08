@@ -30,8 +30,8 @@ export default function FitCheck() {
       const response = await res.json();
       console.log('response', JSON.stringify(response));
       
-      // const { referenceId } = response;
-      console.log('files', files);
+      const { referenceId } = response;
+      
       files.forEach(async (file, index) => {
         formData.append(`file${index}`, file);
         console.log('formData', formData);
