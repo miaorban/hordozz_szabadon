@@ -30,19 +30,22 @@ export default function FitCheck() {
       const response = await res.json();
       console.log('response', JSON.stringify(response));
       
-      // const { referenceId } = response;
+      const { referenceId } = response;
       
+      const photoUploadPromises = [];
       files.forEach(async (file, index) => {
         formData.append(`file${index}`, file);
-        console.log('formData', formData);
-        fetch('/photos/api/', {
+        const res = fetch('/photos/api/', {
           method: 'POST',
           body: formData
         });
+        photoUploadPromises.push(res);
         formData.delete(`file${index}`);
       });
-    
-      // window.location.href = `${process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK}?client_reference_id=${referenceId}`;
+
+      await Promise.all(photoUploadPromises);
+
+      window.location.href = `${process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK}?client_reference_id=${referenceId}`;
     } catch (e) {
       console.log(e);
       setShowError(true);
