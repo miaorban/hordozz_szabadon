@@ -39,7 +39,7 @@ export default function FitCheck() {
           method: 'POST',
           body: formData
         });
-        formData.delete(`file${index}`, file);
+        formData.delete(`file${index}`);
       });
     
       window.location.href = `${process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK}?client_reference_id=${referenceId}`;
