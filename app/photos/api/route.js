@@ -35,7 +35,6 @@ export const POST = async (req) => {
         attachments.push(attachment);
       }
     }
-    logger.info('fitcheck attachments', { attachments });
 
     const mailOptions = {
       from: process.env.MAIL_EMAIL,
@@ -46,10 +45,26 @@ export const POST = async (req) => {
               `,
       attachments
     };
-    logger.info('mail sent with attachment', { email: formData.get('email') });
-    await transporter.sendMail(mailOptions);
-    logger.info('Mail sent successfully');
-    return NextResponse.json({ message: 'Mail sent successfully' });
+
+    // let info;
+    let error, info;
+    for (let i = 0; i < 3; i++) {
+      try {
+        info = await transporter.sendMail(mailOptions);
+        logger.info('Photo sent successfully', { email: formData.get('email') });
+        break;
+      } catch (e) {
+        error = e;
+      }
+    }
+    
+    if (info) {
+      logger.info('Photo sent successfully', { email: formData.get('email') });
+      return NextResponse.json({ message: 'Mail sent successfully' });
+    } else {
+      logger.error('Error sending mail:', { error });
+      return NextResponse.json({ error }, { status: 500 });
+    }
   } catch (error) {
     logger.error('Error sending mail:', { error });
     return NextResponse.json({ error }, { status: 500 });

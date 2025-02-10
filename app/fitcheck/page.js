@@ -32,18 +32,18 @@ export default function FitCheck() {
       
       const { referenceId } = response;
       
-      const photoUploadPromises = [];
-      files.forEach(async (file, index) => {
-        formData.append(`file${index}`, file);
-        const res = fetch('/photos/api/', {
-          method: 'POST',
-          body: formData
-        });
-        photoUploadPromises.push(res);
-        formData.delete(`file${index}`);
-      });
+      // const photoUploadPromises = [];
+      // files.forEach(async (file, index) => {
+      //   formData.append(`file${index}`, file);
+      //   fetch('/photos/api/', {
+      //     method: 'POST',
+      //     body: formData
+      //   });
+      //   photoUploadPromises.push(res);
+      //   formData.delete(`file${index}`);
+      // });
 
-      await Promise.all(photoUploadPromises);
+      // await Promise.all(photoUploadPromises);
 
       window.location.href = `${process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK}?client_reference_id=${referenceId}`;
     } catch (e) {
@@ -82,7 +82,7 @@ export default function FitCheck() {
     [background-position-y:75rem] lg:[background-position-y:30rem]">
 
       <div className="max-w-[700px]">
-        <div className="text-5xl font-bold text-secondary text-left mb-4
+        <div className="text-4xl sm:text-5xl font-bold text-secondary text-left mb-4
           max-w-64">
           <h1>Hordozóeszköz</h1>
           <h1>beállításának ellenőrzése</h1>

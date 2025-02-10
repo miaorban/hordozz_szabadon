@@ -1,5 +1,5 @@
 'use client';
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -13,37 +13,6 @@ import {
 import Image from "next/image";
 import { usePathname } from 'next/navigation';
 import { montserrat_real } from '@/app/fonts';
-
-// const ClosedIcon = () => {
-//   return (
-//     <svg viewBox="0 0 32 32" enableBackground="new 0 0 32 32" id="Editable-line" version="1.1"
-//     xmlns="http://www.w3.org/2000/svg"
-//       fill="#ffffff">
-//         <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-//         <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
-//         <g id="SVGRepo_iconCarrier"><line fill="none" id="XMLID_103_" stroke="#ffffff" 
-//         strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="2" x1="7" 
-//         x2="25" y1="16" y2="16"></line><line fill="none" id="XMLID_102_" stroke="#ffffff" 
-//         strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="2" 
-//         x1="7" x2="25" y1="25" y2="25"></line><line fill="none" id="XMLID_101_" stroke="#ffffff" 
-//         strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="2" 
-//         x1="7" x2="25" y1="7" y2="7"></line></g>
-//       </svg>
-//   );
-// }
-
-// const OpenIcon = () => {
-//   return (
-//     <svg viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-//       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" 
-//       strokeLinecap="round" strokeLinejoin="round"></g>
-//       <g id="SVGRepo_iconCarrier">
-//         <path d="M3 21.32L21 3.32001" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" 
-//         strokeLinejoin="round"></path> <path d="M3 3.32001L21 21.32" stroke="#ffffff" strokeWidth="1.5"
-//          strokeLinecap="round" strokeLinejoin="round"></path> </g>
-//     </svg>
-//   );
-// }
 
 export default function App() {
   // eslint-disable-next-line
@@ -61,15 +30,18 @@ export default function App() {
     // { title: "Kapcsolat", href: "/kapcsolat" }
   ];
 
+  useEffect(() => {
+    console.log('isMenuOpen ', isMenuOpen);
+    
+  }, [isMenuOpen]);
   return (
-    <Navbar isBordered onMenuOpenChange={setIsMenuOpen}
+    <Navbar isBordered isMenuOpen={isMenuOpen}
       className="bg-[url('/navbar_bg.svg')] bg-no-repeat bg-cover bg-center border-0 h-20"
       position="static">
       <NavbarContent justify="start">
         <NavbarMenuToggle 
+          onChange={() => setIsMenuOpen(!isMenuOpen)}
           className="sm:hidden" 
-          // icon={isMenuOpen ? <OpenIcon/> : <ClosedIcon/>}
-          // aria-label={isMenuOpen ? "Menü bezárása" : "Menü kinyitása"} 
         />
         <NavbarBrand className="text-[white] hidden sm:block">
           <Link href="/" className="text-[white]">
@@ -104,7 +76,7 @@ export default function App() {
         <NavbarMenuItem className="pt-4">
             <Link
               className={`
-                text-xl text-[white]
+                text-xl text-[black]
                ${'/' == pathName ? 'font-bold' : ''}` 
               }
               href="/"
@@ -117,7 +89,7 @@ export default function App() {
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
               className={`
-                text-xl text-[white]
+                text-xl text-[black]
                ${item.href == pathName ? 'font-bold' : ''}` 
               }
               href={item.href}
