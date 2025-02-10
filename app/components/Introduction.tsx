@@ -25,7 +25,7 @@ export default function Introduction() {
         </div>
         
         <div className="pt-12">
-          <div className="flex-1 text-5xl font-bold
+          <div className="flex-1 text-4xl sm:text-5xl font-bold
           text-[white] sm:text-secondary 
           text-center md:text-right">
             Mert a babád
