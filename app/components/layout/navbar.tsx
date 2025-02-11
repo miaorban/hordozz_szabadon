@@ -30,10 +30,6 @@ export default function App() {
     // { title: "Kapcsolat", href: "/kapcsolat" }
   ];
 
-  useEffect(() => {
-    console.log('isMenuOpen ', isMenuOpen);
-    
-  }, [isMenuOpen]);
   return (
     <Navbar isBordered isMenuOpen={isMenuOpen}
       className="bg-[url('/navbar_bg.svg')] bg-no-repeat bg-cover bg-center border-0 h-20"

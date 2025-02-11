@@ -98,7 +98,7 @@ export default function FitCheck() {
       <div className="w-10/12 my-12 flex flex-wrap justify-center gap-8">
           {
             steps.map((step, index) => 
-              <Card isPressable shadow="sm" className="drop-shadow-xl w-72 sm:w-[380px]" key={index}>
+              <Card shadow="sm" className="drop-shadow-xl w-72 sm:w-[380px]" key={index}>
                 <CardBody className="overflow-visible p-0 drop-shadow-xl 
                 min-h-[300px] max-h-[300px]"
                 style={{boxShadow: 
