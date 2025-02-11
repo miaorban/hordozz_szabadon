@@ -1,5 +1,6 @@
 import PageTitle from "@/app/components/common/PageTitle";
 import Image from 'next/image';
+import { Link } from "@nextui-org/react";
 
 export default function About() {
   return (
@@ -45,6 +46,16 @@ export default function About() {
                 <p className="my-2"></p>
                 <p>Hordozási tanácsadóként célom támogató segítséget nyújtani a családoknak ezen az úton. 
                 Kérdezni, megismerni őket és együtt megtalálni azt a megoldást, ami igazán illik hozzájuk.</p>
+                <div className="flex">
+                  <Link href="https://hordozo.hu/" target="_blank">
+                    <img src="https://hordozo.cdn.shoprenter.hu/custom/hordozo/image/cache/w100h100m00/2018/log%C3%B3/sz%C3%B6veg%20nem%20l%C3%B3g%20ki.png?v=1679912120" 
+                      alt="Hordozóház logo" className="w-20"/>
+                  </Link>
+                  <Link href="https://shop.magyarinda.hu/" target="_blank">
+                    <img src="https://magyarinda.cdn.shoprenter.hu/custom/magyarinda/image/cache/w220h100m00/New_Sablon_2023/Logo/magyarinda-logo.png?v=1691843046" 
+                      alt="Hordozóház logo" className="w-20"/>
+                  </Link>
+                </div>
             </span>
         </div>
       </div>
