@@ -21,7 +21,7 @@ export default function FitCheck() {
       const formData = new FormData(e.currentTarget);
       formData.append('photoCount', files.length.toString());
       setIsLoading(true);
-      const res = await fetch('/fitcheck/api/', {
+      const res = await fetch('/hordozovalaszto/api/', {
         method: 'POST',
         body: formData,
       });
