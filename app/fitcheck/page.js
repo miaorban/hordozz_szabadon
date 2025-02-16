@@ -110,7 +110,7 @@ export default function FitCheck() {
                     fill
                   />
                 </CardBody>
-                <CardFooter className="h-30 pt-4">
+                <CardFooter className="h-30 pt-4 text-center">
                   <b className="w-full
                   text-lg md:text-4xl font-semibold text-secondary">{index + 1}. lépés</b>
                 </CardFooter>
