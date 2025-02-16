@@ -15,7 +15,7 @@ const transporter = nodemailer.createTransport({
 });
  
 export const POST = async (req) => { 
-  logger.info('POST /api/fitcheck');
+  logger.info('POST /api/fitcheck', { req });
 
   try {
     const formData = await req.formData();
