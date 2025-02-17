@@ -1,5 +1,6 @@
 import PageTitle from "@/app/components/common/PageTitle";
 import Contacts from "@/app/components/common/Contacts";
+import { Button, Link } from "@nextui-org/react";
 
 export default function Studio() {
   return (
@@ -33,6 +34,20 @@ export default function Studio() {
         <div className="pt-8">
           <Contacts/>
         </div>
+        <div className="flex
+        flex-col
+        gap-x-6
+        justify-center items-center
+        mt-12">
+          <Button as={Link} href="https://app.minup.io/book/hordozz-szabadon" size="lg"
+            className="shadow-xl text-bold text-secondary font-bold bg-[white]
+             lg:w-72 text-xl py-8 rounded-3xl text-center">
+              IDŐPONTFOGLALÁS
+          </Button>
+          <div>
+            <p className="text-sm">online is!</p>
+          </div>
+      </div>
       </div>
     </div>
   );
