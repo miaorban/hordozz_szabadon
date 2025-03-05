@@ -4,12 +4,13 @@ import Consultation from '../components/consultation/Consultation';
 
 const consultations = [
   {
-    title: 'Babaváró - ONLINE!',
+    title: 'Hordozóválasztó - ONLINE!',
     price: '5 000 Ft',
     duration: 20,
     items: [
+      `szeretnél jó minőségű, biztonságos eszközt választani`,
+      `elvesztél a hordozók óriási kínálatában és tudni szeretnéd, melyik eszköz lenne nektek megfelelő`,
       `babádat várod és már tudod, hogy hordozni szeretnéd`,
-      `szeretnél előre jó minőségű eszközt választani`,
       `fel szeretnél készülni, hogy mikortól, hogyan és mennyit hordozhatsz`,
       `bizonytalan vagy, hogy miért lenne jó a hordozás a babádnak és neked`,
     ],
