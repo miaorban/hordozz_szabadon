@@ -1,18 +1,15 @@
+// fitcheck.jsx
 import React from 'react';
-import ReactDOMServer from 'react-dom/server';
-import EmailTemplate from './emailTemplate';
+const { renderToStaticMarkup } = await import('react-dom/server');
 
-const EmailTemplate = ({ title, message }) => (
-  <div className="bg-white p-6 rounded-lg shadow-lg">
-    <h1 className="text-2xl font-bold mb-4">{title}</h1>
-    <p className="text-lg">{message}</p>
-  </div>
-);
+const Fitcheck = (link) => {
+  const content = (
+    <div>
+      <h1>{link}</h1>
+    </div>
+  );
 
-
-const renderEmailTemplate = (title, message) => {
-  const element = React.createElement(EmailTemplate, { title, message });
-  return ReactDOMServer.renderToStaticMarkup(element);
+  return renderToStaticMarkup(content);
 };
 
-export default renderEmailTemplate;
+export default Fitcheck;
