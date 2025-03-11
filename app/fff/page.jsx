@@ -69,7 +69,7 @@ export default function Email(props) {
           </Row>
           
           <p style={mb} className="mt-2">🌿 Hordozz szabadon és élvezd a babád közelségét! 🤱</p>
-          <p style={{ marginBottom: '0' }}>Üdv,</p>
+          <p className="mb-0">Üdv,</p>
           <p>Mia</p>
         </Row>
       </div>
@@ -97,8 +97,6 @@ const hr = {
 }
 
 const emailContainer = {
-  display: 'flex',
-  justifyContent: 'center',
   paddingTop: '20px',
   paddingBottom: '20px',
   // backgroundRepeat: 'no-repeat',
