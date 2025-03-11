@@ -1,7 +1,8 @@
 import nodemailer from 'nodemailer';
 import renderEmailTemplate from '../components/email/fitcheck';
+import { render } from '@react-email/components';
 
-const sendEmail = async ({link, email }) => {
+const sendEmail = async ({link, email, name }) => {
   const transporter = nodemailer.createTransport({
       host: process.env.MAIL_DOMAIN, 
       port: 465,
@@ -12,12 +13,12 @@ const sendEmail = async ({link, email }) => {
       }
     });
 
-  const html = renderEmailTemplate(link);
+  const html = await render(renderEmailTemplate({link, name}));
 
   const mailOptions = {
     from: process.env.MAIL_EMAIL,
     to: email,
-    subject: 'Fitcheck',
+    subject: 'Fitcheck válaszvideó',
     html,
   };
 

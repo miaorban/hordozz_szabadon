@@ -7,6 +7,7 @@ const consultations = [
     title: 'Hordozóválasztó - ONLINE!',
     price: '5 000 Ft',
     duration: 20,
+    id: 'hordozovalaszto',
     items: [
       `szeretnél jó minőségű, biztonságos eszközt választani`,
       `elvesztél a hordozók óriási kínálatában és tudni szeretnéd, melyik eszköz lenne nektek megfelelő`,
@@ -20,6 +21,7 @@ const consultations = [
     title: 'Mini',
     price: '8 000 Ft',
     duration: 30,
+    id: 'mini',
     items: [
       `már van egy eszközöd, de bizonytalan vagy, hogy jól használod-e.
         Például jól van-e a baba a kendőben vagy megfelelő-e már neki a
@@ -37,6 +39,7 @@ const consultations = [
     title: 'Maxi',
     price: '20 000 Ft',
     duration: 90,
+    id: 'maxi',
     className: `bg-[url('/maxi_consultation_bg.png')] bg-no-repeat bg-top bg-cover pt-24`,
     items: [
       'teljesen új vagy a hordozásban és pici babát szeretnél hordozni.',

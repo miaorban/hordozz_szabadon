@@ -1,15 +1,32 @@
-// fitcheck.jsx
-import React from 'react';
-const { renderToStaticMarkup } = await import('react-dom/server');
+import { Html, Button } from "@react-email/components";
 
-const Fitcheck = (link) => {
-  const content = (
-    <div>
-      <h1>{link}</h1>
-    </div>
+export default function Email(props) {
+  const { link, name } = props;
+
+  return (
+    <Html lang="en">
+      <div>
+        <b>Kedves {name}!</b>
+      </div>
+      <div style={buttonContainer}>
+        <Button href={link} style={videoButton}>
+          Videó megtekintése
+        </Button>
+      </div>
+    </Html>
   );
+}
 
-  return renderToStaticMarkup(content);
-};
+const buttonContainer = {
+  display: 'flex',
+  justifyContent: 'center',
+  paddingTop: '20px',
+}
 
-export default Fitcheck;
+const videoButton = {
+  backgroundColor: '#AB967F',
+  color: 'white',
+  borderRadius: '25px',
+  padding: '10px 20px',
+  textDecoration: 'none',
+}

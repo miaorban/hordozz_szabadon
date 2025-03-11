@@ -5,13 +5,13 @@ const PASSWORD = process.env.FITCHECK_RESULT_ROUTE_PASSWORD; // Store your passw
 
 export const POST = async (req: NextRequest) => {
   try {
-    const { password, link, email } = await req.json();
+    const { password, link, email, name } = await req.json();
 
     if (password !== PASSWORD) {
       return NextResponse.json({ success: false, message: 'Unauthorized' }, { status: 401 });
     }
 
-    sendFitcheck({ link, email });
+    await sendFitcheck({ link, name, email });
 
     return NextResponse.json({ success: true, message: 'Authorized' });
   } catch (error) {

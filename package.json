@@ -11,6 +11,7 @@
   "dependencies": {
     "@google-cloud/logging-winston": "^6.0.0",
     "@nextui-org/react": "^2.6.8",
+    "@react-email/components": "^0.0.33",
     "@sentry/nextjs": "^8",
     "@stripe/stripe-js": "^5.4.0",
     "@vercel/analytics": "^1.4.1",
