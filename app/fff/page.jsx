@@ -39,7 +39,7 @@ export default function Email(props) {
         </Row>
         <Row style={row}>
           <p style={mb}>📢 Tudtad? A fitcheck mellett 3 másik hasznos szolgáltatást is kínálok
-            <b>online</b> és személyesen is.
+            <b> online</b> és személyesen is.
           </p>
           <p>
             <Link href="http://localhost:3001/tanacsadas#hordozovalaszto">
@@ -61,12 +61,8 @@ export default function Email(props) {
             </p>
 
           <div style={cta}>
-            <Link href="https://app.minup.io/book/hordozz-szabadon">
-              <Button style={videoButton}>IDŐPONTFOGLALÁS</Button>
-            </Link>
-            <Link href="ww.hordozzszabadon.hu">
-              <Button style={videoButton}>TOVÁBBI INFÓK</Button>
-            </Link>
+            <Button style={videoButton} href="https://app.minup.io/book/hordozz-szabadon">IDŐPONTFOGLALÁS</Button>
+            <Button style={videoButton}  href="ww.hordozzszabadon.hu">TOVÁBBI INFÓK</Button>
           </div>
           <p style={mb}>🌿 Hordozz szabadon és élvezd a babád közelségét! 🤱</p>
           <p>Üdv,</p>
