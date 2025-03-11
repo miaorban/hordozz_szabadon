@@ -1,5 +1,5 @@
 import { Html, Button, Row, Column, Link, Img,
-  Hr
+  Hr, Tailwind
  } from "@react-email/components";
 
 export default function Email(props) {
@@ -14,7 +14,7 @@ export default function Email(props) {
               <b>Kedves {name}!</b>
             </div>
             Elkészült a személyre szabott fitcheck videód ✅. Az alábbi gombra kattintva érheted el.
-            <div style={buttonContainer}>
+            <div class="flex justify-center py-4">
               <Button href={link} style={videoButton}>
                 Videó megtekintése
               </Button>
@@ -60,7 +60,7 @@ export default function Email(props) {
              vagy részletes segítséget kapni. 
             </p>
 
-          <div style={cta}>
+          <div className="flex justify-evenly py-4">
             <Button style={videoButton} href="https://app.minup.io/book/hordozz-szabadon">IDŐPONTFOGLALÁS</Button>
             <Button style={videoButton}  href="ww.hordozzszabadon.hu">TOVÁBBI INFÓK</Button>
           </div>
