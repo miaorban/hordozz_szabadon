@@ -29,7 +29,7 @@ export default function Email(props) {
         <div style={emailContainer}>
           <Img
                 alt="Hordozz Szabadon"
-                src="http://localhost:3001/fitcheck_main.png"
+                src="http://hordozzszabadon.hu/fitcheck_main.png"
                 // src="https://hordozzszabadon.hu/fitcheck_main.png"
                 style={img}
                 width="300"
@@ -42,18 +42,18 @@ export default function Email(props) {
             <b> online</b> és személyesen is.
           </p>
           <p>
-            <Link href="http://localhost:3001/tanacsadas#hordozovalaszto">
+            <Link href="http://hordozzszabadon.hu/tanacsadas#hordozovalaszto">
             👶 Hordozóválasztó – ONLINE (20 perc)
             </Link> – Segítek hordozót választani a végtelennek tűnő opciók közül.
           </p>
           <p>
-            <Link href="http://localhost:3001/tanacsadas#mini">
+            <Link href="http://hordozzszabadon.hu/tanacsadas#mini">
             🔹 Mini tanácsadás (30 perc)
             </Link>
               - Ha már van hordozód, de bizonytalan vagy a használatában vagy ha új és eszközöket próbálnál ki.
           </p>
           <p style={mb}>
-            <Link href="http://localhost:3001/tanacsadas#maxi">
+            <Link href="http://hordozzszabadon.hu/tanacsadas#maxi">
             🔸 Maxi tanácsadás (90 perc)
             </Link>
               - Ha teljesen kezdő vagy, és szeretnéd alaposan megtanulni a hordozás alapjait, több eszközt kipróbálni
