@@ -6,19 +6,22 @@ export default function Email(props) {
   const { link = "drive", name = 'Mia' } = props;
 
   return (
+    <Tailwind>
     <Html lang="en">
       <div>
         <Row style={row}>
-          <Column>
+          <Column align="center">
             <div style={emailContainer}>
               <b>Kedves {name}!</b>
             </div>
             Elkészült a személyre szabott fitcheck videód ✅. Az alábbi gombra kattintva érheted el.
-            <div class="flex justify-center py-4">
-              <Button href={link} style={videoButton}>
-                Videó megtekintése
-              </Button>
-            </div>
+            <Row style={row}>
+              <Column align="center" className="py-4">
+                <Button href={link} style={videoButton}>
+                  Videó megtekintése
+                </Button>
+              </Column>
+            </Row>
             <p style={{fontSize: '12px'}}>Ha bármilyen kérdésed felmerül, nyugodtan írj nekem!</p>
           </Column>
         </Row>
@@ -26,16 +29,14 @@ export default function Email(props) {
           <Hr style={hr}/>
         </Row>
         <Row style={row}>
-        <div style={emailContainer}>
-          <Img
-                alt="Hordozz Szabadon"
-                src="http://hordozzszabadon.hu/fitcheck_main.png"
-                // src="https://hordozzszabadon.hu/fitcheck_main.png"
-                style={img}
-                width="300"
-                height="300"
-              />
-        </div>
+          <Column align="center">
+            <Img
+                  alt="Hordozz Szabadon"
+                  src="http://hordozzszabadon.hu/fitcheck_main.png"
+                  width="300"
+                  height="300"
+                />
+          </Column>
         </Row>
         <Row style={row}>
           <p style={mb}>📢 Tudtad? A fitcheck mellett 3 másik hasznos szolgáltatást is kínálok
@@ -52,7 +53,7 @@ export default function Email(props) {
             </Link>
               - Ha már van hordozód, de bizonytalan vagy a használatában vagy ha új és eszközöket próbálnál ki.
           </p>
-          <p style={mb}>
+          <p>
             <Link href="http://hordozzszabadon.hu/tanacsadas#maxi">
             🔸 Maxi tanácsadás (90 perc)
             </Link>
@@ -60,16 +61,20 @@ export default function Email(props) {
              vagy részletes segítséget kapni. 
             </p>
 
-          <div className="flex justify-evenly py-4">
-            <Button style={videoButton} href="https://app.minup.io/book/hordozz-szabadon">IDŐPONTFOGLALÁS</Button>
-            <Button style={videoButton}  href="ww.hordozzszabadon.hu">TOVÁBBI INFÓK</Button>
-          </div>
-          <p style={mb}>🌿 Hordozz szabadon és élvezd a babád közelségét! 🤱</p>
-          <p>Üdv,</p>
+          <Row style={row} className="py-4">
+            <Column align="center">
+              <Button className="mr-2" style={videoButton} href="https://app.minup.io/book/hordozz-szabadon">IDŐPONTFOGLALÁS</Button>
+              <Button className="ml-2" style={videoButton}  href="ww.hordozzszabadon.hu">TOVÁBBI INFÓK</Button>
+            </Column>
+          </Row>
+          
+          <p style={mb} className="mt-2">🌿 Hordozz szabadon és élvezd a babád közelségét! 🤱</p>
+          <p style={{ marginBottom: '0' }}>Üdv,</p>
           <p>Mia</p>
         </Row>
       </div>
     </Html>
+    </Tailwind>
   );
 }
 
@@ -89,14 +94,6 @@ const row = { maxWidth: '500px' };
 const hr = {
   margin: '20px 0',
   border: '1px solid #AB967F',
-}
-
-const img = {
-}
-
-const socialContainer = {
-  display: 'flex',
-  justifyContent: 'end',
 }
 
 const emailContainer = {
@@ -123,4 +120,6 @@ const videoButton = {
   borderRadius: '25px',
   padding: '15px 20px',
   textDecoration: 'none',
+  marginLeft: '5px',
+  marginRight: '5px',
 }
