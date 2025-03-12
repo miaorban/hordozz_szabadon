@@ -78,13 +78,6 @@ export default function Email(props) {
   );
 }
 
-const cta = {
-  display: 'flex',
-  justifyContent: 'space-evenly',
-  paddingTop: '20px',
-  paddingBottom: '20px',
-}
-
 const mb = {
   marginBottom: '20px',
 }
@@ -103,13 +96,6 @@ const emailContainer = {
   // backgroundSize: 'cover',
   // backgroundPositionY: '50px',
   // backgroundUrl: 'https://hordozzszabadon.hu/bg_self_introduction.png',
-}
-
-const buttonContainer = {
-  display: 'flex',
-  justifyContent: 'center',
-  paddingTop: '20px',
-  paddingBottom: '20px',
 }
 
 const videoButton = {

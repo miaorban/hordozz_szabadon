@@ -98,13 +98,6 @@ const emailContainer = {
   // backgroundUrl: 'https://hordozzszabadon.hu/bg_self_introduction.png',
 }
 
-const buttonContainer = {
-  display: 'flex',
-  justifyContent: 'center',
-  paddingTop: '20px',
-  paddingBottom: '20px',
-}
-
 const videoButton = {
   backgroundColor: '#AB967F',
   color: 'white',
