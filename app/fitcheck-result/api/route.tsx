@@ -16,6 +16,6 @@ export const POST = async (req: NextRequest) => {
     return NextResponse.json({ success: true, message: 'Authorized' });
   } catch (error) {
     console.error('Error in POST handler:', error);
-    return NextResponse.json({ success: false, error: error.message });
+    return NextResponse.json({ success: false, error: error });
   }
 };
