@@ -1,5 +1,5 @@
 import { Html, Button, Row, Column, Link, Img,
-  Hr, Tailwind
+  Hr, Tailwind, Font, Head
  } from "@react-email/components";
 
 export default function Email(props) {
@@ -8,6 +8,18 @@ export default function Email(props) {
   return (
     <Tailwind>
     <Html lang="en">
+      <Head>
+        <Font
+          fontFamily="Roboto"
+          fallbackFontFamily="Verdana"
+          webFont={{
+            url: "https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2",
+            format: "woff2",
+          }}
+          fontWeight={400}
+          fontStyle="normal"
+        />
+      </Head>
       <div>
         <Row style={row}>
           <Column align="center">

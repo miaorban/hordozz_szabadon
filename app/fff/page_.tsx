@@ -86,7 +86,7 @@ export default function About({ link, name }: { link: string; name: string }) {
             >
               www.hordozzszabadon.hu
             </Link>
-            <SocialMedia small />
+            <SocialMedia />
           </span>
         </div>
       </div>
