@@ -1,9 +1,8 @@
 'use client';
 import { Card, CardFooter, CardBody, Chip, Button } from '@nextui-org/react';
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 
 export default function CarrierSelector() {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
   const [nextQuestion, setNextQuestion] = useState('weight');
   const [answers, setAnswers] = useState({});
 

@@ -78,13 +78,6 @@ export default function Email(props) {
   );
 }
 
-const cta = {
-  display: 'flex',
-  justifyContent: 'space-evenly',
-  paddingTop: '20px',
-  paddingBottom: '20px',
-}
-
 const mb = {
   marginBottom: '20px',
 }
