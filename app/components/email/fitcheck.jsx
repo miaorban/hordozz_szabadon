@@ -109,6 +109,7 @@ const container = {
   backgroundRepeat: 'no-repeat, no-repeat',
   border: '1px solid #AB967F',
   padding: '40px',
+  fontSize: '16px',
 }
 
 const mb = {

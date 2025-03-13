@@ -77,7 +77,7 @@ export default function Email(props) {
           <Row style={row} className="py-4 my-4">
             <Column align="center">
               <Button className="mr-2 shadow-lg" style={videoButton} href="https://app.minup.io/book/hordozz-szabadon"><b>IDŐPONTFOGLALÁS</b></Button>
-              <Button className="ml-2 shadow-lg" style={videoButton}  href="ww.hordozzszabadon.hu"><b>TOVÁBBI INFÓK</b></Button>
+              <Button className="ml-2 shadow-lg" style={videoButton}  href="www.hordozzszabadon.hu"><b>TOVÁBBI INFÓK</b></Button>
             </Column>
           </Row>
           
@@ -109,6 +109,7 @@ const container = {
   backgroundRepeat: 'no-repeat, no-repeat',
   border: '1px solid #AB967F',
   padding: '40px',
+  fontSize: '16px',
 }
 
 const mb = {
