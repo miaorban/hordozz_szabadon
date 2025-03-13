@@ -20,7 +20,7 @@ export default function Email(props) {
           fontStyle="normal"
         />
       </Head>
-      <Container className="" style={container}>
+      <Container style={container}>
         <Row style={row}>
           <Column align="center">
             <div style={emailContainer}>
@@ -45,8 +45,8 @@ export default function Email(props) {
             <Img
                   style={img}
                   alt="Hordozz Szabadon"
-                  src="https://hordozz-szabadon-git-fitcheckfix-orbanmia.vercel.app/fitcheck_main.png"
-                  width="300"
+                  src="https://i.postimg.cc/SQgCk31W/fitcheck-main.png"
+                  width="auto"
                   height="300"
                 />
           </Column>
@@ -64,13 +64,13 @@ export default function Email(props) {
             <Link href="https://hordozzszabadon.hu/tanacsadas#mini" style={linkStyle}>
             🔹 Mini tanácsadás (30 perc)
             </Link>
-              - Ha már van hordozód, de bizonytalan vagy a használatában vagy ha új és eszközöket próbálnál ki.
+              - Ha már van hordozód, de bizonytalan vagy a használatában vagy ha új eszközöket próbálnál ki.
           </p>
           <p>
             <Link href="https://hordozzszabadon.hu/tanacsadas#maxi" style={linkStyle}>
             🔸 Maxi tanácsadás (90 perc)
             </Link>
-              - Ha teljesen kezdő vagy, és szeretnéd alaposan megtanulni a hordozás alapjait, több eszközt kipróbálni
+              - Ha teljesen kezdő vagy és szeretnéd alaposan megtanulni a hordozás alapjait, több eszközt kipróbálni
              vagy részletes segítséget kapni. 
             </p>
 
@@ -93,7 +93,7 @@ export default function Email(props) {
 }
 
 const img = {
-  '-webkit-filter': 'drop-shadow(5px 5px 5px #AB967F)',
+  WebkitFilter: 'drop-shadow(5px 5px 5px #AB967F)',
   filter: 'drop-shadow(5px 5px 5px #AB967F)',
   borderRadius: '50%',
 }
