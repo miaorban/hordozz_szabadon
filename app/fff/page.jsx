@@ -1,7 +1,6 @@
 import { Html, Button, Row, Column, Link, Img,
   Hr, Tailwind, Font, Head, Container
  } from "@react-email/components";
-import { color } from "framer-motion";
 
 export default function Email(props) {
   const { link = "drive", name = 'Mia' } = props;
@@ -44,14 +43,15 @@ export default function Email(props) {
         <Row style={row}>
           <Column align="center">
             <Img
+                  style={img}
                   alt="Hordozz Szabadon"
-                  src="https://hordozzszabadon.hu/_next/image?url=%2Fprofil.jpeg&w=384&q=75"
+                  src="https://hordozz-szabadon-git-fitcheckfix-orbanmia.vercel.app/fitcheck_main.png"
                   width="300"
                   height="300"
                 />
           </Column>
         </Row>
-        <Row style={row} className="mt-6">
+        <Row style={row} className="my-6">
           <p style={mb}>📢 Tudtad? A fitcheck mellett 3 másik hasznos szolgáltatást is kínálok
             <b> online</b> és személyesen is.
           </p>
@@ -92,13 +92,19 @@ export default function Email(props) {
   );
 }
 
+const img = {
+  '-webkit-filter': 'drop-shadow(5px 5px 5px #AB967F)',
+  filter: 'drop-shadow(5px 5px 5px #AB967F)',
+  borderRadius: '50%',
+}
+
 const linkStyle = {
   fontWeight: 'bold',
   color: '#AB967F',
 }
 
 const container = {
-  backgroundImage: 'url("/maxi_consultation_bg.png")',
+  backgroundImage: 'url("https://hordozzszabadon.hu/maxi_consultation_bg.png")',
   backgroundPositionY: '200px',
   backgroundRepeat: 'no-repeat, no-repeat',
   border: '1px solid #AB967F',
@@ -119,10 +125,6 @@ const hr = {
 const emailContainer = {
   paddingTop: '20px',
   paddingBottom: '20px',
-  // backgroundRepeat: 'no-repeat',
-  // backgroundSize: 'cover',
-  // backgroundPositionY: '50px',
-  // backgroundUrl: 'https://hordozzszabadon.hu/bg_self_introduction.png',
 }
 
 const videoButton = {
