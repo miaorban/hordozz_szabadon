@@ -1,6 +1,7 @@
 import { Html, Button, Row, Column, Link, Img,
-  Hr, Tailwind, Font, Head
+  Hr, Tailwind, Font, Head, Container
  } from "@react-email/components";
+import { color } from "framer-motion";
 
 export default function Email(props) {
   const { link = "drive", name = 'Mia' } = props;
@@ -10,17 +11,17 @@ export default function Email(props) {
     <Html lang="en">
       <Head>
         <Font
-          fontFamily="Roboto"
+          fontFamily="Poppins"
           fallbackFontFamily="Verdana"
           webFont={{
-            url: "https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2",
-            format: "woff2",
+            url: "https://fonts.cdnfonts.com/s/16009/Poppins-Regular.woff",
+            format: "woff",
           }}
           fontWeight={400}
           fontStyle="normal"
         />
       </Head>
-      <div>
+      <Container className="" style={container}>
         <Row style={row}>
           <Column align="center">
             <div style={emailContainer}>
@@ -29,12 +30,12 @@ export default function Email(props) {
             Elkészült a személyre szabott fitcheck videód ✅. Az alábbi gombra kattintva érheted el.
             <Row style={row}>
               <Column align="center" className="py-4">
-                <Button href={link} style={videoButton}>
+                <Button href={link} style={videoButton} className="shadow-lg">
                   Videó megtekintése
                 </Button>
               </Column>
             </Row>
-            <p style={{fontSize: '12px'}}>Ha bármilyen kérdésed felmerül, nyugodtan írj nekem!</p>
+            <p style={{ fontSize: '12px' }}>Ha bármilyen kérdésed felmerül, nyugodtan írj nekem!</p>
           </Column>
         </Row>
         <Row style={row}>
@@ -44,50 +45,64 @@ export default function Email(props) {
           <Column align="center">
             <Img
                   alt="Hordozz Szabadon"
-                  src="http://hordozzszabadon.hu/fitcheck_main.png"
+                  src="https://hordozzszabadon.hu/_next/image?url=%2Fprofil.jpeg&w=384&q=75"
                   width="300"
                   height="300"
                 />
           </Column>
         </Row>
-        <Row style={row}>
+        <Row style={row} className="mt-6">
           <p style={mb}>📢 Tudtad? A fitcheck mellett 3 másik hasznos szolgáltatást is kínálok
             <b> online</b> és személyesen is.
           </p>
           <p>
-            <Link href="http://hordozzszabadon.hu/tanacsadas#hordozovalaszto">
+            <Link href="https://hordozzszabadon.hu/tanacsadas#hordozovalaszto" style={linkStyle}>
             👶 Hordozóválasztó – ONLINE (20 perc)
             </Link> – Segítek hordozót választani a végtelennek tűnő opciók közül.
           </p>
           <p>
-            <Link href="http://hordozzszabadon.hu/tanacsadas#mini">
+            <Link href="https://hordozzszabadon.hu/tanacsadas#mini" style={linkStyle}>
             🔹 Mini tanácsadás (30 perc)
             </Link>
               - Ha már van hordozód, de bizonytalan vagy a használatában vagy ha új és eszközöket próbálnál ki.
           </p>
           <p>
-            <Link href="http://hordozzszabadon.hu/tanacsadas#maxi">
+            <Link href="https://hordozzszabadon.hu/tanacsadas#maxi" style={linkStyle}>
             🔸 Maxi tanácsadás (90 perc)
             </Link>
               - Ha teljesen kezdő vagy, és szeretnéd alaposan megtanulni a hordozás alapjait, több eszközt kipróbálni
              vagy részletes segítséget kapni. 
             </p>
 
-          <Row style={row} className="py-4">
+          <Row style={row} className="py-4 my-4">
             <Column align="center">
-              <Button className="mr-2" style={videoButton} href="https://app.minup.io/book/hordozz-szabadon">IDŐPONTFOGLALÁS</Button>
-              <Button className="ml-2" style={videoButton}  href="ww.hordozzszabadon.hu">TOVÁBBI INFÓK</Button>
+              <Button className="mr-2 shadow-lg" style={videoButton} href="https://app.minup.io/book/hordozz-szabadon"><b>IDŐPONTFOGLALÁS</b></Button>
+              <Button className="ml-2 shadow-lg" style={videoButton}  href="ww.hordozzszabadon.hu"><b>TOVÁBBI INFÓK</b></Button>
             </Column>
           </Row>
           
           <p style={mb} className="mt-2">🌿 Hordozz szabadon és élvezd a babád közelségét! 🤱</p>
           <p className="mb-0">Üdv,</p>
           <p>Mia</p>
+          <Link href="https://hordozzszabadon.hu" style={linkStyle}>www.hordozzszabadon.hu</Link>
         </Row>
-      </div>
+      </Container>
     </Html>
     </Tailwind>
   );
+}
+
+const linkStyle = {
+  fontWeight: 'bold',
+  color: '#AB967F',
+}
+
+const container = {
+  backgroundImage: 'url("/maxi_consultation_bg.png")',
+  backgroundPositionY: '200px',
+  backgroundRepeat: 'no-repeat, no-repeat',
+  border: '1px solid #AB967F',
+  padding: '40px',
 }
 
 const mb = {
