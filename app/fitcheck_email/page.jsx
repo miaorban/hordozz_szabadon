@@ -29,7 +29,7 @@ export default function Email(props) {
             Elkészült a személyre szabott fitcheck videód ✅ Az alábbi gombra kattintva érheted el.
             <Row style={row}>
               <Column align="center" className="py-4">
-                <Button href={link} style={videoButton} className="shadow-lg">
+                <Button href={link} style={videoButton} className="shadow-lg uppercase">
                   Videó megtekintése
                 </Button>
               </Column>
@@ -45,7 +45,7 @@ export default function Email(props) {
             <Img
                   style={img}
                   alt="Hordozz Szabadon"
-                  src="https://hordozz-szabadon-git-fitcheckfix-orbanmia.vercel.app/fitcheck_main.png"
+                  src="https://www.hordozzszabadon.hu/fitcheck_main.png"
                   width="auto"
                   height="300"
                 />

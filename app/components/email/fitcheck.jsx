@@ -26,10 +26,10 @@ export default function Email(props) {
             <div style={emailContainer}>
               <b>Kedves {name}!</b>
             </div>
-            Elkészült a személyre szabott fitcheck videód ✅. Az alábbi gombra kattintva érheted el.
+            Elkészült a személyre szabott fitcheck videód ✅ Az alábbi gombra kattintva érheted el.
             <Row style={row}>
               <Column align="center" className="py-4">
-                <Button href={link} style={videoButton} className="shadow-lg">
+                <Button href={link} style={videoButton} className="shadow-lg uppercase">
                   Videó megtekintése
                 </Button>
               </Column>
@@ -45,7 +45,7 @@ export default function Email(props) {
             <Img
                   style={img}
                   alt="Hordozz Szabadon"
-                  src="https://i.postimg.cc/SQgCk31W/fitcheck-main.png"
+                  src="https://www.hordozzszabadon.hu/fitcheck_main.png"
                   width="auto"
                   height="300"
                 />
@@ -77,7 +77,7 @@ export default function Email(props) {
           <Row style={row} className="py-4 my-4">
             <Column align="center">
               <Button className="mr-2 shadow-lg" style={videoButton} href="https://app.minup.io/book/hordozz-szabadon"><b>IDŐPONTFOGLALÁS</b></Button>
-              <Button className="ml-2 shadow-lg" style={videoButton}  href="ww.hordozzszabadon.hu"><b>TOVÁBBI INFÓK</b></Button>
+              <Button className="ml-2 shadow-lg" style={videoButton}  href="www.hordozzszabadon.hu"><b>TOVÁBBI INFÓK</b></Button>
             </Column>
           </Row>
           
