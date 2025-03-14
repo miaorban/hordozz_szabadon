@@ -21,7 +21,7 @@ export default function FitCheck() {
       const formData = new FormData(e.currentTarget);
       formData.append('photoCount', files.length.toString());
       setIsLoading(true);
-      const res = await fetch('/fitcheck/api/', {
+      const res = await fetch('/hordozovalaszto/api/', {
         method: 'POST',
         body: formData,
       });
@@ -98,7 +98,7 @@ export default function FitCheck() {
       <div className="w-10/12 my-12 flex flex-wrap justify-center gap-8">
           {
             steps.map((step, index) => 
-              <Card isPressable shadow="sm" className="drop-shadow-xl w-72 sm:w-[380px]" key={index}>
+              <Card shadow="sm" className="drop-shadow-xl w-72 sm:w-[380px]" key={index}>
                 <CardBody className="overflow-visible p-0 drop-shadow-xl 
                 min-h-[300px] max-h-[300px]"
                 style={{boxShadow: 
@@ -110,7 +110,7 @@ export default function FitCheck() {
                     fill
                   />
                 </CardBody>
-                <CardFooter className="h-30 pt-4">
+                <CardFooter className="h-30 pt-4 text-center">
                   <b className="w-full
                   text-lg md:text-4xl font-semibold text-secondary">{index + 1}. lépés</b>
                 </CardFooter>

@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect } from "react";
+import { useState } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -16,7 +16,7 @@ import { montserrat_real } from '@/app/fonts';
 
 export default function App() {
   // eslint-disable-next-line
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathName = usePathname();
 
   const menuItems = [
@@ -30,10 +30,6 @@ export default function App() {
     // { title: "Kapcsolat", href: "/kapcsolat" }
   ];
 
-  useEffect(() => {
-    console.log('isMenuOpen ', isMenuOpen);
-    
-  }, [isMenuOpen]);
   return (
     <Navbar isBordered isMenuOpen={isMenuOpen}
       className="bg-[url('/navbar_bg.svg')] bg-no-repeat bg-cover bg-center border-0 h-20"

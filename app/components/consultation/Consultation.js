@@ -2,7 +2,7 @@ import { Divider, Button, Link } from '@nextui-org/react';
 
 export default function Consultation({ consultation }) {
   return (
-    <div className={consultation.className}>
+    <div className={consultation.className} id={consultation.id}>
       <div className='flex justify-center
       py-12 px-20'>
         <div className='max-w-[800px]'>
