@@ -52,7 +52,7 @@ export default function Email(props) {
               }
             </ul>
             <p>
-              Ha szeretnéd őket kipróbálni, nálam lehetőség van hordozókölcsönzésre is.
+              Ha szeretnéd őket kipróbálni, nálam lehetőség van hordozókölcsönzésre.
               Írj, és megbeszéljük a részleteket! 😊
             </p>
           </Column>
@@ -94,7 +94,7 @@ export default function Email(props) {
         </Row>
 
         <Row style={row} className="mt-3">
-          <p style={title} className="mb-2">📢 Kérdésed van vagy elakadtál?</p>
+          <p style={title} className="mb-2">❓ Kérdésed van vagy elakadtál?</p>
           <p className="mb-3">Ne feledd, hogy a hordozás tanulható! Ha szeretnél több eszközt kipróbálni, elmélyülni a beállításokban, vagy egyéni segítséget kapni, 
             tanácsadásaimmal támogatlak ebben. 💡</p>
           <p className="mb-2">
