@@ -1,7 +1,6 @@
 import { Html, Button, Row, Column, Link, Img,
   Hr, Tailwind, Font, Head, Container
  } from "@react-email/components";
-import { backIn } from "framer-motion";
 
 export default function Email(props) {
   const { 
