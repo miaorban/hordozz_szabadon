@@ -3,7 +3,17 @@ import { Html, Button, Row, Column, Link, Img,
  } from "@react-email/components";
 
 export default function Email(props) {
-  const { link = "drive", name = 'Mia' } = props;
+  const { 
+    name = 'Mia',
+    carrier1 = "carrier1", 
+    carrier1_desc = "carrier1_desc", 
+    carrier2 = "", 
+    carrier2_desc = "", 
+    carrier3 = "", 
+    carrier3_desc = "", 
+    carrier4 = "", 
+    carrier4_desc = "", 
+  } = props;
 
   return (
     <Tailwind>
@@ -24,17 +34,27 @@ export default function Email(props) {
         <Row style={row}>
           <Column align="center">
             <div style={emailContainer}>
-              <b>Kedves {name}!</b>
+              <b style={title}>Kedves {name}!</b>
             </div>
-            Elkészült a személyre szabott fitcheck videód ✅ Az alábbi gombra kattintva érheted el.
-            <Row style={row}>
-              <Column align="center" className="py-4">
-                <Button href={link} style={videoButton} className="shadow-lg">
-                  Videó megtekintése
-                </Button>
-              </Column>
-            </Row>
-            <p style={{ fontSize: '12px' }}>Ha bármilyen kérdésed felmerül, nyugodtan írj nekem!</p>
+            <p className="mb-3">Örülök, hogy részt vettél a hordozóválasztó konzultáción! 🤗</p>
+            <p className="mb-3">🎯Az alábbiakban összegyűjtöttem azokat a hordozókat, amelyek az igényeid alapján 
+              jól passzolhatnak hozzátok.</p>
+            <ul className="mb-3">
+              <li className="mb-1">🔸<b>{carrier1}</b> - {carrier1_desc}</li>
+              {
+                carrier2 && <li>🔸<b>{carrier2}</b> - {carrier2_desc}</li>
+              }
+              {
+                carrier3 && <li>🔸<b>{carrier3}</b> - {carrier3_desc}</li>
+              }
+              {
+                carrier4 && <li>🔸<b>{carrier4}</b> - {carrier4_desc}</li>
+              }
+            </ul>
+            <p>
+              Ha szeretnéd őket kipróbálni, nálam lehetőség van hordozókölcsönzésre is.
+              Írj, és megbeszéljük a részleteket! 😊
+            </p>
           </Column>
         </Row>
         <Row style={row}>
@@ -45,22 +65,39 @@ export default function Email(props) {
             <Img
                   style={img}
                   alt="Hordozz Szabadon"
-                  src="https://i.postimg.cc/SQgCk31W/fitcheck-main.png"
+                  // src="https://www.hordozzszabadon.hu/hordozovalaszto_email.png"
+                  src="http://localhost:3001/hordozovalaszto_email.png"
                   width="auto"
                   height="300"
                 />
           </Column>
         </Row>
-        <Row style={row} className="my-6">
-          <p style={mb}>📢 Tudtad? A fitcheck mellett 3 másik hasznos szolgáltatást is kínálok
-            <b> online</b> és személyesen is.
+        <Row style={row} className="mt-6">
+          <p className="mb-2" style={title}>🔍 Már van hordozód? Nézzük meg, jól állítottad-e be!</p>
+          {/* <p className="mb-2">Ha már van egy hordozód, de bizonytalan vagy a beállításokban
+            vagy a baba nem érzi magát kényelmesen benne, segítek!</p>*/}
+          <p> 
+            A <b><Link href="https://hordozzszabadon.hu/fitcheck" style={linkStyle}>FitCheck</Link> online beállítás ellenőrzés </b>
+             során beküldöd a képeidet, én pedig egy válaszvideóban segítek, hogy még szuperebb legyen a beálllítás.
           </p>
-          <p>
-            <Link href="https://hordozzszabadon.hu/tanacsadas#hordozovalaszto" style={linkStyle}>
-            👶 Hordozóválasztó – ONLINE (20 perc)
-            </Link> – Segítek hordozót választani a végtelennek tűnő opciók közül.
-          </p>
-          <p>
+
+          <Row style={row} className="py-4 mt-3">
+            <Column align="center">
+              <Button className="mr-2 shadow-lg" style={videoButton} 
+              href="https://hordozzszabadon.hu/fitcheck"><b>TOVÁBB A FITCHECKRE</b></Button>
+            </Column>
+          </Row>
+        </Row>
+
+        <Row style={row}>
+          <Hr style={hr}/>
+        </Row>
+
+        <Row style={row} className="mt-3">
+          <p style={title} className="mb-2">📢 Kérdésed van vagy elakadtál?</p>
+          <p className="mb-3">Ne feledd, hogy a hordozás tanulható! Ha szeretnél több eszközt kipróbálni, elmélyülni a beállításokban, vagy egyéni segítséget kapni, 
+            tanácsadásaimmal támogatlak ebben. 💡</p>
+          <p className="mb-2">
             <Link href="https://hordozzszabadon.hu/tanacsadas#mini" style={linkStyle}>
             🔹 Mini tanácsadás (30 perc)
             </Link>
@@ -90,6 +127,10 @@ export default function Email(props) {
     </Html>
     </Tailwind>
   );
+}
+
+const title = {
+  fontSize: '20px',
 }
 
 const img = {
