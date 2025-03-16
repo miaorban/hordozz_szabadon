@@ -67,8 +67,7 @@ export default function Email(props) {
             <Img
                   style={img}
                   alt="Hordozz Szabadon"
-                  // src="https://www.hordozzszabadon.hu/hordozovalaszto_email.png"
-                  src="http://localhost:3001/hordozovalaszto_email.png"
+                  src="https://www.hordozzszabadon.hu/hordozovalaszto_email.png"
                   width="auto"
                   height="300"
                 />
