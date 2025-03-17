@@ -43,7 +43,7 @@ export const POST = async (req) => {
     logger.info('fitcheck referenceId', { referenceId });
 
     const mailOptions = {
-      from: process.env.MAIL_EMAIL,
+      from: `Mia - [Hordozz Szabadon] <${process.env.MAIL_EMAIL}>`,
       to: 'miaorban@gmail.com',
       subject: 'Form Submission with Files',
       html: `

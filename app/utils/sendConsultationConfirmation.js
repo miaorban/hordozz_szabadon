@@ -20,7 +20,7 @@ const sendEmail = async (data) => {
     `Mini/Maxi konzultáció információk${data.online ? ', belépési link' : ''}`
 
   const mailOptions = {
-    from: process.env.MAIL_EMAIL,
+    from: `Mia - [Hordozz Szabadon] <${process.env.MAIL_EMAIL}>`,
     to: data.email,
     cc: 'miaorban@gmail.com',
     subject,

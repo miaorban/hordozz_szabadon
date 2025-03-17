@@ -19,7 +19,7 @@ const sendEmail = async (data, file) => {
   const fileBuffer = Buffer.from(arrayBuffer);
   
   const mailOptions = {
-    from: process.env.MAIL_EMAIL,
+    from: `Mia - [Hordozz Szabadon] <${process.env.MAIL_EMAIL}>`,
     to: data.email,
     cc: 'miaorban@gmail.com',
     subject: 'A hozzátok illő hordozók',
