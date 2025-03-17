@@ -7,9 +7,8 @@ const services = [
     title: 'Hordozóválasztó konzultáció',
     online: true,
     description: 'Segítek megtalálni a nektek legjobb hordozót, és konkrét ajánlásokkal távozol, hogy könnyen dönthess.',
-    smallDescription: 'Csak online!',
     image: '/hordozovalaszto_konzi.jpg',
-    href: "/hordozovalaszto" 
+    href: "/tanacsadas#hordozovalaszto" 
   },
   // {
   //   title: 'Hordozóeszköz kölcsönzés',
@@ -21,7 +20,7 @@ const services = [
     title: 'Fit Check',
     online: true,
     description: 'Bizonytalan vagy abban, hogy helyesen állítottad-e be a hordozót? Mutasd meg és segítek a tökéletes beállításban.',
-    smallDescription: 'Csak online! Kattints ide a fotók feltöltéséhez!',
+    smallDescription: 'Kattints ide a fotók feltöltéséhez!',
     image: '/fit_check_kartya.jpg',
     href: "/fitcheck" 
   },
@@ -31,7 +30,7 @@ const services = [
     description: 'Ha nem tudod, hol kezdd, elvesztél az eszközök sokaságában, jelentkezz hordozási tanácsadásra.',
     smallDescription: 'Online is szuperül működik! Kattints ide a részletekért!',
     image: '/tanacsadas_kartya.jpg',
-    href: "/tanacsadas" 
+    href: "/tanacsadas#mini" 
   },
 ]
 

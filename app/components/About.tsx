@@ -46,7 +46,7 @@ export default function About() {
                 <p className="my-2"></p>
                 <p>Hordozási tanácsadóként célom támogató segítséget nyújtani a családoknak ezen az úton. 
                 Kérdezni, megismerni őket és együtt megtalálni azt a megoldást, ami igazán illik hozzájuk.</p>
-                <div className="flex pt-2">
+                <div className="flex pt-2 justify-center">
                   <Link href="https://hordozo.hu/" target="_blank">
                     <img src="okleveles_tanacsado.png" 
                       alt="Hordozóház logo" className="w-20"/>
