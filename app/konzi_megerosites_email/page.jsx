@@ -1,7 +1,7 @@
-import ConsultationLink from '@/app/components/email/consultation_link';
+import ConsultationConfirmation from '@/app/components/email/consultation_confirmation';
 
 export default function Email(props) {
   return (
-   <ConsultationLink {...props} />
+   <ConsultationConfirmation {...props} />
   );
 }
