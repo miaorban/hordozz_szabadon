@@ -2,8 +2,8 @@ import { Html, Button, Row, Column, Link, Img,
   Hr, Tailwind, Font, Head, Container
  } from "@react-email/components";
 
-export default function Email(props) {
-  const { date = "2022.01.22.", name = 'Mia', type = 'carrier' } = props;
+export default function ConsultationConfirmation(props) {
+  const { date = "2022.01.22.", name = 'Mia', type = 'carrier', online = false } = props;
 
   return (
     <Tailwind>
@@ -24,18 +24,29 @@ export default function Email(props) {
         <Row style={row}>
           <Column align="center">
             <div style={emailContainer}>
-              <b>Kedves {name}!</b>
+              <b className="text-lg">Kedves {name}!</b>
             </div>
             <p>Köszönöm, hogy megtiszteltél bizalmaddal és időpontot foglaltál konzultációra. 😊</p>
-            <p>📌 <b>Időpont:</b> { date }</p>
-            <Row style={row}>
-              <Column align="center" className="py-4">
-                <Button href="https://meet.google.com/imu-gzte-xrm" style={videoButton} className="shadow-lg uppercase">
-                  BELÉPÉS A KONZULTÁCIÓRA
-                </Button>
-              </Column>
-            </Row>
-            <b className="font-bold mb-2">Mivel érdemes készülnöd?</b>
+            
+            {
+              online &&
+                <Row style={row}>
+                <Column align="center" className="py-4">
+                  <p>📌 <b>Időpont:</b> { date }</p>
+                  <Button href="https://meet.google.com/imu-gzte-xrm" style={videoButton} className="shadow-lg uppercase">
+                    BELÉPÉS A KONZULTÁCIÓRA
+                  </Button>
+                </Column>
+              </Row>
+            }
+            {
+              !online &&
+                <Row style={row} className="my-4">
+                  <p>📅 <b>Időpont:</b> { date }</p>
+                  <p>📍 <b>Helyszín:</b>Keszthely, Ruszek József u. 54</p>
+                </Row>
+            }
+            <b className="font-bold mb-2 text-lg">Mivel érdemes készülnöd?</b>
             {
               type == 'carrier' &&
                 <p>🌿 A konzultáció során segítek kiválasztani a legmegfelelőbb hordozót a számotokra.
@@ -66,7 +77,7 @@ export default function Email(props) {
           </Column>
         </Row>
         <Row style={row}>
-          <b>Tudtad?</b>
+          <b className="text-lg">Tudtad?</b>
           <p>👉 A konzultáció után is segítek! Ha szeretnéd ellenőrizni, hogy megfelelően használod 
             a hordozót, válaszd a Fitcheck szolgáltatást – online, beküldött fotók alapján ellenőrzöm 
             a beállításokat.</p>
@@ -78,7 +89,7 @@ export default function Email(props) {
             </Column>
           </Row>
         <Row style={row} className="my-6">
-          <b>Nem vagy biztos a választásban?</b>
+          <b className="text-lg">Nem vagy biztos a választásban?</b>
           <p style={mb}>👉 Nálam lehetőséged van hordozók bérlésére, így kipróbálhatod, 
             mielőtt döntesz! Kérdezz róla a konzultáción vagy írj nekem!
           </p>
