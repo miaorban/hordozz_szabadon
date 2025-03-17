@@ -4,10 +4,12 @@ import Image from 'next/image';
 
 const services = [
   {
-    title: 'Hordozási tanácsadás',
-    description: 'Ha nem tudod, hol kezdd, elvesztél az eszközök sokaságában, jelentkezz hordozási tanácsadásra.',
-    image: '/tanacsadas_kartya.jpg',
-    href: "/tanacsadas" 
+    title: 'Hordozóválasztó konzultáció',
+    online: true,
+    description: 'Segítek megtalálni a nektek legjobb hordozót, és konkrét ajánlásokkal távozol, hogy könnyen dönthess.',
+    smallDescription: 'Csak online!',
+    image: '/hordozovalaszto_konzi.jpg',
+    href: "/hordozovalaszto" 
   },
   // {
   //   title: 'Hordozóeszköz kölcsönzés',
@@ -17,20 +19,30 @@ const services = [
   // },
   {
     title: 'Fit Check',
+    online: true,
     description: 'Bizonytalan vagy abban, hogy helyesen állítottad-e be a hordozót? Mutasd meg és segítek a tökéletes beállításban.',
     smallDescription: 'Csak online! Kattints ide a fotók feltöltéséhez!',
     image: '/fit_check_kartya.jpg',
     href: "/fitcheck" 
-  }
+  },
+  {
+    title: 'Hordozási tanácsadás',
+    online: false,
+    description: 'Ha nem tudod, hol kezdd, elvesztél az eszközök sokaságában, jelentkezz hordozási tanácsadásra.',
+    smallDescription: 'Online is szuperül működik! Kattints ide a részletekért!',
+    image: '/tanacsadas_kartya.jpg',
+    href: "/tanacsadas" 
+  },
 ]
 
 export default function Services() {
   return (
     <div className="flex justify-center mt-12 px-8">
-    <div className="max-w-[900px]">
+    <div>
+    {/* <div className="max-w-[900px]"> */}
         <PageTitle title="Szolgáltatásaim"/>
         <div className="flex flex-col lg:flex-row
-          justify-around
+          justify-evenly items-center
           gap-y-12
           gap-x-28
           py-8 sm:py-20
@@ -49,16 +61,23 @@ export default function Services() {
                       fill
                     />
                   </CardBody>
-                  <CardFooter className="sm:h-28 pt-4">
+                  <CardFooter className="sm:h-28 pt-4 pb-0">
                     <b className="w-full text-center
                     text-lg md:text-4xl font-semibold text-secondary">{service.title}</b>
                   </CardFooter>
+                  {
+                      service.online && 
+                      <CardFooter className="text-center text-primary pt-0">
+                        <p className="w-full text-center
+                            text-lg md:text-lg font-semibold text-secondary">- ONLINE</p>
+                      </CardFooter>
+                    }
                   <CardFooter className="hidden sm:block sm:h-36">
                     <p className="text-primary md:text-xl">{service.description}</p>
                   </CardFooter>
                   {
                     service.smallDescription &&
-                      <CardFooter className="sm:h-4">
+                      <CardFooter className="sm:h-12">
                         <p className="text-primary text-sm">{service.smallDescription}</p>
                       </CardFooter>
                   }
