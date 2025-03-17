@@ -76,7 +76,7 @@ export default function ConsultationConfirmation(props) {
                 />
           </Column>
         </Row>
-        <Row style={row}>
+        <Row style={row} className="mt-4">
           <b className="text-lg">Tudtad?</b>
           <p>👉 A konzultáció után is segítek! Ha szeretnéd ellenőrizni, hogy megfelelően használod 
             a hordozót, válaszd a Fitcheck szolgáltatást – online, beküldött fotók alapján ellenőrzöm 
@@ -85,7 +85,7 @@ export default function ConsultationConfirmation(props) {
             váltanál és a választásban kell segítség vagy elakadási ponthoz értél, várlak szeretettel! 😊
           </p>
         </Row>
-        <Row style={row} className="py-4 mt-3">
+        <Row style={row} className="my-12">
             <Column align="center">
               <Button className="mr-1 shadow-lg" style={videoButton} 
               href="https://hordozzszabadon.hu/fitcheck"><b>KONZULTÁCIÓK</b></Button>
