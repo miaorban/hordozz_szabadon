@@ -41,12 +41,12 @@ export default function ConsultationConfirmation(props) {
             }
             {
               !online &&
-                <Row style={row} className="my-4">
-                  <p>📅 <b>Időpont:</b> { date }</p>
+                <Row style={row} className="my-6">
+                  <p className="mb-1">📅 <b>Időpont:</b> { date }</p>
                   <p>📍 <b>Helyszín:</b>Keszthely, Ruszek József u. 54</p>
                 </Row>
             }
-            <b className="font-bold mb-2 text-lg">Mivel érdemes készülnöd?</b>
+            <b className="font-bold mb-4 text-lg">Mivel érdemes készülnöd?</b>
             {
               type == 'carrier' &&
                 <p>🌿 A konzultáció során segítek kiválasztani a legmegfelelőbb hordozót a számotokra.
@@ -81,10 +81,17 @@ export default function ConsultationConfirmation(props) {
           <p>👉 A konzultáció után is segítek! Ha szeretnéd ellenőrizni, hogy megfelelően használod 
             a hordozót, válaszd a Fitcheck szolgáltatást – online, beküldött fotók alapján ellenőrzöm 
             a beállításokat.</p>
+          <p>👉 Bármikor foglalhatsz online vagy személyes konzultációra időpontot. Ha új hordozód van, amit szeretnél beállítani,
+            váltanál és a választásban kell segítség vagy elakadási ponthoz értél, várlak szeretettel! 😊
+          </p>
         </Row>
         <Row style={row} className="py-4 mt-3">
             <Column align="center">
-              <Button className="mr-2 shadow-lg" style={videoButton} 
+              <Button className="mr-1 shadow-lg" style={videoButton} 
+              href="https://hordozzszabadon.hu/fitcheck"><b>KONZULTÁCIÓK</b></Button>
+            </Column>
+            <Column align="center">
+              <Button className="ml-1 shadow-lg" style={videoButton} 
               href="https://hordozzszabadon.hu/fitcheck"><b>TOVÁBB A FITCHECKRE</b></Button>
             </Column>
           </Row>

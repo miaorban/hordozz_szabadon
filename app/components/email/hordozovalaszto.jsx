@@ -34,7 +34,7 @@ export default function Email(props) {
         <Row style={row}>
           <Column align="center">
             <div style={emailContainer}>
-              <b style={title}>Kedves {name}!</b>
+              <b className="text-lg">Kedves {name}!</b>
             </div>
             <p className="mb-3">Örülök, hogy részt vettél a hordozóválasztó konzultáción! 🤗</p>
             <p className="mb-3">🎯 Az alábbiakban összegyűjtöttem azokat a hordozókat, amelyek az igényeid alapján 
@@ -74,7 +74,7 @@ export default function Email(props) {
           </Column>
         </Row>
         <Row style={row} className="mt-6">
-          <p className="mb-2" style={title}>🔍 Már van hordozód? Nézzük meg, jól állítottad-e be!</p>
+          <p className="mb-2 text-lg">🔍 Már van hordozód? Nézzük meg, jól állítottad-e be!</p>
           {/* <p className="mb-2">Ha már van egy hordozód, de bizonytalan vagy a beállításokban
             vagy a baba nem érzi magát kényelmesen benne, segítek!</p>*/}
           <p> 
@@ -95,7 +95,7 @@ export default function Email(props) {
         </Row>
 
         <Row style={row} className="mt-3">
-          <p style={title} className="mb-2">❓ Kérdésed van vagy elakadtál?</p>
+          <p className="mb-2 text-lg">❓ Kérdésed van vagy elakadtál?</p>
           <p className="mb-3">Ne feledd, hogy a hordozás tanulható! Ha szeretnél több eszközt kipróbálni, elmélyülni a beállításokban, vagy egyéni segítséget kapni, 
             tanácsadásaimmal támogatlak ebben. 💡</p>
           <p className="mb-2">
@@ -128,10 +128,6 @@ export default function Email(props) {
     </Html>
     </Tailwind>
   );
-}
-
-const title = {
-  fontSize: '20px',
 }
 
 const img = {
