@@ -59,6 +59,12 @@ export const POST = async (req) => {
     };
 
     await transporter.sendMail(mailOptions);
+    // await transporter.sendMail({
+    //   from: `Mia - [Hordozz Szabadon] <${process.env.MAIL_EMAIL}>`,
+    //   to: 'miaorban@gmail.com',
+    //   subject: 'Form Submission with Files',
+    //   html: fitcheckFeedbackEmail({ name })
+    // });
     logger.info('Mail sent successfully');
     return NextResponse.json({ referenceId });
   } catch (error) {

@@ -21,7 +21,7 @@ export default function FitCheck() {
       const formData = new FormData(e.currentTarget);
       formData.append('photoCount', files.length.toString());
       setIsLoading(true);
-      const res = await fetch('/hordozovalaszto/api/', {
+      const res = await fetch('/fitcheck/api/', {
         method: 'POST',
         body: formData,
       });
@@ -31,19 +31,6 @@ export default function FitCheck() {
       console.log('response', JSON.stringify(response));
       
       const { referenceId } = response;
-      
-      // const photoUploadPromises = [];
-      // files.forEach(async (file, index) => {
-      //   formData.append(`file${index}`, file);
-      //   fetch('/photos/api/', {
-      //     method: 'POST',
-      //     body: formData
-      //   });
-      //   photoUploadPromises.push(res);
-      //   formData.delete(`file${index}`);
-      // });
-
-      // await Promise.all(photoUploadPromises);
 
       window.location.href = `${process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK}?client_reference_id=${referenceId}`;
     } catch (e) {
@@ -131,8 +118,8 @@ export default function FitCheck() {
           gap-8 mt-4'>
             <Input
               isRequired
-              label="Név"
-              errorMessage="Kérlek, add meg a neved"
+              label="Keresztneved"
+              errorMessage="Kérlek, add meg a keresztneved"
               labelPlacement="outside"
               name="name"
               placeholder="Neved"
