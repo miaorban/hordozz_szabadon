@@ -4,10 +4,11 @@ import Consultation from '../components/consultation/Consultation';
 
 const consultations = [
   {
-    title: 'Hordozóválasztó - ONLINE!',
-    price: '5 000 Ft',
+    title: "Hordozóválasztó",
+    subTitle: "online",
+    price: "5 000 Ft",
     duration: 20,
-    id: 'hordozovalaszto',
+    id: "hordozovalaszto",
     items: [
       `szeretnél jó minőségű, biztonságos eszközt választani`,
       `elvesztél a hordozók óriási kínálatában és tudni szeretnéd, melyik eszköz lenne nektek megfelelő`,
@@ -15,34 +16,36 @@ const consultations = [
       `fel szeretnél készülni, hogy mikortól, hogyan és mennyit hordozhatsz`,
       `bizonytalan vagy, hogy miért lenne jó a hordozás a babádnak és neked`,
     ],
-    bookingUrl: 'https://app.minup.io/book/hordozz-szabadon/service/28949'
+    bookingUrl: "https://app.minup.io/book/hordozz-szabadon/service/28949",
   },
   {
-    title: 'Mini',
-    price: '8 000 Ft',
+    title: "Mini",
+    subTitle: "online/személyesen",
+    price: "8 000 Ft",
     duration: 30,
-    id: 'mini',
+    id: "mini",
     items: [
       `már van egy eszközöd, de bizonytalan vagy, hogy jól használod-e.
         Például jól van-e a baba a kendőben vagy megfelelő-e már neki a
         csatos hordozód.`,
       `ha sír a babád a hordozóban és nem tudod, miért. Minden baba
         szereti a hordozást, úgyhogy biztos, hogy megtaláljuk az okát.`,
-      'ha eddig elöl hordoztál, de már úgy érzed, ideje hátratenni a babát.',
-      'ha fel szeretnél próbálni két-három különböző eszközt.',
-      'ha nagyobb gyerkőcöt szeretnél hordozni.',
-      'ha szoptatós, cumisüveges pozíciókat szeretnél megismerni.'
+      "ha eddig elöl hordoztál, de már úgy érzed, ideje hátratenni a babát.",
+      "ha fel szeretnél próbálni két-három különböző eszközt.",
+      "ha nagyobb gyerkőcöt szeretnél hordozni.",
+      "ha szoptatós, cumisüveges pozíciókat szeretnél megismerni.",
     ],
-    bookingUrl: 'https://app.minup.io/book/hordozz-szabadon/service/25699'
+    bookingUrl: "https://app.minup.io/book/hordozz-szabadon/service/25699",
   },
   {
-    title: 'Maxi',
-    price: '20 000 Ft',
+    title: "Maxi",
+    subTitle: "online/személyesen",
+    price: "20 000 Ft",
     duration: 90,
-    id: 'maxi',
+    id: "maxi",
     className: `bg-[url('/maxi_consultation_bg.png')] bg-no-repeat bg-top bg-cover pt-24`,
     items: [
-      'teljesen új vagy a hordozásban és pici babát szeretnél hordozni.',
+      "teljesen új vagy a hordozásban és pici babát szeretnél hordozni.",
       `szeretnél kipróbálni többféle eszközt is, hogy megtaláljuk azt, ami
         hozzátok illik`,
       `ha a hordozás alapjait szeretnéd megtanulni: hogy biztonságos,
@@ -54,10 +57,10 @@ const consultations = [
         otthonod nyugalmában elkezdhetsz hordozni. Miután szereztél egy kis
         tapasztalatot és új kérdések merültek fel vagy még marad benned
         kétely, akkor személyesen vagy online a fennmaradó időben azzal
-        foglalkozunk, amire szükséged van.`
+        foglalkozunk, amire szükséged van.`,
     ],
-    bookingUrl: 'https://app.minup.io/book/hordozz-szabadon/service/25704'
-  }
+    bookingUrl: "https://app.minup.io/book/hordozz-szabadon/service/25704",
+  },
 ];
 
 export default function Page() {

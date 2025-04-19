@@ -15,8 +15,18 @@ const sendEmail = async (data, file) => {
 
   const html = await render(renderEmailTemplate(data));
 
-  const arrayBuffer = await file.arrayBuffer();
-  const fileBuffer = Buffer.from(arrayBuffer);
+   
+  let attachments = [];
+  if (file) {
+    const arrayBuffer = await file.arrayBuffer();
+    const fileBuffer = Buffer.from(arrayBuffer);
+    attachments = [
+      {
+        filename: 'szamla.pdf',
+        content: fileBuffer,
+      }
+    ]
+  }
   
   const mailOptions = {
     from: `Mia - [Hordozz Szabadon] <${process.env.MAIL_EMAIL}>`,
@@ -24,12 +34,7 @@ const sendEmail = async (data, file) => {
     cc: 'miaorban@gmail.com',
     subject: 'A hozzátok illő hordozók',
     html,
-    attachments: [
-      {
-        filename: 'szamla.pdf',
-        content: fileBuffer,
-      }
-    ]
+    attachments
   };
 
   try {

@@ -201,6 +201,7 @@ export default function CarrierSelector() {
 
     // xs: hudi, fizio, liliputi nem jo
     // felli rovid derekpanttal, maraya oldalt puha v kemeny derekpant derekpant, magyarinda mini jo
+    // csengelino
 
     // xl: kibi, csengelino, magyarinda, manduca xt, ringa fuba, felli (hosszu vallpant parnaval), bondolino, mobius 3in1
   }

@@ -4,12 +4,13 @@ export default function Consultation({ consultation }) {
   return (
     <div className={consultation.className} id={consultation.id}>
       <div className='flex justify-center
-      py-12 px-20'>
+      py-12 px-12'>
         <div className='max-w-[800px]'>
           <div className="flex justify-between text-secondary font-bold">
-            <div className="text-4xl">
+            <div className="text-2xl">
               <p>{consultation.title}</p>
               <p>tanácsadás</p>
+              <small className='italic font-light block sm:hidden'>{consultation.subTitle}</small>
             </div>
             <div className='flex items-end'>
               <span className="text-4xl mr-0.5">{consultation.duration}</span>
@@ -17,7 +18,10 @@ export default function Consultation({ consultation }) {
               </div>
           </div>
           <Divider className='h-1 bg-secondary'/>
-          <p className='font-bold text-end mt-1 text-xl text-primary'>A konzultáció díja {consultation.price}</p>
+          <div className='flex flex-wrap sm:justify-between mt-1'>
+            <p className='italic font-light hidden sm:block'>{consultation.subTitle}</p>
+            <p className='font-bold text-end text-xl text-primary'>A konzultáció díja {consultation.price}</p>
+          </div>
           <p className="mb-4 mt-8 italic text-xl">Neked ajánlom, ha...</p>
           <ul className='list-disc italic text-xl text-primary'>
             {
