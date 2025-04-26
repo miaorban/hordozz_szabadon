@@ -204,6 +204,8 @@ export default function CarrierSelector() {
     // csengelino
 
     // xl: kibi, csengelino, magyarinda, manduca xt, ringa fuba, felli (hosszu vallpant parnaval), bondolino, mobius 3in1
+  
+    //feszes baba, kisebb terpesz: fizio parnaval, hudi parnaval, magyarinda mini, mobius newborn
   }
 
   const getChipColor = (value) => {
