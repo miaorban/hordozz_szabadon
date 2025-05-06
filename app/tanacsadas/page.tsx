@@ -35,7 +35,7 @@ const consultations = [
       "ha nagyobb gyerkőcöt szeretnél hordozni.",
       "ha szoptatós, cumisüveges pozíciókat szeretnél megismerni.",
     ],
-    bookingUrl: "https://app.minup.io/book/hordozz-szabadon/service/25699",
+    bookingUrl: "/tanacsadas/foglalas/mini",
   },
   {
     title: "Maxi",
