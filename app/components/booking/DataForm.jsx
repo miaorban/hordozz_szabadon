@@ -1,7 +1,7 @@
 'use client';
 import { Input, Checkbox, Button, Divider, Form, Textarea } from "@nextui-org/react";
 import { useContext, useState } from "react";
-import { BookingContext } from "@/app/tanacsadas/foglalas/mini/page";
+import { BookingContext } from "@/app/components/booking/BookingPage";
 
 export default function DataForm() {
   const { 
@@ -39,7 +39,6 @@ export default function DataForm() {
               onChange={(e) => setEmail(e.target.value)}
             />
             <Input
-              isRequired
               errorMessage="Kérlek, töltsd ki ezt a mezőt"
               label="Baba kora"
               labelPlacement="outside"
@@ -52,7 +51,6 @@ export default function DataForm() {
               onChange={(e) => setBabyAge(e.target.value)}
               />
             <Input
-              isRequired
               errorMessage="Kérlek, töltsd ki ezt a mezőt"
               label="Baba súlya"
               labelPlacement="outside"
@@ -66,7 +64,6 @@ export default function DataForm() {
             />
             <Textarea
               className='my-4'
-              isRequired
               errorMessage="Kérlek, írd le, hogy miben segíthetek"
               label="Leírás"
               labelPlacement="outside"

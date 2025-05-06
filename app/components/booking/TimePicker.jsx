@@ -1,11 +1,10 @@
 "use client";
 import { Button } from "@nextui-org/react";
 import { useContext } from "react";
-import { BookingContext } from "@/app/tanacsadas/foglalas/mini/page";
+import { BookingContext } from "@/app/components/booking/BookingPage";
 
 export default function TimePicker() {
   const { time, setTime, timeOptions } = useContext(BookingContext);
-  console.log('timeOptions ', timeOptions);
   
   return (
     <div className="grid grid-cols-3 gap-2 max-w-[500px]">

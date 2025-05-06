@@ -3,7 +3,7 @@ import { Html, Row, Column, Link, Img,
  } from "@react-email/components";
 
 export default function ConsultationConfirmation(props) {
-  const { date = "2022.01.22.", name = 'Mia', online = false } = props;
+  const { date = "2022.01.22.", time = '09:00', name = 'Mia', online = false, type = 'Mini tanácsadás' } = props;
 
   return (
     <Tailwind>
@@ -28,7 +28,8 @@ export default function ConsultationConfirmation(props) {
             </div>
             <p>Foglaládodról értesítést kaptam és a lefoglalt időpontot igyekszem mielőbb megerősíteni.</p>
             <Row style={row} className="my-6">
-              <p className="mb-1">📅 <b>Időpont:</b> { date }</p>
+              <p className="mb-1">📅 <b>Időpont:</b> { date } { time }</p>
+              <p className="mb-1">🔶 <b>Típus:</b> {type }</p>
               {
                 online ?
                 <p>📍 <b>Helyszín: </b>
