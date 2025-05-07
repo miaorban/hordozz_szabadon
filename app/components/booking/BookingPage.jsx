@@ -6,10 +6,12 @@ import DataForm from "@/app/components/booking/DataForm";
 import { redirect } from "next/navigation";
 import { today } from "@internationalized/date"
 import { addToast } from "@heroui/react";
+import { useRouter } from 'next/navigation'
 
 export const BookingContext = createContext();
 
 export default function BookingPage({ type }) {
+  const router = useRouter()
   const timeOptions = [
     { value: "09:00", label: "09:00" },
     { value: "09:30", label: "09:30" },
@@ -24,6 +26,7 @@ export default function BookingPage({ type }) {
   const [email, setEmail] = useState("");
   const [babyAge, setBabyAge] = useState("");
   const [babyWeight, setBabyWeight] = useState("");
+  const [description, setDescription] = useState("");
   const [isOnline, setIsOnline] = useState(false);
   const [date, setDate] = useState(today("Europe/Budapest"));
   const [time, setTime] = useState(timeOptions[0].value);
@@ -31,7 +34,7 @@ export default function BookingPage({ type }) {
 
   const book = async (e) => {
     e.preventDefault();
-
+    console.log('description', description)
     try {
       setIsLoading(true);
       await fetch("api", {
@@ -47,11 +50,14 @@ export default function BookingPage({ type }) {
           isOnline,
           date: date.toString(),
           type,
+          description,
           time,
         }),
       });
-      redirect("/tanacsadas/foglalas/megerosites");
+      router.push("/tanacsadas/foglalas/megerosites");
     } catch (e) {
+      console.log('e', e);
+      
       addToast({
               title: 'Váratlan hiba történt',
               description: 'Kérlek, vedd fel velem a kapcsolatot elérhetőségeim egyikén!',
@@ -81,6 +87,8 @@ export default function BookingPage({ type }) {
         setBabyAge,
         babyWeight,
         setBabyWeight,
+        description,
+        setDescription,
         timeOptions,
         book,
       }}

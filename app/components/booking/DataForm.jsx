@@ -6,7 +6,8 @@ import { BookingContext } from "@/app/components/booking/BookingPage";
 export default function DataForm() {
   const { 
     name, setName, email, setEmail, isOnline, setIsOnline, book,
-    babyAge, setBabyAge, babyWeight, setBabyWeight, isLoading
+    babyAge, setBabyAge, babyWeight, setBabyWeight, isLoading,
+    description, setDescription
   } = useContext(BookingContext);
   const [isSelected, setIsSelected] = useState(true);
 
@@ -70,7 +71,9 @@ export default function DataForm() {
               placeholder="Azokat az információkat, amiket itt megadsz arra fogom használni, hogy
               felkészüljek a tanácsadásra. Például itt leírhatod, hogy van-e már hordozód, elakadtál-e valahol, tudni kell-e
               a babádról valami extrát."
-              size='lg'/>
+              size='lg'
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}/>
           </div>
           <Checkbox classNames={{ icon: "text-[white]" }} 
               size='lg'

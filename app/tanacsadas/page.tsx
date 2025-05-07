@@ -16,7 +16,7 @@ const consultations = [
       `fel szeretnél készülni, hogy mikortól, hogyan és mennyit hordozhatsz`,
       `bizonytalan vagy, hogy miért lenne jó a hordozás a babádnak és neked`,
     ],
-    bookingUrl: "https://app.minup.io/book/hordozz-szabadon/service/28949",
+    bookingUrl: "/tanacsadas/foglalas/hordozovalaszto",
   },
   {
     title: "Mini",
