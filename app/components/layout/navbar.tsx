@@ -9,7 +9,7 @@ import {
   NavbarContent,
   NavbarItem,
   Link,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import Image from "next/image";
 import { usePathname } from 'next/navigation';
 import { montserrat_real } from '@/app/fonts';

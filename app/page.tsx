@@ -2,7 +2,7 @@ import Introduction from "@/app/components/Introduction";
 import Services from "@/app/components/Services";
 import About from "@/app/components/About";
 import Studio from "@/app/components/Studio";
-import { Divider } from "@nextui-org/react";
+import { Divider } from "@heroui/react";
 
 export default function Home() {
   return (

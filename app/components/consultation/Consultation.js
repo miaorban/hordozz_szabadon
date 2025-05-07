@@ -1,4 +1,4 @@
-import { Divider, Button, Link } from '@nextui-org/react';
+import { Divider, Button, Link } from "@heroui/react";
 
 export default function Consultation({ consultation }) {
   return (

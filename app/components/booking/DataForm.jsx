@@ -1,5 +1,5 @@
 'use client';
-import { Input, Checkbox, Button, Divider, Form, Textarea } from "@nextui-org/react";
+import { Input, Checkbox, Button, Divider, Form, Textarea } from "@heroui/react";
 import { useContext, useState } from "react";
 import { BookingContext } from "@/app/components/booking/BookingPage";
 
@@ -14,7 +14,7 @@ export default function DataForm() {
     <Form className="max-w-[700px] py-8" validationBehavior="native" onSubmit={book}>
           <div className='flex flex-wrap 
           justify-center sm:justify-between 
-          gap-8 mt-4'>
+          gap-4 mt-4'>
             <Input
               isRequired
               label="Neved"
@@ -63,20 +63,22 @@ export default function DataForm() {
               onChange={(e) => setBabyWeight(e.target.value)}
             />
             <Textarea
-              className='my-4'
               errorMessage="Kérlek, írd le, hogy miben segíthetek"
               label="Leírás"
               labelPlacement="outside"
               name="description"
               placeholder="Azokat az információkat, amiket itt megadsz arra fogom használni, hogy
-              felkészüljek a tanácsadásra."
+              felkészüljek a tanácsadásra. Például itt leírhatod, hogy van-e már hordozód, elakadtál-e valahol, tudni kell-e
+              a babádról valami extrát."
               size='lg'/>
-            <Checkbox classNames={{ icon: "text-[white]" }} isSelected={isOnline} onValueChange={setIsOnline} 
-            radius="lg" color="secondary">
+          </div>
+          <Checkbox classNames={{ icon: "text-[white]" }} 
+              size='lg'
+              className='mt-2' isSelected={isOnline} onValueChange={setIsOnline} 
+              radius="lg" color="secondary">
               Online érkezem 
             </Checkbox>
-          </div>
-          <Divider className='my-4'/>
+            <Divider className='my-4'/>
           {/* <Checkbox className="hidden" isSelected={isSelected} onValueChange={setIsSelected}>Elolvastam és megértettem a feltételeket</Checkbox> */}
           <div className='flex justify-center sm:justify-end w-full'>
             <Button type="submit" color="secondary" size="lg" className='text-[white] shadow-lg hover:shadow-xl text-xl'

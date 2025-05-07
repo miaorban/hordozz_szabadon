@@ -1,4 +1,4 @@
-import { Card } from '@nextui-org/react';
+import { Card } from "@heroui/react";
 import Contacts from '@/app/components/common/Contacts';
 
 export default function PaymentSuccesful() {

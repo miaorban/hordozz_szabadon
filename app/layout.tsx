@@ -7,6 +7,8 @@ import Footer from "@/app/components/layout/footer";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import HotjarInit from "./hotjarInit";
+import { ToastProvider } from "@heroui/react";
+import { HeroUIProvider } from "@heroui/react";
 
 export const metadata: Metadata = {
   title: "Babahordozási tanácsadás Keszthelyi stúdiómban | Hordozó kölcsönzés",
@@ -36,19 +38,29 @@ export default function RootLayout({
         <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
         <meta name="google" content="notranslate" key="notranslate" />
       </Head>
-      <body
-        className={`antialiased ${montserrat.className}`}
-      >
-       <Navbar/>
-        <div className="mt-[-10px] sm:mt-[-66px]">
-          {children}
-        </div>
-        <div className="hidden sm:block">
-          <Footer/>
-        </div>
-        <Analytics/>
-        <SpeedInsights/>
-        <HotjarInit/>
+      <body className={`antialiased ${montserrat.className}`}>
+        <HeroUIProvider>
+          <Navbar />
+          <div className="mt-[-10px] sm:mt-[-66px]">
+            <ToastProvider
+            placement="bottom-center"
+            toastProps={{
+              radius: "lg",
+              color: "primary",
+              variant: "bordered",
+              timeout: 1500,
+              hideIcon: true
+            }}
+            />
+            {children}
+          </div>
+          <div className="hidden sm:block">
+            <Footer />
+          </div>
+          <Analytics />
+          <SpeedInsights />
+          <HotjarInit />
+        </HeroUIProvider>
       </body>
     </html>
   );

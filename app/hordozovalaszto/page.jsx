@@ -1,5 +1,5 @@
 'use client';
-import { Card, CardFooter, CardBody, Chip, Button } from '@nextui-org/react';
+import { Card, CardFooter, CardBody, Chip, Button } from "@heroui/react";
 import { useState } from 'react';
 
 export default function CarrierSelector() {

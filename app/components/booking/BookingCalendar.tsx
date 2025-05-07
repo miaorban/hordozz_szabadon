@@ -1,7 +1,8 @@
 'use client';
-import { Calendar } from "@nextui-org/react";
+import { Calendar } from "@heroui/react";
 import { useContext } from "react";
 import { BookingContext } from "@/app/components/booking/BookingPage";
+
 
 export default function App() {
   const { date, setDate } = useContext(BookingContext);

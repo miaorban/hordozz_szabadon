@@ -1,6 +1,6 @@
 import PageTitle from "@/app/components/common/PageTitle";
 import Image from 'next/image';
-import { Link } from "@nextui-org/react";
+import { Link } from "@heroui/react";
 
 export default function About() {
   return (
