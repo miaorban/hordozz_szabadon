@@ -1,5 +1,4 @@
-import { Divider } from '@nextui-org/react';
-import Cal from '@/app/components/booking/Cal';
+import { Divider, Button, Link } from "@heroui/react";
 
 export default function Consultation({ consultation }) {
   return (
@@ -32,10 +31,9 @@ export default function Consultation({ consultation }) {
             }
           </ul>
           <div className='flex justify-center mt-12'>
-            {/* <Button href={consultation.bookingUrl} as={Link} size="lg"
+            <Button href={consultation.bookingUrl} as={Link} size="lg"
             color="secondary" className='text-[white] w-72 font-bold shadow-lg hover:shadow-xl text-xl
-            py-8 rounded-3xl'>IDŐPONTFOGLALÁS</Button> */}
-            <Cal consultationType={consultation.id}/>
+            py-8 rounded-3xl'>IDŐPONTFOGLALÁS</Button>
           </div>
         </div>
       </div>

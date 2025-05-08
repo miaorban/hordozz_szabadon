@@ -1,4 +1,4 @@
-import { Link } from "@nextui-org/react";
+import { Link } from "@heroui/react";
 import Image from 'next/image';
 import hordozoEmber1 from '@/public/hordozo_ember_1.svg';
 

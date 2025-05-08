@@ -1,5 +1,5 @@
 'use client';
-import { Card, CardFooter, CardBody, Chip, Button } from '@nextui-org/react';
+import { Card, CardFooter, CardBody, Chip, Button } from "@heroui/react";
 import { useState } from 'react';
 
 export default function CarrierSelector() {
@@ -205,6 +205,12 @@ export default function CarrierSelector() {
 
     // xl: kibi, csengelino, magyarinda, manduca xt, ringa fuba, felli (hosszu vallpant parnaval), bondolino, mobius 3in1
   }
+
+  // kibi - külföld vagy vinted
+  // liliputi
+  // magyarinda kalsszik. szűkítőgumival
+  // magyarinda mini
+  // felli csatos - vándor, utána varratás, ez a legvastagabb
 
   const getChipColor = (value) => {
     console.log('value ', value);

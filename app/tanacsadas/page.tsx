@@ -16,6 +16,8 @@ const consultations = [
       `fel szeretnél készülni, hogy mikortól, hogyan és mennyit hordozhatsz`,
       `bizonytalan vagy, hogy miért lenne jó a hordozás a babádnak és neked`,
     ]
+    ],
+    bookingUrl: "/tanacsadas/foglalas/hordozovalaszto",
   },
   {
     title: "Mini",
@@ -34,6 +36,8 @@ const consultations = [
       "ha nagyobb gyerkőcöt szeretnél hordozni.",
       "ha szoptatós, cumisüveges pozíciókat szeretnél megismerni.",
     ]
+    ],
+    bookingUrl: "/tanacsadas/foglalas/mini",
   },
   {
     title: "Maxi",
@@ -57,6 +61,8 @@ const consultations = [
         kétely, akkor személyesen vagy online a fennmaradó időben azzal
         foglalkozunk, amire szükséged van.`,
     ]
+    ],
+    bookingUrl: "/tanacsadas/foglalas/maxi",
   },
 ];
 

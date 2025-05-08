@@ -1,6 +1,6 @@
 'use client';
 import { Form, Input, Button, Textarea, Divider,
- Checkbox, Alert, Card, CardFooter, CardBody } from '@nextui-org/react';
+ Checkbox, Alert, Card, CardFooter, CardBody } from "@heroui/react";
 import { useState } from 'react';
 import CustomFileInput from '@/app/components/file-input/CustomFileInput';
 import Image from 'next/image';
@@ -67,7 +67,6 @@ export default function FitCheck() {
     <div className="flex flex-col items-center mt-24 sm:mt-40 px-4 
     bg-[url('/maxi_consultation_bg.png')] bg-no-repeat bg-bottom bg-cover
     [background-position-y:75rem] lg:[background-position-y:30rem]">
-
       <div className="max-w-[700px]">
         <div className="text-4xl sm:text-5xl font-bold text-secondary text-left mb-4
           max-w-64">

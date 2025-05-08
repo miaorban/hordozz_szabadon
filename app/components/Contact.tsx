@@ -1,4 +1,4 @@
-import { Link, Divider } from "@nextui-org/react";
+import { Link, Divider } from "@heroui/react";
 import Image from 'next/image';
 import hordozoEmber5 from '@/public/hordozo_ember_5.svg';
 

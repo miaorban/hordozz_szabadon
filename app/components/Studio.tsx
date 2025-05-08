@@ -1,6 +1,6 @@
 import PageTitle from "@/app/components/common/PageTitle";
 import Contacts from "@/app/components/common/Contacts";
-import { Button, Link } from "@nextui-org/react";
+import { Button, Link } from "@heroui/react";
 
 export default function Studio() {
   return (
