@@ -46,7 +46,7 @@ export default function Introduction() {
       >
         <Button
           as={Link}
-          href="https://app.minup.io/book/hordozz-szabadon"
+          href="https://cal.com/hordozz-szabadon"
           size="lg"
           className="shadow-xl text-bold text-secondary font-bold bg-[white]
             w-72 text-xl py-8 rounded-3xl"

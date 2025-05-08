@@ -1,7 +1,6 @@
 import Image from "next/image";
 import SocialMedia from "@/app/components/common/SocialMedia";
 
-
 export default function Footer() {
   return (
     <div className="flex justify-between

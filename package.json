@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@calcom/embed-react": "^1.5.3",
     "@google-cloud/logging-winston": "^6.0.0",
     "@nextui-org/react": "^2.6.8",
     "@react-email/components": "^0.0.33",

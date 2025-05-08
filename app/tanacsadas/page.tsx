@@ -1,6 +1,6 @@
-import React from 'react';
-import Introduction from '../components/consultation/Introduction';
-import Consultation from '../components/consultation/Consultation';
+import React from "react";
+import Introduction from "../components/consultation/Introduction";
+import Consultation from "../components/consultation/Consultation";
 
 const consultations = [
   {
@@ -15,8 +15,7 @@ const consultations = [
       `babádat várod és már tudod, hogy hordozni szeretnéd`,
       `fel szeretnél készülni, hogy mikortól, hogyan és mennyit hordozhatsz`,
       `bizonytalan vagy, hogy miért lenne jó a hordozás a babádnak és neked`,
-    ],
-    bookingUrl: "https://app.minup.io/book/hordozz-szabadon/service/28949",
+    ]
   },
   {
     title: "Mini",
@@ -34,8 +33,7 @@ const consultations = [
       "ha fel szeretnél próbálni két-három különböző eszközt.",
       "ha nagyobb gyerkőcöt szeretnél hordozni.",
       "ha szoptatós, cumisüveges pozíciókat szeretnél megismerni.",
-    ],
-    bookingUrl: "https://app.minup.io/book/hordozz-szabadon/service/25699",
+    ]
   },
   {
     title: "Maxi",
@@ -58,27 +56,28 @@ const consultations = [
         tapasztalatot és új kérdések merültek fel vagy még marad benned
         kétely, akkor személyesen vagy online a fennmaradó időben azzal
         foglalkozunk, amire szükséged van.`,
-    ],
-    bookingUrl: "https://app.minup.io/book/hordozz-szabadon/service/25704",
+    ]
   },
 ];
 
 export default function Page() {
-
   return (
     <>
       <Introduction />
-      <div className="bg-[url('/intro_bg.svg')] 
+      <div
+        className="bg-[url('/intro_bg.svg')] 
         h-48 md:h-64 
         bg-cover bg-bottom
         mt-[-80px] md:mt-[-80px] 
-        mb-[-80px] md:mb-[-150px]"></div>
-      <div className="bg-[url('/mini_tanacsadas.svg')] bg-no-repeat 
-        bg-cover bg-center">
-        {
-          consultations.map((consultation, index) => 
-            <Consultation consultation={consultation} key={index}/> )
-        }
+        mb-[-80px] md:mb-[-150px]"
+      ></div>
+      <div
+        className="bg-[url('/mini_tanacsadas.svg')] bg-no-repeat 
+        bg-cover bg-center"
+      >
+        {consultations.map((consultation, index) => (
+          <Consultation consultation={consultation} key={index} />
+        ))}
       </div>
     </>
   );
