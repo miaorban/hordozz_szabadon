@@ -1,6 +1,6 @@
 'use client';
 import { Input, Checkbox, Button, Divider, Form, Textarea } from "@heroui/react";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { BookingContext } from "@/app/components/booking/BookingPage";
 
 export default function DataForm() {
@@ -9,7 +9,7 @@ export default function DataForm() {
     babyAge, setBabyAge, babyWeight, setBabyWeight, isLoading,
     description, setDescription, type
   } = useContext(BookingContext);
-  const [isSelected, setIsSelected] = useState(true);
+  // const [isSelected, setIsSelected] = useState(true);
   
   return (
     <Form className="max-w-[700px] py-8" validationBehavior="native" onSubmit={book}>
@@ -88,7 +88,8 @@ export default function DataForm() {
           {/* <Checkbox className="hidden" isSelected={isSelected} onValueChange={setIsSelected}>Elolvastam és megértettem a feltételeket</Checkbox> */}
           <div className='flex justify-center sm:justify-end w-full'>
             <Button type="submit" color="secondary" size="lg" className='text-[white] shadow-lg hover:shadow-xl text-xl'
-              isDisabled={!isSelected} isLoading={isLoading}>
+              // isDisabled={!isSelected} 
+              isLoading={isLoading}>
               Foglalás
             </Button>
           </div>

@@ -60,7 +60,7 @@ export default function BookingPage({ type, timeOptions }) {
       } else {
         router.push("/tanacsadas/foglalas/megerosites");
       }
-    } catch (e) {
+    } catch {
       addToast({
               title: 'Váratlan hiba történt',
               description: 'Kérlek, vedd fel velem a kapcsolatot elérhetőségeim egyikén!',

@@ -20,7 +20,7 @@ export default function TimePicker() {
         setTime(times[0]);
       }
     }
-  }, [date, timeOptions]);
+  }, [date, timeOptions, setTime]);
 
   useEffect(() => {
     console.log('times ', times);
