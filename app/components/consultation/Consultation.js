@@ -4,7 +4,8 @@ export default function Consultation({ consultation }) {
   return (
     <div className={consultation.className} id={consultation.id}>
       <div className='flex justify-center
-      py-12 px-12'>
+        py-12 px-12
+        pb-24 md:pb-12'>
         <div className='max-w-[800px]'>
           <div className="flex justify-between text-secondary font-bold">
             <div className="text-2xl">

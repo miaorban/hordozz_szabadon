@@ -111,7 +111,7 @@ export default function FitCheck() {
             )}
       </div>
 
-        <Form className="max-w-[700px] py-8" validationBehavior="native" onSubmit={onSubmit}>
+        <Form className="max-w-[700px] py-8 pb-24 md:pb-8" validationBehavior="native" onSubmit={onSubmit}>
           <div className='flex flex-wrap 
           justify-center sm:justify-between 
           gap-8 mt-4'>

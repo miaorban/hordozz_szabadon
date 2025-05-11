@@ -50,7 +50,8 @@ export default function Studio() {
         flex-col
         gap-x-6
         justify-center items-center
-        mt-12"
+        mt-12
+        pb-24 md:pb-0"
         >
           <Button
             as={Link}
