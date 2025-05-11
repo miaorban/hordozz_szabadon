@@ -4,7 +4,6 @@ import { getSlots } from "@/app/utils/cal";
 
 export default async function Page() {
   const data = await getSlots("hordozovalaszto");
-  console.log('data ', data);
   
   return (
     <>
