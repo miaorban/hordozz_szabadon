@@ -30,7 +30,7 @@ const sendEmail = async ({ link, email, name, file }) => {
   const mailOptions = {
     from: `Mia - [Hordozz Szabadon] <${process.env.MAIL_EMAIL}>`,
     to: email,
-    cc: 'miaorban@gmail.com',
+    cc: 'mia@hordozzszabadon.hu',
     subject: 'Fitcheck válaszvideó',
     html,
     attachments

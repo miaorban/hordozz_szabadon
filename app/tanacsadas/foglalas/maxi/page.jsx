@@ -2,8 +2,6 @@ import MaxiIntroduction from "@/app/components/consultation/MaxiIntroduction";
 import BookingPage from "@/app/components/booking/BookingPage";
 import { getSlots } from "@/app/utils/cal";
 
-export const BookingContext = createContext();
-
 export default async function Page() {
   const data = await getSlots("hordozovalaszto");
 
