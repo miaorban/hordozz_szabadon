@@ -1,8 +1,7 @@
 'use client';
 import { Calendar } from "@heroui/react";
 import { useContext } from "react";
-import { BookingContext } from "@/app/components/booking/BookingPage";
-
+import BookingContext from "@/app/contexts/booking";
 
 export default function App() {
   const { date, setDate } = useContext(BookingContext);

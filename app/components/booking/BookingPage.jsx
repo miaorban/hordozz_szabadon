@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useState } from "react";
+import { useState } from "react";
 import BookingCalendar from "@/app/components/booking/BookingCalendar";
 import TimePicker from "@/app/components/booking/TimePicker";
 import DataForm from "@/app/components/booking/DataForm";
@@ -7,7 +7,6 @@ import { today } from "@internationalized/date"
 import { addToast } from "@heroui/react";
 import { useRouter } from 'next/navigation'
 
-export const BookingContext = createContext();
 
 const eventTypes = {
   mini: 'Mini tanácsadás',

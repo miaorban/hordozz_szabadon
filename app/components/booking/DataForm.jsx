@@ -1,7 +1,7 @@
 'use client';
 import { Input, Checkbox, Button, Divider, Form, Textarea } from "@heroui/react";
 import { useContext } from "react";
-import { BookingContext } from "@/app/components/booking/BookingPage";
+import BookingContext from "@/app/contexts/booking";
 
 export default function DataForm() {
   const { 

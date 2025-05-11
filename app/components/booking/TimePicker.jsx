@@ -1,8 +1,7 @@
 "use client";
 import { Button } from "@heroui/react";
 import { useContext, useEffect, useState } from "react";
-import { BookingContext } from "@/app/components/booking/BookingPage";
-import { toTime, toTimeZone, parseAbsolute } from "@internationalized/date";
+import BookingContext from "@/app/contexts/booking";
 
 export default function TimePicker() {
   const { time, setTime, date, timeOptions } = useContext(BookingContext);
