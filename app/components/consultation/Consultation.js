@@ -31,7 +31,7 @@ export default function Consultation({ consultation }) {
             }
           </ul>
           <div className='flex justify-center mt-12'>
-            <Button href={consultation.bookingUrl} as={Link} size="lg"
+            <Button href={consultation.bookingUrl} as={Link} size="lg" target="_blank" rel="noopener noreferrer"
             color="secondary" className='text-[white] w-72 font-bold shadow-lg hover:shadow-xl text-xl
             py-8 rounded-3xl'>IDŐPONTFOGLALÁS</Button>
           </div>

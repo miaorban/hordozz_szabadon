@@ -206,12 +206,6 @@ export default function CarrierSelector() {
     // xl: kibi, csengelino, magyarinda, manduca xt, ringa fuba, felli (hosszu vallpant parnaval), bondolino, mobius 3in1
   }
 
-  // kibi - külföld vagy vinted
-  // liliputi
-  // magyarinda kalsszik. szűkítőgumival
-  // magyarinda mini
-  // felli csatos - vándor, utána varratás, ez a legvastagabb
-
   const getChipColor = (value) => {
     console.log('value ', value);
     console.log('answers[nextQuestion] ', answers[nextQuestion]);

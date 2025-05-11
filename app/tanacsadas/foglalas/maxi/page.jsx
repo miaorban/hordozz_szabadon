@@ -1,11 +1,12 @@
-'use client';
-import { createContext } from "react";
 import MaxiIntroduction from "@/app/components/consultation/MaxiIntroduction";
 import BookingPage from "@/app/components/booking/BookingPage";
+import { getSlots } from "@/app/utils/cal";
 
 export const BookingContext = createContext();
 
-export default function Page() {
+export default async function Page() {
+  const data = await getSlots("hordozovalaszto");
+
   return (
     <>
       <MaxiIntroduction />
@@ -21,7 +22,7 @@ export default function Page() {
           bg-[url('/maxi_consultation_bg.png')] bg-no-repeat bg-bottom bg-cover
           [background-position-y:15rem] lg:[background-position-y:20rem]"
       >
-        <BookingPage type="Maxi tanácsadás"/>
+        <BookingPage type="maxi" timeOptions={data}/>
       </div>
     </>
   );

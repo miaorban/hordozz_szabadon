@@ -1,11 +1,11 @@
-'use client';
-import { createContext } from "react";
 import MiniIntroduction from "@/app/components/consultation/MiniIntroduction";
 import BookingPage from "@/app/components/booking/BookingPage";
+import { getSlots } from "@/app/utils/cal";
 
-export const BookingContext = createContext();
-
-export default function Page() {
+export default async function Page() {
+  const data = await getSlots("hordozovalaszto");
+  console.log('data ', data);
+  
   return (
     <>
       <MiniIntroduction />
@@ -21,7 +21,7 @@ export default function Page() {
           bg-[url('/maxi_consultation_bg.png')] bg-no-repeat bg-bottom bg-cover
           [background-position-y:15rem] lg:[background-position-y:20rem]"
       >
-        <BookingPage type="Mini tanácsadás"/>
+        <BookingPage type="mini" timeOptions={data}/>
       </div>
     </>
   );

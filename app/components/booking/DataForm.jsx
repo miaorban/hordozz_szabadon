@@ -7,10 +7,10 @@ export default function DataForm() {
   const { 
     name, setName, email, setEmail, isOnline, setIsOnline, book,
     babyAge, setBabyAge, babyWeight, setBabyWeight, isLoading,
-    description, setDescription
+    description, setDescription, type
   } = useContext(BookingContext);
   const [isSelected, setIsSelected] = useState(true);
-
+  
   return (
     <Form className="max-w-[700px] py-8" validationBehavior="native" onSubmit={book}>
           <div className='flex flex-wrap 
@@ -75,12 +75,15 @@ export default function DataForm() {
               value={description}
               onChange={(e) => setDescription(e.target.value)}/>
           </div>
-          <Checkbox classNames={{ icon: "text-[white]" }} 
-              size='lg'
-              className='mt-2' isSelected={isOnline} onValueChange={setIsOnline} 
-              radius="lg" color="secondary">
-              Online érkezem 
-            </Checkbox>
+          {
+            type !== 'hordozovalaszto' &&
+            <Checkbox classNames={{ icon: "text-[white]" }} 
+                size='lg'
+                className='mt-2' isSelected={isOnline} onValueChange={setIsOnline} 
+                radius="lg" color="secondary">
+                Online érkezem 
+              </Checkbox>
+          }
             <Divider className='my-4'/>
           {/* <Checkbox className="hidden" isSelected={isSelected} onValueChange={setIsSelected}>Elolvastam és megértettem a feltételeket</Checkbox> */}
           <div className='flex justify-center sm:justify-end w-full'>

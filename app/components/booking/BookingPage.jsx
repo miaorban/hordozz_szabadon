@@ -9,34 +9,30 @@ import { useRouter } from 'next/navigation'
 
 export const BookingContext = createContext();
 
-export default function BookingPage({ type }) {
-  const router = useRouter()
-  const timeOptions = [
-    { value: "09:00", label: "09:00" },
-    { value: "09:30", label: "09:30" },
-    { value: "10:00", label: "10:00" },
-    { value: "10:30", label: "10:30" },
-    { value: "11:00", label: "11:00" },
-    { value: "13:30", label: "13:30" },
-    { value: "14:00", label: "14:00" },
-  ];
+const eventTypes = {
+  mini: 'Mini tanácsadás',
+  maxi: 'Maxi tanácsadás',
+  hordozovalaszto: 'Hordozóválasztó tanácsadás',
+}
 
+export default function BookingPage({ type, timeOptions }) {
+  const router = useRouter()
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [babyAge, setBabyAge] = useState("");
   const [babyWeight, setBabyWeight] = useState("");
   const [description, setDescription] = useState("");
-  const [isOnline, setIsOnline] = useState(false);
-  const [date, setDate] = useState(today("Europe/Budapest"));
-  const [time, setTime] = useState(timeOptions[0].value);
+  const [isOnline, setIsOnline] = useState(type == 'hordozovalaszto');
+  const [date, setDate] = useState(today("Europe/Budapest").add({ days: 1 }));
+  const [time, setTime] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const book = async (e) => {
     e.preventDefault();
-    console.log('description', description)
+    
     try {
       setIsLoading(true);
-      await fetch("api", {
+      const res = await fetch("api", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -53,10 +49,18 @@ export default function BookingPage({ type }) {
           time,
         }),
       });
-      router.push("/tanacsadas/foglalas/megerosites");
-    } catch (e) {
-      console.log('e', e);
+      console.log('res.ok ', res.ok);
       
+      if (!res.ok) {
+        addToast({
+              title: 'Váratlan hiba történt',
+              description: 'Kérlek, vedd fel velem a kapcsolatot elérhetőségeim egyikén!',
+              color: 'danger',
+            })
+      } else {
+        router.push("/tanacsadas/foglalas/megerosites");
+      }
+    } catch (e) {
       addToast({
               title: 'Váratlan hiba történt',
               description: 'Kérlek, vedd fel velem a kapcsolatot elérhetőségeim egyikén!',
@@ -88,8 +92,9 @@ export default function BookingPage({ type }) {
         setBabyWeight,
         description,
         setDescription,
-        timeOptions,
         book,
+        timeOptions,
+        type
       }}
     >
       <div className="text-4xl sm:text-5xl font-bold text-secondary text-left mb-24 mt-12
@@ -100,7 +105,7 @@ export default function BookingPage({ type }) {
       <div className="flex flex-wrap gap-12 justify-center">
         <BookingCalendar />
         <div>
-          <TimePicker />
+          <TimePicker eventType={eventTypes[type]}/>
         </div>
       </div>
       <div className="flex justify-center">

@@ -15,9 +15,9 @@ const consultations = [
       `babádat várod és már tudod, hogy hordozni szeretnéd`,
       `fel szeretnél készülni, hogy mikortól, hogyan és mennyit hordozhatsz`,
       `bizonytalan vagy, hogy miért lenne jó a hordozás a babádnak és neked`,
-    ]
     ],
-    bookingUrl: "/tanacsadas/foglalas/hordozovalaszto",
+    bookingUrl: "https://cal.com/hordozz-szabadon/hordozovalaszto",
+    // bookingUrl: "/tanacsadas/foglalas/hordozovalaszto",
   },
   {
     title: "Mini",
@@ -35,9 +35,9 @@ const consultations = [
       "ha fel szeretnél próbálni két-három különböző eszközt.",
       "ha nagyobb gyerkőcöt szeretnél hordozni.",
       "ha szoptatós, cumisüveges pozíciókat szeretnél megismerni.",
-    ]
     ],
-    bookingUrl: "/tanacsadas/foglalas/mini",
+    bookingUrl: "https://cal.com/hordozz-szabadon/mini",
+    // bookingUrl: "/tanacsadas/foglalas/mini",
   },
   {
     title: "Maxi",
@@ -60,9 +60,9 @@ const consultations = [
         tapasztalatot és új kérdések merültek fel vagy még marad benned
         kétely, akkor személyesen vagy online a fennmaradó időben azzal
         foglalkozunk, amire szükséged van.`,
-    ]
     ],
-    bookingUrl: "/tanacsadas/foglalas/maxi",
+    bookingUrl: "https://cal.com/hordozz-szabadon/maxi",
+    // bookingUrl: "/tanacsadas/foglalas/maxi",
   },
 ];
 
