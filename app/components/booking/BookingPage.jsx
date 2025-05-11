@@ -6,6 +6,7 @@ import DataForm from "@/app/components/booking/DataForm";
 import { today } from "@internationalized/date"
 import { addToast } from "@heroui/react";
 import { useRouter } from 'next/navigation'
+import BookingContext from "@/app/contexts/booking";
 
 
 const eventTypes = {
