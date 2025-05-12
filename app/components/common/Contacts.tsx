@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 
 export default function Contacts({ useBlackIcons = false }) {
@@ -22,7 +21,9 @@ export default function Contacts({ useBlackIcons = false }) {
           <p>
             <i>Keszthely, Ruszek József u. 54</i>
           </p>
-          <p><i>vagy Google Meet</i></p>
+          <p>
+            <i>vagy Google Meet</i>
+          </p>
         </div>
       </div>
 
@@ -50,7 +51,7 @@ export default function Contacts({ useBlackIcons = false }) {
           />
         </div>
         <div className="flex justify-center">
-          <i>miaorban@gmail.com</i>
+          <i>mia@hordozzszabadon.hu</i>
         </div>
       </div>
     </div>

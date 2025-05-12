@@ -22,7 +22,7 @@ const sendEmail = async (data) => {
   const mailOptions = {
     from: `Mia - [Hordozz Szabadon] <${process.env.MAIL_EMAIL}>`,
     to: data.email,
-    cc: 'miaorban@gmail.com',
+    cc: 'mia@hordozzszabadon.hu',
     subject,
     html,
   };

@@ -17,7 +17,7 @@ const sendEmail = async (data) => {
   
   const mailOptions = {
     from: `Mia - [Hordozz Szabadon] <${process.env.MAIL_EMAIL}>`,
-    to: 'miaorban@gmail.com',
+    to: 'mia@hordozzszabadon.hu',
     subject: 'Időpontfoglalás értesítő',
     html,
   };
