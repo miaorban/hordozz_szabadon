@@ -33,7 +33,7 @@ export default function ConsultationConfirmation(props) {
                 <Row style={row}>
                 <Column align="center" className="py-4">
                   <p>📌 <b>Időpont:</b> { date }</p>
-                  <Button href="https://meet.google.com/imu-gzte-xrm" style={videoButton} className="shadow-lg uppercase">
+                  <Button href="https://meet.google.com/yqe-ssbb-ezp" style={videoButton} className="shadow-lg uppercase">
                     BELÉPÉS A KONZULTÁCIÓRA
                   </Button>
                 </Column>

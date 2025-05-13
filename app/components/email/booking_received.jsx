@@ -33,7 +33,7 @@ export default function ConsultationConfirmation(props) {
               {
                 online ?
                 <p>📍 <b>Helyszín: </b>
-                <Link href="https://meet.google.com/imu-gzte-xrm"
+                <Link href="https://meet.google.com/yqe-ssbb-ezp"
                  style={linkStyle}>Google Meet</Link></p>
                 : <p>📍 <b>Helyszín: </b>Keszthely, Ruszek József u. 54</p>
               }
