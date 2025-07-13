@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "hordozz-szabadon",
+  "private_key_id": "2e1dba8b7352e1b7e0921033e01ce5ccbf37ff42",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDlfCpshbf80z8P\n9a3r9lDO63H/ZYQ3qpohTfXggoL8YZuAP/F8zEG26D0WHWEK4mD67mS7kyYpWmnx\nhu0ZsFzwqMEhgzL2feiNS0mj+nWHxeuOexGFhkdGgBnczCMBGBwkSiXQ5hf/5QPw\nTGA17uss9wzpBvAnEVNCSNfawe9GpEt1Ky9rYLf4WUzRMSpfhy/k7ebD1ILvJsyh\nmOXvttCpC3quK4T6ITpROCwQDSpNH5nirXk+/dD08Qp2JsLtK87bYoWIlqBmVEGU\nscX5UqotP4pOjpv0qPkg+MZHexupXBsIZlewdOeWsymfGIspdGpT2ugaVLd9tQYY\nNC+sk+M5AgMBAAECggEAEhZEjGPIVIzxyM2Rn6oSRGdvh172RMzqyPqJXotAIlQv\nGrSaJpPoD1p5NhJVYQjmoTXDirqA+ia+IuMs3NF3Act12AZXMJuhMJcL1CNxZU9x\neWa0bX8KhGv5ndrDsi+28sVFUGmnipZU8SOT5wGlrNhBPuc6a68vOLzfsRuH7bFE\nbA0ywKZo2vol0WnDOCxJd5iB0Y8i/n7JMxMuFtawlKwa7wsWuE8qY7TSm8muXmdk\ncrrmseWjLtCw+3aKDGA1rjL/NDViuunsYWJv0alqDRBsb4s602WS4CcbLKsbH8Mi\nE4mR94WADrR2IDPPSC1TqL1CIgw+jeIy53NU6x254QKBgQDztTMBIO5qHYDKDqsE\nlhVLmo28LBLVkcfeqrtyXRkVawp/e1YHa74AwcvSaOSmEnuAd53qAFpsnE9TALko\nMRFFo4DxnfNrg0uzqZuki4gd5YFv/+yND7Tumg+upj8E6G3bADze+Ipy89MSbnqL\n4m8t81W3PdtmNrxIrcrCEAr9BwKBgQDxD1G27AZAkeABMhcqURGYgDNLAKWQq6fE\nPZ6dw87sxNeiOpjwPNDJV/QqTuzN1vgDgY+OFOyfd39/FV6HbTj2umy9+9sIM2wb\nspRJZ0EL5KE3hE7PZFa4bye0c9sXZ4rnjGijFrQGd9SeB4z5Q8CV0K5qYvbXtr6M\nkNOaXApNvwKBgGG+ggdo2taKoLXpriO3wjDBeylGkANCZeRjm6yhtEbH2L0KjZWK\nW/lXwNTSJyqIbSo4T4ijvaCkDJigyKJbE69XhYbir9emID2dwAP9xokfHIv8HDbz\nXsD332RP3ySryCu267MOAhFaw4Q39USXe7n1R6Kn15AmUdvggFrXLmEPAoGAL1ia\n7Bqff78nCBUWh7E0i4dii7Cs1CVi5iBULxhuZAKld6+aqlTHjURBKK4nxKYcQFQK\nJhXmA8wstoEz99V0AsHK6eW1t36iFS6WAXTOSc+1+nl6ITHL9p2eZsr6lTY5ChGB\n28ZxxXNzxzYkcjDkeohqOWsGoIe8FU+8v+yj+XECgYABqdsbVw53apqif/obN+SR\nKxu6BH4vuJBy4u6SQ6i7WBEo82AaCCZBcCf3n+8Ck4aQWmgATcqJLXLR6+y3h87g\n/LxHu6tUzRnsXEHmw9LYulyRq0oO7iF5isz/bZkT/RuMEQTEvfzcDZNYFKwSi5uT\nO8A4WNImQ0GjHEvdsSUq7Q==\n-----END PRIVATE KEY-----\n",
+  "client_email": "webapp@hordozz-szabadon.iam.gserviceaccount.com",
+  "client_id": "112149464055131007120",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/webapp%40hordozz-szabadon.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
