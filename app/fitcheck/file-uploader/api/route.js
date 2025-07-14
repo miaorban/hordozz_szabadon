@@ -3,10 +3,12 @@ export const dynamic = "force-dynamic";
 import { Storage } from '@google-cloud/storage';
 
 // Creates a client
-const storage = new Storage({
-  projectId: "yhordozz-szabadon",
-  keyFilename: "hordozz-szabadon-2e1dba8b7352.json"
-});
+// const storage = new Storage({
+//   projectId: "hordozz-szabadon",
+//   keyFilename: "hordozz-szabadon-2e1dba8b7352.json"
+// });
+
+const storage = new Storage();
 
 export async function GET(request) {
     const { searchParams } = new URL(request.url);
