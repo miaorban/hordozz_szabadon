@@ -2,6 +2,7 @@ export const dynamic = "force-dynamic";
 // Imports the Google Cloud client library
 import { Storage } from '@google-cloud/storage';
 import { NextResponse } from 'next/server';
+import { logger } from '@/app/winston';
 
 // Creates a client
 const storage = process.env.NODE_ENV === 'development' 
@@ -15,7 +16,7 @@ export async function GET(request) {
     const { searchParams } = new URL(request.url);
     const fitcheckId = searchParams.get('fitcheckId');
     const photoCount = searchParams.get('photoCount');
-    console.log('GET /api/fitcheck/file-uploader', { fitcheckId, photoCount });
+    logger.info('GET /api/fitcheck/file-uploader', { fitcheckId, photoCount });
     
     const urls = [];
     for (let i = 0; i < photoCount; i++) {
@@ -23,7 +24,7 @@ export async function GET(request) {
     }
     
     const result = await Promise.all(urls);
-    console.log('result', result);
+    logger.info('Generated signed URLs', { result });
     return NextResponse.json({ urls: result });
 }
 
@@ -42,14 +43,11 @@ async function generateV4ReadSignedUrl(folderName, fileName) {
       .file(`${folderName}/${fileName}`)
       .getSignedUrl(options);
 
-    console.log('Generated GET signed URL:');
-    // console.log(url);
-    console.log('You can use this URL with any user agent, for example:');
-    // console.log(`curl '${url}'`);
+    logger.info('Generated GET signed URL:', { url });
     
     return url;
   } catch (error) {
-    console.error('Error generating signed URL:', error);
+    logger.error('Error generating signed URL:', { error: error.message });
     return null;
   }
 }
