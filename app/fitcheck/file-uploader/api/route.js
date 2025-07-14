@@ -1,26 +1,30 @@
 export const dynamic = "force-dynamic";
 // Imports the Google Cloud client library
 import { Storage } from '@google-cloud/storage';
+import { NextResponse } from 'next/server';
 
 // Creates a client
-// const storage = new Storage({
-//   projectId: "hordozz-szabadon",
-//   keyFilename: "hordozz-szabadon-2e1dba8b7352.json"
-// });
-
-const storage = new Storage();
+const storage = process.env.NODE_ENV === 'development' 
+  ? new Storage({
+      projectId: "hordozz-szabadon",
+      keyFilename: "hordozz-szabadon-4ee8806bc94e.json"
+    })
+  : new Storage();
 
 export async function GET(request) {
     const { searchParams } = new URL(request.url);
     const fitcheckId = searchParams.get('fitcheckId');
     const photoCount = searchParams.get('photoCount');
     console.log('GET /api/fitcheck/file-uploader', { fitcheckId, photoCount });
+    
+    const urls = [];
     for (let i = 0; i < photoCount; i++) {
-      generateV4ReadSignedUrl(fitcheckId, i);
+      urls.push(generateV4ReadSignedUrl(fitcheckId, i));
     }
     
-
-    return new Response({ fitcheckId, photoCount });
+    const result = await Promise.all(urls);
+    console.log('result', result);
+    return NextResponse.json({ urls: result });
 }
 
 async function generateV4ReadSignedUrl(folderName, fileName) {
@@ -39,9 +43,9 @@ async function generateV4ReadSignedUrl(folderName, fileName) {
       .getSignedUrl(options);
 
     console.log('Generated GET signed URL:');
-    console.log(url);
+    // console.log(url);
     console.log('You can use this URL with any user agent, for example:');
-    console.log(`curl '${url}'`);
+    // console.log(`curl '${url}'`);
     
     return url;
   } catch (error) {
