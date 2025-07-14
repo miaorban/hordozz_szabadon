@@ -1,5 +1,5 @@
 'use client';
-import { Card, CardFooter, CardBody, Chip, Button } from '@nextui-org/react';
+import { Card, CardFooter, CardBody, Chip, Button } from "@heroui/react";
 import { useState } from 'react';
 
 export default function CarrierSelector() {
@@ -191,7 +191,15 @@ export default function CarrierSelector() {
     } else if (nextQuestion == 'body_size') {
       setNextQuestion('extra')
     }
-    
+   
+    // maraya 3kg
+    // magyarinda mini 
+    // bondolino 4kg
+    // close caboo
+
+
+    // liliputi felcsatos, magyarinda mini, close caboo
+
     // const options = [
     //   'caboo', 'kendo', 'karikas_kendo', 'formazott_felcsatos', 'meitai', 'formazott'
     // ];

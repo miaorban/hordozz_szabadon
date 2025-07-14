@@ -1,10 +1,11 @@
-import { Divider, Button, Link } from '@nextui-org/react';
+import { Divider, Button, Link } from "@heroui/react";
 
 export default function Consultation({ consultation }) {
   return (
     <div className={consultation.className} id={consultation.id}>
       <div className='flex justify-center
-      py-12 px-12'>
+        py-12 px-12
+        pb-24 md:pb-12'>
         <div className='max-w-[800px]'>
           <div className="flex justify-between text-secondary font-bold">
             <div className="text-2xl">
@@ -31,7 +32,7 @@ export default function Consultation({ consultation }) {
             }
           </ul>
           <div className='flex justify-center mt-12'>
-            <Button href={consultation.bookingUrl} as={Link} size="lg"
+            <Button href={consultation.bookingUrl} as={Link} size="lg" target="_blank" rel="noopener noreferrer"
             color="secondary" className='text-[white] w-72 font-bold shadow-lg hover:shadow-xl text-xl
             py-8 rounded-3xl'>IDŐPONTFOGLALÁS</Button>
           </div>

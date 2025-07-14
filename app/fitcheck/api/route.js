@@ -44,8 +44,8 @@ export const POST = async (req) => {
 
     const mailOptions = {
       from: `Mia - [Hordozz Szabadon] <${process.env.MAIL_EMAIL}>`,
-      to: 'miaorban@gmail.com',
-      subject: 'Form Submission with Files',
+      to: 'mia@hordozzszabadon.hu',
+      subject: 'Fitcheck érkezett',
       html: `
               <p>Email: ${email} </p>
               <p>referenceId: ${referenceId} </p>
@@ -61,7 +61,7 @@ export const POST = async (req) => {
     await transporter.sendMail(mailOptions);
     // await transporter.sendMail({
     //   from: `Mia - [Hordozz Szabadon] <${process.env.MAIL_EMAIL}>`,
-    //   to: 'miaorban@gmail.com',
+    //   to: 'mia@hordozzszabadon.hu',
     //   subject: 'Form Submission with Files',
     //   html: fitcheckFeedbackEmail({ name })
     // });

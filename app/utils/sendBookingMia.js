@@ -1,8 +1,8 @@
 import nodemailer from 'nodemailer';
-import renderEmailTemplate from '../components/email/hordozovalaszto';
+import renderEmailTemplate from '../components/email/booking_received_mia';
 import { render } from '@react-email/components';
 
-const sendEmail = async (data, file) => {
+const sendEmail = async (data) => {
   const transporter = nodemailer.createTransport({
       host: process.env.MAIL_DOMAIN, 
       port: 465,
@@ -14,27 +14,12 @@ const sendEmail = async (data, file) => {
     });
 
   const html = await render(renderEmailTemplate(data));
-
-   
-  let attachments = [];
-  if (file) {
-    const arrayBuffer = await file.arrayBuffer();
-    const fileBuffer = Buffer.from(arrayBuffer);
-    attachments = [
-      {
-        filename: 'szamla.pdf',
-        content: fileBuffer,
-      }
-    ]
-  }
   
   const mailOptions = {
     from: `Mia - [Hordozz Szabadon] <${process.env.MAIL_EMAIL}>`,
-    to: data.email,
-    cc: 'mia@hordozzszabadon.hu',
-    subject: 'A hozzátok illő hordozók',
+    to: 'mia@hordozzszabadon.hu',
+    subject: 'Időpontfoglalás értesítő',
     html,
-    attachments
   };
 
   try {

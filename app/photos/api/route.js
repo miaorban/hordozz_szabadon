@@ -38,7 +38,7 @@ export const POST = async (req) => {
 
     const mailOptions = {
       from: process.env.MAIL_EMAIL,
-      to: 'miaorban@gmail.com',
+      to: 'mia@hordozzszabadon.hu',
       subject: 'Form Submission with Files',
       html: `
               <p>Email: ${formData.get('email')} </p>

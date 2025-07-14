@@ -1,4 +1,4 @@
-import { Card, CardBody, CardFooter, Link } from "@nextui-org/react";
+import { Card, CardBody, CardFooter, Link } from "@heroui/react";
 import PageTitle from "@/app/components/common/PageTitle";
 import Image from 'next/image';
 

@@ -70,7 +70,7 @@ export default function Email(props) {
 
           <Row style={row} className="py-4 my-4">
             <Column align="center">
-              <Button className="mr-2 shadow-lg" style={videoButton} href="https://app.minup.io/book/hordozz-szabadon"><b>IDŐPONTFOGLALÁS</b></Button>
+              <Button className="mr-2 shadow-lg" style={videoButton} href="https://cal.com/hordozz-szabadon"><b>IDŐPONTFOGLALÁS</b></Button>
               <Button className="ml-2 shadow-lg" style={videoButton}  href="www.hordozzszabadon.hu"><b>TOVÁBBI INFÓK</b></Button>
             </Column>
           </Row>

@@ -1,6 +1,6 @@
 import PageTitle from "@/app/components/common/PageTitle";
 import Contacts from "@/app/components/common/Contacts";
-import { Button, Link } from "@nextui-org/react";
+import { Button, Link } from "@heroui/react";
 
 export default function Studio() {
   return (
@@ -50,11 +50,12 @@ export default function Studio() {
         flex-col
         gap-x-6
         justify-center items-center
-        mt-12"
+        mt-12
+        pb-24 md:pb-0"
         >
           <Button
             as={Link}
-            href="https://app.minup.io/book/hordozz-szabadon"
+            href="https://cal.com/hordozz-szabadon"
             size="lg"
             className="shadow-xl text-bold text-secondary font-bold bg-[white]
              lg:w-72 text-xl py-8 rounded-3xl text-center"
