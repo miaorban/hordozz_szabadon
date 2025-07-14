@@ -40,3 +40,5 @@ out.zip
 .env
 # Sentry Config File
 .env.sentry-build-plugin
+
+hordozz-szabadon-2e1dba8b7352.json
