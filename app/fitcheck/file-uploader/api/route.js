@@ -13,6 +13,16 @@ const GCP_WORKLOAD_IDENTITY_POOL_ID = process.env.GCP_WORKLOAD_IDENTITY_POOL_ID;
 const GCP_WORKLOAD_IDENTITY_POOL_PROVIDER_ID =
   process.env.GCP_WORKLOAD_IDENTITY_POOL_PROVIDER_ID;
   
+// Debug environment variables
+logger.info('GCP Environment Variables:', {
+  GCP_PROJECT_ID: !!GCP_PROJECT_ID,
+  GCP_PROJECT_NUMBER: !!GCP_PROJECT_NUMBER,
+  GCP_SERVICE_ACCOUNT_EMAIL: !!GCP_SERVICE_ACCOUNT_EMAIL,
+  GCP_WORKLOAD_IDENTITY_POOL_ID: !!GCP_WORKLOAD_IDENTITY_POOL_ID,
+  GCP_WORKLOAD_IDENTITY_POOL_PROVIDER_ID: !!GCP_WORKLOAD_IDENTITY_POOL_PROVIDER_ID,
+  NODE_ENV: process.env.NODE_ENV
+});
+
 // Initialize the External Account Client
 const authClient = ExternalAccountClient.fromJSON({
   type: 'external_account',
@@ -26,16 +36,16 @@ const authClient = ExternalAccountClient.fromJSON({
   },
 });
 
-// Creates a client
+logger.info('Auth client initialized:', { authClientType: authClient.constructor.name });
+
+
+// Use service account key for development, OIDC for production
 const storage = process.env.NODE_ENV === 'development' 
-  ? new Storage({
-      projectId: "hordozz-szabadon",
-      keyFilename: "hordozz-szabadon-4ee8806bc94e.json"
-    })
+  ? new Storage()
   : new Storage({
-    projectId: GCP_PROJECT_ID,
-    authClient
-  });
+      projectId: GCP_PROJECT_ID,
+      authClient,
+    });
 
 export async function GET(request) {
     const { searchParams } = new URL(request.url);
@@ -62,6 +72,8 @@ async function generateV4ReadSignedUrl(folderName, fileName) {
       expires: Date.now() + 15 * 60 * 1000, // 15 minutes
     };
 
+    logger.info('Attempting to generate signed URL:', { folderName, fileName });
+    
     // Get a v4 signed URL for reading the file
     const [url] = await storage
       .bucket('fitcheck_photos')
@@ -72,7 +84,12 @@ async function generateV4ReadSignedUrl(folderName, fileName) {
     
     return url;
   } catch (error) {
-    logger.error('Error generating signed URL:', { error: error.message });
+    logger.error('Error generating signed URL:', { 
+      error: error.message, 
+      stack: error.stack,
+      folderName, 
+      fileName 
+    });
     return null;
   }
 }
