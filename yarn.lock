@@ -3617,6 +3617,11 @@
     throttleit "^2.1.0"
     undici "^5.28.4"
 
+"@vercel/functions@^2.2.3":
+  version "2.2.3"
+  resolved "https://registry.npmjs.org/@vercel/functions/-/functions-2.2.3.tgz"
+  integrity sha512-Z6xwsxM/57/92PLW2HoLLmVw4+Nb5OZzMzDA4qfkksWgG1k5dGV7kvP1TDEOlW3WHjqWtfPJBcd61dE2p0mbxQ==
+
 "@vercel/speed-insights@^1.1.0":
   version "1.1.0"
   resolved "https://registry.npmjs.org/@vercel/speed-insights/-/speed-insights-1.1.0.tgz"
