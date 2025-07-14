@@ -43,9 +43,11 @@ logger.info('Auth client initialized:', { authClientType: authClient.constructor
 const storage = process.env.NODE_ENV === 'development' 
   ? new Storage()
   : new Storage({
-      projectId: GCP_PROJECT_ID,
+    googleAuthOptions: {
       authClient,
-    });
+      projectId: GCP_PROJECT_ID,
+    }
+  });
 
 export async function GET(request) {
     const { searchParams } = new URL(request.url);
