@@ -24,22 +24,29 @@ export async function GET(request) {
 }
 
 async function generateV4ReadSignedUrl(folderName, fileName) {
-  // These options will allow temporary read access to the file
-  const options = {
-    version: 'v4',
-    action: 'read',
-    expires: Date.now() + 15 * 60 * 1000, // 15 minutes
-  };
+  try {
+    // These options will allow temporary read access to the file
+    const options = {
+      version: 'v4',
+      action: 'read',
+      expires: Date.now() + 15 * 60 * 1000, // 15 minutes
+    };
 
-  // Get a v4 signed URL for reading the file
-  const [url] = await storage
-    .bucket('fitcheck_photos')
-    .file(`${folderName}/${fileName}`)
-    .getSignedUrl(options);
+    // Get a v4 signed URL for reading the file
+    const [url] = await storage
+      .bucket('fitcheck_photos')
+      .file(`${folderName}/${fileName}`)
+      .getSignedUrl(options);
 
-  console.log('Generated GET signed URL:');
-  console.log(url);
-  console.log('You can use this URL with any user agent, for example:');
-  console.log(`curl '${url}'`);
+    console.log('Generated GET signed URL:');
+    console.log(url);
+    console.log('You can use this URL with any user agent, for example:');
+    console.log(`curl '${url}'`);
+    
+    return url;
+  } catch (error) {
+    console.error('Error generating signed URL:', error);
+    return null;
+  }
 }
 
