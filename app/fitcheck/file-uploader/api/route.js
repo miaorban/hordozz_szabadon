@@ -3,51 +3,24 @@ export const dynamic = "force-dynamic";
 import { Storage } from '@google-cloud/storage';
 import { NextResponse } from 'next/server';
 import { logger } from '@/app/winston';
-import { getVercelOidcToken } from '@vercel/functions/oidc';
-import { ExternalAccountClient } from 'google-auth-library';
-
-const GCP_PROJECT_ID = process.env.GCP_PROJECT_ID;
-const GCP_PROJECT_NUMBER = process.env.GCP_PROJECT_NUMBER;
-const GCP_SERVICE_ACCOUNT_EMAIL = process.env.GCP_SERVICE_ACCOUNT_EMAIL;
-const GCP_WORKLOAD_IDENTITY_POOL_ID = process.env.GCP_WORKLOAD_IDENTITY_POOL_ID;
-const GCP_WORKLOAD_IDENTITY_POOL_PROVIDER_ID =
-  process.env.GCP_WORKLOAD_IDENTITY_POOL_PROVIDER_ID;
-  
-// Debug environment variables
-logger.info('GCP Environment Variables:', {
-  GCP_PROJECT_ID: !!GCP_PROJECT_ID,
-  GCP_PROJECT_NUMBER: !!GCP_PROJECT_NUMBER,
-  GCP_SERVICE_ACCOUNT_EMAIL: !!GCP_SERVICE_ACCOUNT_EMAIL,
-  GCP_WORKLOAD_IDENTITY_POOL_ID: !!GCP_WORKLOAD_IDENTITY_POOL_ID,
-  GCP_WORKLOAD_IDENTITY_POOL_PROVIDER_ID: !!GCP_WORKLOAD_IDENTITY_POOL_PROVIDER_ID,
-  NODE_ENV: process.env.NODE_ENV
-});
-
-// Initialize the External Account Client
-const authClient = ExternalAccountClient.fromJSON({
-  type: 'external_account',
-  audience: `//iam.googleapis.com/projects/${GCP_PROJECT_NUMBER}/locations/global/workloadIdentityPools/${GCP_WORKLOAD_IDENTITY_POOL_ID}/providers/${GCP_WORKLOAD_IDENTITY_POOL_PROVIDER_ID}`,
-  subject_token_type: 'urn:ietf:params:oauth:token-type:jwt',
-  token_url: 'https://sts.googleapis.com/v1/token',
-  service_account_impersonation_url: `https://iamcredentials.googleapis.com/v1/projects/-/serviceAccounts/${GCP_SERVICE_ACCOUNT_EMAIL}:generateAccessToken`,
-  subject_token_supplier: {
-    // Use the Vercel OIDC token as the subject token
-    getSubjectToken: getVercelOidcToken,
-  },
-});
-
-logger.info('Auth client initialized:', { authClientType: authClient.constructor.name });
-
 
 // Use service account key for development, OIDC for production
-const storage = process.env.NODE_ENV === 'development' 
-  ? new Storage()
-  : new Storage({
-    googleAuthOptions: {
-      authClient,
-      projectId: GCP_PROJECT_ID,
-    }
-  });
+const storage = new Storage({
+  projectId: process.env.GCP_PROJECT_ID,
+  credentials: {
+    "type": "service_account",
+    "project_id": process.env.GCP_PROJECT_ID,
+    "private_key_id": process.env.GCP_PRIVATE_KEY_ID,
+    "private_key": process.env.GCP_PRIVATE_KEY,
+    "client_email": process.env.GCP_SERVICE_ACCOUNT_EMAIL,
+    "client_id": process.env.GCP_CLIENT_ID,
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": process.env.GCP_CLIENT_X509_CERT_URL,
+    "universe_domain": "googleapis.com"
+  }
+})
 
 export async function GET(request) {
     const { searchParams } = new URL(request.url);
