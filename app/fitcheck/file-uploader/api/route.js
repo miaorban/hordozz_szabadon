@@ -11,7 +11,7 @@ const storage = new Storage({
     "type": "service_account",
     "project_id": process.env.GCP_PROJECT_ID,
     "private_key_id": process.env.GCP_PRIVATE_KEY_ID,
-    "private_key": process.env.GCP_STORAGE_PRIVATE_KEY,
+    "private_key": process.env.GCP_STORAGE_PRIVATE_KEY.split(String.raw`\n`).join('\n'),
     // "private_key": Buffer.from(process.env.GCP_STORAGE_PRIVATE_KEY, 'base64').toString('ascii'),
     "client_email": process.env.GCP_SERVICE_ACCOUNT_EMAIL,
     "client_id": process.env.GCP_CLIENT_ID,
