@@ -4,23 +4,14 @@ import { Storage } from '@google-cloud/storage';
 import { NextResponse } from 'next/server';
 import { logger } from '@/app/winston';
 
+const credentials = JSON.parse(Buffer.from(process.env.SERVICE_ACCOUNT_JSON, 'base64').toString('utf-8'))
+
+console.log(credentials);
+
 // Use service account key for development, OIDC for production
 const storage = new Storage({
   projectId: process.env.GCP_PROJECT_ID,
-  credentials: {
-    "type": "service_account",
-    "project_id": process.env.GCP_PROJECT_ID,
-    "private_key_id": process.env.GCP_PRIVATE_KEY_ID,
-    "private_key": process.env.GCP_STORAGE_PRIVATE_KEY.split(String.raw`\n`).join('\n'),
-    // "private_key": Buffer.from(process.env.GCP_STORAGE_PRIVATE_KEY, 'base64').toString('ascii'),
-    "client_email": process.env.GCP_SERVICE_ACCOUNT_EMAIL,
-    "client_id": process.env.GCP_CLIENT_ID,
-    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-    "token_uri": "https://oauth2.googleapis.com/token",
-    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-    "client_x509_cert_url": process.env.GCP_CLIENT_X509_CERT_URL,
-    "universe_domain": "googleapis.com"
-  }
+  credentials
 })
 
 export async function GET(request) {
