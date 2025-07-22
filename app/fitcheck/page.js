@@ -1,16 +1,22 @@
 'use client';
 import { Form, Input, Button, Textarea, Divider,
  Checkbox, Alert, Card, CardFooter, CardBody } from "@heroui/react";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CustomFileInput from '@/app/components/file-input/CustomFileInput';
 import Image from 'next/image';
 
 export default function FitCheck() {
   const [files, setFiles] = useState([])
+  const [fitcheckId, setFitcheckId] = useState(null);
+  const [fileUploadUrls, setFileUploadUrls] = useState([])
 
   const [isSelected, setIsSelected] = useState(true);
   const [showError, setShowError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    setFitcheckId(Math.random().toString(36).substring(7));
+  }, []);
 
   // @ts-expect-error any type
   const onSubmit = async (e) => {
@@ -21,16 +27,29 @@ export default function FitCheck() {
       const formData = new FormData(e.currentTarget);
       formData.append('photoCount', files.length.toString());
       setIsLoading(true);
+      const promises = [];
+
+      let i = 0;
+      for (const file of files) {
+        console.log('fileUploadUrls[i]', file);
+        promises.push(fetch(fileUploadUrls[i], {
+          method: 'PUT',
+          body: file,
+          headers: {
+            'Content-Type': 'application/octet-stream',
+          },
+        }).then(res => res.json()));
+      }
       const res = await fetch('/fitcheck/api/', {
         method: 'POST',
         body: formData,
       });
       console.log('res', JSON.stringify(res));
-      
+      return
       const response = await res.json();
+      const { referenceId } = response;
       console.log('response', JSON.stringify(response));
       
-      const { referenceId } = response;
 
       window.location.href = `${process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK}?client_reference_id=${referenceId}`;
     } catch (e) {
@@ -41,6 +60,18 @@ export default function FitCheck() {
       setIsLoading(false);
     }
   };
+
+  useEffect(() => {
+    const fetchFileUploadUrl = async () => {
+      const res = await fetch('/fitcheck/file-uploader/api/', {
+        method: 'POST',
+        body: JSON.stringify({ fitcheckId, fileNames: files.map(file => file.name) }),
+      });
+      const response = await res.json();
+      setFileUploadUrls(response);
+    };
+    fetchFileUploadUrl();
+  }, [files, fitcheckId]);
 
   const steps = [
     {

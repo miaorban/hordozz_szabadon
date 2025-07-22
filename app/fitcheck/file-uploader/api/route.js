@@ -13,13 +13,19 @@ const storage = new Storage({
 })
 
 export async function POST(request) {
-    const { fitcheckId, fileName } = await request.json();
-    logger.info('GET /api/fitcheck/file-uploader', { fitcheckId, fileName });
+  const { fitcheckId, fileNames } = await request.json();
+  logger.info('GET /api/fitcheck/file-uploader', { fitcheckId, fileNames });
     
-   const url = await generateV4ReadSignedUrl(fitcheckId, fileName);
+
+  const urlPromises = [];
+  for (const fileName of fileNames) {
+    const url = generateV4ReadSignedUrl(fitcheckId, fileName);
+    urlPromises.push(url);
+  }
     
-    logger.info('Generated signed URL', { url });
-    return NextResponse.json(url);
+  const urls = await Promise.all(urlPromises);
+  logger.info('Generated signed URL', { urls });
+  return NextResponse.json(urls);
 }
 
 async function generateV4ReadSignedUrl(folderName, fileName) {
