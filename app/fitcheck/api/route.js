@@ -30,6 +30,7 @@ export const POST = async (req) => {
     const carrierType = sanitize(formData.get('carrierType'));
     const description = sanitize(formData.get('description'));
     const photoCount = sanitize(formData.get('photoCount'));
+    const fitcheckId = sanitize(formData.get('fitcheckId'));
 
     logger.info('fitcheck sanitized data', {
       email,
@@ -39,8 +40,7 @@ export const POST = async (req) => {
       carrierType,
       description
     });
-    const referenceId = Math.random().toString(36).substring(7);
-    logger.info('fitcheck referenceId', { referenceId });
+    logger.info('fitcheck fitcheckId', { fitcheckId });
 
     const mailOptions = {
       from: `Mia - [Hordozz Szabadon] <${process.env.MAIL_EMAIL}>`,
@@ -48,7 +48,7 @@ export const POST = async (req) => {
       subject: 'Fitcheck érkezett',
       html: `
               <p>Email: ${email} </p>
-              <p>referenceId: ${referenceId} </p>
+              <p>fitcheckId: ${fitcheckId} </p>
               <p>Name: ${name} </p>
               <p>babyAge: ${babyAge} </p>
               <p>babyWeight: ${babyWeight} </p>
@@ -59,14 +59,9 @@ export const POST = async (req) => {
     };
 
     await transporter.sendMail(mailOptions);
-    // await transporter.sendMail({
-    //   from: `Mia - [Hordozz Szabadon] <${process.env.MAIL_EMAIL}>`,
-    //   to: 'mia@hordozzszabadon.hu',
-    //   subject: 'Form Submission with Files',
-    //   html: fitcheckFeedbackEmail({ name })
-    // });
+    
     logger.info('Mail sent successfully');
-    return NextResponse.json({ referenceId });
+    return NextResponse.json({ fitcheckId });
   } catch (error) {
     logger.error('Error sending mail:', { error });
     return NextResponse.json({ error }, { status: 500 });

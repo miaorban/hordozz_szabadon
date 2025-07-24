@@ -1,5 +1,4 @@
 export const dynamic = "force-dynamic";
-// Imports the Google Cloud client library
 import { Storage } from '@google-cloud/storage';
 import { NextResponse } from 'next/server';
 import { logger } from '@/app/winston';
@@ -13,10 +12,10 @@ const storage = new Storage({
 })
 
 export async function POST(request) {
-  const { fitcheckId, fileNames } = await request.json();
+  const { fileNames } = await request.json();
+  const fitcheckId = Math.random().toString(36).substring(7);
   logger.info('GET /api/fitcheck/file-uploader', { fitcheckId, fileNames });
-    
-
+  
   const urlPromises = [];
   for (const fileName of fileNames) {
     const url = generateV4ReadSignedUrl(fitcheckId, fileName);
@@ -24,8 +23,8 @@ export async function POST(request) {
   }
     
   const urls = await Promise.all(urlPromises);
-  logger.info('Generated signed URL', { urls });
-  return NextResponse.json(urls);
+  logger.info('Generated signed URL', { fitcheckId, urls });
+  return NextResponse.json({ fitcheckId, urls });
 }
 
 async function generateV4ReadSignedUrl(folderName, fileName) {
@@ -35,7 +34,7 @@ async function generateV4ReadSignedUrl(folderName, fileName) {
       version: 'v4',
       action: 'write',
       expires: Date.now() + 15 * 60 * 1000, // 15 minutes
-      contentType: 'multipart/form-data',
+      contentType: 'application/octet-stream',
     };
 
     logger.info('Attempting to generate signed URL:', { folderName, fileName });
@@ -46,13 +45,7 @@ async function generateV4ReadSignedUrl(folderName, fileName) {
       .file(`${folderName}/${fileName}`)
       .getSignedUrl(options);
 
-    console.log('Generated PUT signed URL:');
-    console.log(url);
-    console.log('You can use this URL with any user agent, for example:');
-    console.log(
-      "curl -X PUT -H 'Content-Type: multipart/form-data' " +
-      `--upload-file my-file '${url}'`
-    );
+    logger.info('Generated PUT signed URL:', { url });
 
     return url;
   } catch (error) {

@@ -14,10 +14,6 @@ export default function FitCheck() {
   const [showError, setShowError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    setFitcheckId(Math.random().toString(36).substring(7));
-  }, []);
-
   // @ts-expect-error any type
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -26,6 +22,7 @@ export default function FitCheck() {
     try {
       const formData = new FormData(e.currentTarget);
       formData.append('photoCount', files.length.toString());
+      formData.append('fitcheckId', fitcheckId);
       setIsLoading(true);
       const promises = [];
 
@@ -38,20 +35,16 @@ export default function FitCheck() {
           headers: {
             'Content-Type': 'application/octet-stream',
           },
-        }).then(res => res.json()));
+        }));
+        i++;
       }
-      const res = await fetch('/fitcheck/api/', {
+      promises.push(fetch('/fitcheck/api/', {
         method: 'POST',
         body: formData,
-      });
-      console.log('res', JSON.stringify(res));
-      return
-      const response = await res.json();
-      const { referenceId } = response;
-      console.log('response', JSON.stringify(response));
+      }));
+      await Promise.all(promises); 
       
-
-      window.location.href = `${process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK}?client_reference_id=${referenceId}`;
+      window.location.href = `${process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK}?client_reference_id=${fitcheckId}`;
     } catch (e) {
       console.log(e);
       setShowError(true);
@@ -65,13 +58,16 @@ export default function FitCheck() {
     const fetchFileUploadUrl = async () => {
       const res = await fetch('/fitcheck/file-uploader/api/', {
         method: 'POST',
-        body: JSON.stringify({ fitcheckId, fileNames: files.map(file => file.name) }),
+        body: JSON.stringify({ fileNames: files.map(file => file.name) }),
       });
-      const response = await res.json();
-      setFileUploadUrls(response);
+      const { fitcheckId, urls } = await res.json();
+      setFileUploadUrls(urls);
+      setFitcheckId(fitcheckId);
     };
-    fetchFileUploadUrl();
-  }, [files, fitcheckId]);
+    if (files.length) {
+      fetchFileUploadUrl();
+    }
+  }, [files]);
 
   const steps = [
     {
