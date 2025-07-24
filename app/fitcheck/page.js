@@ -1,14 +1,15 @@
 'use client';
 import { Form, Input, Button, Textarea, Divider,
- Checkbox, Alert, Card, CardFooter, CardBody } from "@heroui/react";
-import { useState } from 'react';
+   Alert, Card, CardFooter, CardBody } from "@heroui/react";
+import { useState, useEffect } from 'react';
 import CustomFileInput from '@/app/components/file-input/CustomFileInput';
 import Image from 'next/image';
 
 export default function FitCheck() {
   const [files, setFiles] = useState([])
+  const [fitcheckId, setFitcheckId] = useState(null);
+  const [fileUploadUrls, setFileUploadUrls] = useState([])
 
-  const [isSelected, setIsSelected] = useState(true);
   const [showError, setShowError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -20,19 +21,29 @@ export default function FitCheck() {
     try {
       const formData = new FormData(e.currentTarget);
       formData.append('photoCount', files.length.toString());
+      formData.append('fitcheckId', fitcheckId);
       setIsLoading(true);
-      const res = await fetch('/fitcheck/api/', {
+      const promises = [];
+
+      let i = 0;
+      for (const file of files) {
+        console.log('fileUploadUrls[i]', file);
+        promises.push(fetch(fileUploadUrls[i], {
+          method: 'PUT',
+          body: file,
+          headers: {
+            'Content-Type': 'application/octet-stream',
+          },
+        }));
+        i++;
+      }
+      promises.push(fetch('/fitcheck/api/', {
         method: 'POST',
         body: formData,
-      });
-      console.log('res', JSON.stringify(res));
+      }));
+      await Promise.all(promises); 
       
-      const response = await res.json();
-      console.log('response', JSON.stringify(response));
-      
-      const { referenceId } = response;
-
-      window.location.href = `${process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK}?client_reference_id=${referenceId}`;
+      window.location.href = `${process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK}?client_reference_id=${fitcheckId}`;
     } catch (e) {
       console.log(e);
       setShowError(true);
@@ -41,6 +52,21 @@ export default function FitCheck() {
       setIsLoading(false);
     }
   };
+
+  useEffect(() => {
+    const fetchFileUploadUrl = async () => {
+      const res = await fetch('/fitcheck/file-uploader/api/', {
+        method: 'POST',
+        body: JSON.stringify({ fileNames: files.map(file => file.name) }),
+      });
+      const { fitcheckId, urls } = await res.json();
+      setFileUploadUrls(urls);
+      setFitcheckId(fitcheckId);
+    };
+    if (files.length) {
+      fetchFileUploadUrl();
+    }
+  }, [files]);
 
   const steps = [
     {
@@ -181,14 +207,23 @@ export default function FitCheck() {
             size='lg'/>
             <CustomFileInput imageFiles={files} setImageFiles={setFiles}/>
           <Divider className='my-4'/>
-          <Checkbox className="hidden" isSelected={isSelected} onValueChange={setIsSelected}>Elolvastam és megértettem a feltételeket</Checkbox>
+          {/* <Checkbox lassNames={{ icon: "text-[white]" }} 
+                size='lg'
+                className='mt-2' isSelected={isSelected} onValueChange={setIsSelected} 
+                radius="lg" color="secondary">
+            Elolvastam és elfogadom az <a href="/GDPR_hordozz_szabadon.pdf" target="_blank">adatkezelési tájékoztatót</a></Checkbox> */}
           <p>Fizetésnél alkalmazd a <b>FITCHECK20</b> kuponkódot!</p>
           <div className='flex justify-center sm:justify-end w-full'>
             <Button type="submit" color="secondary" size="lg" className='text-[white] shadow-lg hover:shadow-xl text-xl'
-              isDisabled={!isSelected} isLoading={isLoading}>
+              isLoading={isLoading}>
               Tovább a fizetéshez
             </Button>
           </div>
+          <small>
+            A beküldéssel elfogadod az 
+            <a className="underline" href="/GDPR_hordozz_szabadon.pdf" target="_blank"> adatkezelési tájékoztatót</a>
+            .
+          </small>
         </Form>
         {
           showError && <Alert color="danger" title="Váratlan hiba történt! Sajnálom a kellemetlenséget.
