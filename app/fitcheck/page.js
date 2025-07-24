@@ -1,6 +1,6 @@
 'use client';
 import { Form, Input, Button, Textarea, Divider,
- Checkbox, Alert, Card, CardFooter, CardBody } from "@heroui/react";
+   Alert, Card, CardFooter, CardBody } from "@heroui/react";
 import { useState, useEffect } from 'react';
 import CustomFileInput from '@/app/components/file-input/CustomFileInput';
 import Image from 'next/image';
@@ -10,7 +10,6 @@ export default function FitCheck() {
   const [fitcheckId, setFitcheckId] = useState(null);
   const [fileUploadUrls, setFileUploadUrls] = useState([])
 
-  const [isSelected, setIsSelected] = useState(true);
   const [showError, setShowError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -216,7 +215,7 @@ export default function FitCheck() {
           <p>Fizetésnél alkalmazd a <b>FITCHECK20</b> kuponkódot!</p>
           <div className='flex justify-center sm:justify-end w-full'>
             <Button type="submit" color="secondary" size="lg" className='text-[white] shadow-lg hover:shadow-xl text-xl'
-              isDisabled={!isSelected} isLoading={isLoading}>
+              isLoading={isLoading}>
               Tovább a fizetéshez
             </Button>
           </div>
