@@ -208,7 +208,11 @@ export default function FitCheck() {
             size='lg'/>
             <CustomFileInput imageFiles={files} setImageFiles={setFiles}/>
           <Divider className='my-4'/>
-          <Checkbox className="hidden" isSelected={isSelected} onValueChange={setIsSelected}>Elolvastam és megértettem a feltételeket</Checkbox>
+          {/* <Checkbox lassNames={{ icon: "text-[white]" }} 
+                size='lg'
+                className='mt-2' isSelected={isSelected} onValueChange={setIsSelected} 
+                radius="lg" color="secondary">
+            Elolvastam és elfogadom az <a href="/GDPR_hordozz_szabadon.pdf" target="_blank">adatkezelési tájékoztatót</a></Checkbox> */}
           <p>Fizetésnél alkalmazd a <b>FITCHECK20</b> kuponkódot!</p>
           <div className='flex justify-center sm:justify-end w-full'>
             <Button type="submit" color="secondary" size="lg" className='text-[white] shadow-lg hover:shadow-xl text-xl'
@@ -216,6 +220,11 @@ export default function FitCheck() {
               Tovább a fizetéshez
             </Button>
           </div>
+          <small>
+            A beküldéssel elfogadod az 
+            <a className="underline" href="/GDPR_hordozz_szabadon.pdf" target="_blank"> adatkezelési tájékoztatót</a>
+            .
+          </small>
         </Form>
         {
           showError && <Alert color="danger" title="Váratlan hiba történt! Sajnálom a kellemetlenséget.
