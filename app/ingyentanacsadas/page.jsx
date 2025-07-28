@@ -59,12 +59,12 @@ export default function Page() {
           <h1 className="text-3xl font-bold text-center mb-6">
             Jelentkezés ingyen tanácsadásra
           </h1>
-          <Form className="w-full pb-24 md:pb-2" validationBehavior="native" onSubmit={apply}>
+          <Form className="w-full pb-2 md:pb-2 px-8" validationBehavior="native" onSubmit={apply}>
             <div
               className="flex flex-wrap 
               justify-center sm:justify-between 
               gap-4 mt-4
-              px-8"
+              "
             >
               <Input
                 isRequired

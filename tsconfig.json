@@ -30,7 +30,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "build/types/**/*.ts", "app/ingyentanacsadas/page.jsx"],
+    "build/types/**/*.ts", "app/ingyentanacsadas/page.jsx", "app/page.jsx"],
   "exclude": [
     "node_modules"
   ]

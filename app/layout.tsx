@@ -50,7 +50,7 @@ export default function RootLayout({
       <body className={`antialiased ${montserrat.className}`}>
         <HeroUIProvider>
           <Navbar  />
-          <CalendarFloatingIcon />
+          {/* <CalendarFloatingIcon /> */}
           <div className="mt-[-10px] sm:mt-[-66px]">
             <ToastProvider
               placement="bottom-center"

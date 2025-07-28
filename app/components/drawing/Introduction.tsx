@@ -7,7 +7,7 @@ export default function Introduction() {
     text-[color:blue]
     pt-14 md:pt-48 
     xl:py-72 2xl:py-72
-    pb-4 md:pb-40
+    pb-8 md:pb-40
     px-6
     text-center
     "
