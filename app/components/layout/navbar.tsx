@@ -25,6 +25,7 @@ export default function App() {
     // { title: "Kölcsönzés", href: "/kolcsonzes" },
     { title: "Fit check", href: "/fitcheck" },
     // { title: "Hordozóválasztó", href: "/hordozovalaszto" },
+    { title: "Ingyen tanácsadás", href: "/ingyentanacsadas" },
     { title: "Kapcsolat", href: "/#kapcsolat" },
     // { title: "Blog", href: "/blog" },
     // { title: "Kapcsolat", href: "/kapcsolat" }
