@@ -1,6 +1,5 @@
 import { Card, Link } from "@heroui/react";
 import Image from "next/image";
-import Contacts from '@/app/components/common/Contacts';
 
 export default function PaymentSuccesful() {
   return (
