@@ -1,7 +1,6 @@
 import mysql from 'mysql2/promise';
 import { NextResponse } from "next/server";
 import { logger } from '@/app/winston';
-import { log } from 'console';
 
 const pool = mysql.createPool({
   host     : '92.119.122.2',
