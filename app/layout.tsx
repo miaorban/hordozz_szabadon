@@ -4,7 +4,7 @@ import { montserrat } from '@/app/fonts';
 import Head from "next/head";
 import Navbar from '@/app/components/layout/navbar';
 import Footer from "@/app/components/layout/footer";
-import CalendarFloatingIcon from "@/app/components/layout/CalendarFloatingIcon";
+// import CalendarFloatingIcon from "@/app/components/layout/CalendarFloatingIcon";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import HotjarInit from "./hotjarInit";
@@ -50,7 +50,7 @@ export default function RootLayout({
       <body className={`antialiased ${montserrat.className}`}>
         <HeroUIProvider>
           <Navbar  />
-          <CalendarFloatingIcon />
+          {/* <CalendarFloatingIcon /> */}
           <div className="mt-[-10px] sm:mt-[-66px]">
             <ToastProvider
               placement="bottom-center"
