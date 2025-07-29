@@ -24,6 +24,7 @@ export const POST = async (req) => {
     logger.info('Successfully inserted ingyentanacsadas', { rows, fields });
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (err) {
+    logger.error('Error inserting ingyentanacsadas', { err });
     if (err.code === 'ER_DUP_ENTRY') {
       return NextResponse.json({ error: 'Már jelentkezél az ingyenes tanácsadásra.' }, { status: 400 });
     }
