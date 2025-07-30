@@ -1,5 +1,5 @@
 "use client";
-import { Input, Button, Divider, Form, Alert } from "@heroui/react";
+import { Input, Button, Divider, Form, Alert, Textarea } from "@heroui/react";
 import Introduction from "@/app/components/drawing/Introduction";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -9,6 +9,8 @@ export default function Page() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [babyAge, setBabyAge] = useState("");
+  const [feedback, setFeedback] = useState("");
+  const [comparison, setComparison] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -22,7 +24,7 @@ export default function Page() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, email, babyAge })
+        body: JSON.stringify({ name, email, babyAge, feedback, comparison })
       });
       const data = await response.json();
       console.log('data', data);
@@ -90,8 +92,7 @@ export default function Page() {
                 onChange={(e) => setEmail(e.target.value)}
               />
               <Input
-                errorMessage="Kérlek, töltsd ki ezt a mezőt"
-                label="Baba kora"
+                label="Babád kora (ha már megszületett)"
                 labelPlacement="outside"
                 name="babyAge"
                 placeholder="Baba életkora"
@@ -99,6 +100,25 @@ export default function Page() {
                 size="lg"
                 value={babyAge}
                 onChange={(e) => setBabyAge(e.target.value)}
+              />
+              <Textarea
+                errorMessage="Kérlek, töltsd ki ezt a mezőt"
+                label="Mit vársz a hordozási tanácsadástól, mire van szükséged?"
+                labelPlacement="outside"
+                name="feedback"
+                placeholder="Nyugodtan írj ide bármit, ami foglalkoztat téged a témával kapcsolatban, ahogy jön"
+                size="lg"
+                value={feedback}
+                onChange={(e) => setFeedback(e.target.value)}
+              />
+              <Textarea
+                label="Mi miatt választasz engem más tanácsadókkal szemben?"
+                labelPlacement="outside"
+                name="feedback"
+                placeholder="Írj ide bármit, amit negatívumként éltél meg, amikor más tanácsadókkal kerültél interakcióba"
+                size="lg"
+                value={comparison}
+                onChange={(e) => setComparison(e.target.value)}
               />
             </div>
             <Divider className="my-4" />

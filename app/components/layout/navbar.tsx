@@ -72,7 +72,7 @@ export default function App() {
       </NavbarContent>
 
       <NavbarContent
-        className={`hidden ${navbarBreakpoint}:flex uppercase gap-1 ${navbarBreakpoint}:gap-4`}
+        className="hidden sm:flex uppercase gap-1 sm:gap-4"
         justify="center"
       >
         {menuItems.map((item, index) => (
