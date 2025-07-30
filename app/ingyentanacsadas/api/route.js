@@ -5,8 +5,8 @@ import { logger } from '@/app/winston';
 export const POST = async (req) => {
   logger.info('POST /api/ingyentanacsadas', { req });
 
-  const { name, email, babyAge } = await req.json();
-  logger.info('ingyentanacsadas form data', { name, email, babyAge });
+  const { name, email, babyAge, feedback, comparison } = await req.json();
+  logger.info('ingyentanacsadas form data', { name, email, babyAge, feedback, comparison });
 
   let connection;
   
@@ -20,8 +20,8 @@ export const POST = async (req) => {
       database : 'horodzas_index'
     });
 
-    const query = `INSERT INTO free_consultation (name, email, baby_age) VALUES (?, ?, ?)`;
-    const values = [name, email, babyAge];
+    const query = `INSERT INTO free_consultation (name, email, baby_age, feedback, comparison) VALUES (?, ?, ?, ?, ?)`;
+    const values = [name, email, babyAge, feedback, comparison];
 
     const [rows, fields] = await connection.execute(query, values);
     logger.info('Successfully inserted ingyentanacsadas', { rows, fields });
