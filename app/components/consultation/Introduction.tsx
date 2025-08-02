@@ -44,7 +44,7 @@ export default function Introduction() {
         justify-center items-center
         mt-12"
       >
-        <Button
+        {/* <Button
           as={Link}
           href="https://cal.com/hordozz-szabadon"
           target="_blank"
@@ -53,6 +53,16 @@ export default function Introduction() {
             w-72 text-xl py-8 rounded-3xl"
         >
           SZABAD IDŐPONTOK
+        </Button> */}
+        <Button
+          as={Link}
+          href="/ingyentanacsadas"
+          target="_blank"
+          size="lg"
+          className="shadow-xl text-bold text-secondary font-bold bg-[white]
+            w-72 text-xl py-8 rounded-3xl"
+        >
+          INGYEN TANÁCSADÁS
         </Button>
       </div>
       {/* <div className="flex
