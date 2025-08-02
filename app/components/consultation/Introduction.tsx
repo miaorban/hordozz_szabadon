@@ -7,8 +7,8 @@ export default function Introduction() {
     bg-[url('/kucko_bg_hullamos.png')] bg-cover bg-bottom
     [background-position-x:-180px] sm:[background-position-x:0]
     text-[color:blue]
-    pt-28 md:pt-48 
-    xl:py-72 2xl:py-72
+    pt-28 md:pt-36 
+    xl:py-60 2xl:py-60
     pb-4 md:pb-40
     px-6
     text-center
@@ -23,7 +23,7 @@ export default function Introduction() {
           text-4xl sm:text-5xl font-bold
                      md:text-right"
         >
-          Hordozási tanácsadás online vagy Keszthelyen
+          Hordozási tanácsadás
         </div>
         <div
           className="text-center
@@ -32,9 +32,9 @@ export default function Introduction() {
           md:text-left
           mt-4 sm:mt-0"
         >
-          Látogass el stúdiómba vagy beszéljünk online, hogy együtt kiválasszuk
-          a számodra és babád számára megfelelő hordozóeszközt az egészséges és
-          biztonságos hordozás szempontjait szem előtt tartva.
+          A legtöbben online érkeznek hozzám és alvó
+          babával ér véget a konzultáció. Ha a személyesen
+          jössz, Keszthelyen várlak szeretettel.
         </div>
       </div>
       <div

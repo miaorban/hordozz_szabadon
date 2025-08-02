@@ -4,7 +4,8 @@ import Image from 'next/image';
 export default function Introduction() {
   return (
     // xl:pt-[10rem] 2xl:pt-[24rem]
-    <div className="
+    <div
+      className="
     bg-[url('/Mobil.png')] sm:bg-[url('/intro_bg.png')] bg-cover 
     [background-position-x:500px] sm:bg-bottom
     flex justify-end 
@@ -13,40 +14,69 @@ export default function Introduction() {
     lg:py-[20%]
     px-6 md:px-48
     text-center md:text-right
-    ">
-      <div className="flex flex-col 
+    "
+    >
+      <div
+        className="flex flex-col 
       justify-between
       w-full md:max-w-[600px]
       gap-y-12
-      ">
+      "
+      >
         <div className="flex justify-center md:hidden my-8">
-          <Image src="/logo_alul_nev.svg" alt="Orbán Mia babahordozási tanácsadó logo" 
-              width={180} height={120} className=""/>
+          <Image
+            src="/logo_alul_nev.svg"
+            alt="Orbán Mia babahordozási tanácsadó logo"
+            width={180}
+            height={120}
+            className=""
+          />
         </div>
-        
+
         <div className="pt-12">
-          <div className="flex-1 text-4xl sm:text-5xl font-bold
+          <div
+            className="flex-1 text-4xl sm:text-5xl font-bold
           text-[white] sm:text-secondary 
-          text-center md:text-right">
-            Mert a babád
-            természetes 
-            helye rajtad van!
+          text-center md:text-right"
+          >
+            Megkönnyítem a kisbabás hétköznapjaid!
           </div>
-          <div className="hidden md:block text-3xl text-right italic text-primary
-          mt-8">A testközelség a babák alapvető
-            szükséglete, így természetes helyük rajtad,
-            a testeden van.
+          <div
+            className="hidden md:block text-3xl text-right italic text-primary
+          mt-8"
+          >
+            100+ anyának segítettem, akik biztonságos és
+            szerethető megoldásra vágytak.
+            <p>Neked is segítek.</p>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row gap-y-6 gap-x-24
+        <div
+          className="flex flex-col md:flex-row gap-y-6 gap-x-24
         items-center sm:justify-center
-        ">
-          <Button as={Link} href="/tanacsadas" size="lg"
+        "
+        >
+          <Button
+            as={Link}
+            href="/tanacsadas"
+            size="lg"
             className="shadow-xl text-bold text-secondary font-bold bg-[white]
-            w-48 lg:w-72 text-xl py-8 rounded-3xl">TANÁCSADÁS</Button>
-          <Button as={Link} href="/fitcheck" size="lg" color="secondary" 
+            w-54 lg:w-72 text-xl py-8 rounded-3xl"
+          >
+            ONLINE TANÁCSADÁS
+          </Button>
+          {/* <Button as={Link} href="/fitcheck" size="lg" color="secondary" 
             className="shadow-xl text-bold text-[white] font-bold 
-            w-48 lg:w-72 text-xl  py-8 rounded-3xl">FIT CHECK</Button>
+            w-48 lg:w-72 text-xl  py-8 rounded-3xl">FIT CHECK</Button> */}
+          <Button
+            as={Link}
+            href="/fitcheck"
+            size="lg"
+            color="secondary"
+            className="shadow-xl text-bold text-[white] font-bold 
+            w-48 lg:w-72 text-xl  py-8 rounded-3xl"
+          >
+            KÉPKÜLDÉS
+          </Button>
         </div>
       </div>
     </div>

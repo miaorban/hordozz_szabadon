@@ -10,11 +10,10 @@ const consultations = [
     duration: 20,
     id: "hordozovalaszto",
     items: [
-      `szeretnél jó minőségű, biztonságos eszközt választani`,
-      `elvesztél a hordozók óriási kínálatában és tudni szeretnéd, melyik eszköz lenne nektek megfelelő`,
-      `babádat várod és már tudod, hogy hordozni szeretnéd`,
-      `fel szeretnél készülni, hogy mikortól, hogyan és mennyit hordozhatsz`,
-      `bizonytalan vagy, hogy miért lenne jó a hordozás a babádnak és neked`,
+      `csatos hordozóra váltasz, de túl nagy a kínálat és nem tudod, melyik lenne jó rátok`,
+      `kinéztél egy hurcit, de nem tudod megfelelő lesz-e nektek`,
+      `nem akarsz napokat beleölni, hogy a hordozókat böngészd`,
+      `babádat várod és már tudod, hogy hordozni szeretnéd`
     ],
     bookingUrl: "https://cal.com/hordozz-szabadon/hordozovalaszto",
     // bookingUrl: "/tanacsadas/foglalas/hordozovalaszto",
@@ -26,15 +25,11 @@ const consultations = [
     duration: 30,
     id: "mini",
     items: [
-      `már van egy eszközöd, de bizonytalan vagy, hogy jól használod-e.
-        Például jól van-e a baba a kendőben vagy megfelelő-e már neki a
-        csatos hordozód.`,
-      `ha sír a babád a hordozóban és nem tudod, miért. Minden baba
-        szereti a hordozást, úgyhogy biztos, hogy megtaláljuk az okát.`,
-      "ha eddig elöl hordoztál, de már úgy érzed, ideje hátratenni a babát.",
-      "ha fel szeretnél próbálni két-három különböző eszközt.",
-      "ha nagyobb gyerkőcöt szeretnél hordozni.",
-      "ha szoptatós, cumisüveges pozíciókat szeretnél megismerni.",
+      `nem tudod, jól használod-e a hordozód`,
+      `sír a babád a hordozóban`,
+      "ha eddig elöl hordoztál, de már úgy érzed, ideje hátratenni a babát",
+      "ha fel szeretnél próbálni két-három különböző eszközt",
+      "ha nagyobb gyerkőcöt szeretnél hordozni"
     ],
     bookingUrl: "https://cal.com/hordozz-szabadon/mini",
     // bookingUrl: "/tanacsadas/foglalas/mini",
@@ -48,18 +43,11 @@ const consultations = [
     className: `bg-[url('/maxi_consultation_bg.png')] bg-no-repeat bg-top bg-cover pt-24`,
     items: [
       "teljesen új vagy a hordozásban és pici babát szeretnél hordozni.",
-      `szeretnél kipróbálni többféle eszközt is, hogy megtaláljuk azt, ami
-        hozzátok illik`,
+      `még nem tudod, melyik eszköz lenne jó nektek, ilyenkor megmutatok 4-5 típust és segítek dönteni`,
       `ha a hordozás alapjait szeretnéd megtanulni: hogy biztonságos,
         melyik életszakaszban milyen eszköz ajánlott, hogy öltözködjetek, mikor
         teheted hátra a babád, hogy tudod őt szoptatni vagy cumisüveggel
-        táplálni hordozás közben és még sok fontos téma.`,
-      `ha úgy érzed, akkor a konzultációt két részre bonthatjuk. Miután
-        minden kérdésedre választ kaptál és gyakoroltál velem, utána
-        otthonod nyugalmában elkezdhetsz hordozni. Miután szereztél egy kis
-        tapasztalatot és új kérdések merültek fel vagy még marad benned
-        kétely, akkor személyesen vagy online a fennmaradó időben azzal
-        foglalkozunk, amire szükséged van.`,
+        táplálni hordozás közben és még sok fontos téma.`
     ],
     bookingUrl: "https://cal.com/hordozz-szabadon/maxi",
     // bookingUrl: "/tanacsadas/foglalas/maxi",
