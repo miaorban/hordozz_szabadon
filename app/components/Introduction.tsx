@@ -45,8 +45,8 @@ export default function Introduction() {
             className="hidden md:block text-3xl text-right italic text-primary
           mt-8"
           >
-            100+ anya-baba párost vezettem el a hordozó kiválasztásától a
-            beállításán át a magabiztos használatig.
+            100+ anyának segítettem, akik biztonságos és
+            szerethető megoldásra vágytak.
             <p>Neked is segítek.</p>
           </div>
         </div>
