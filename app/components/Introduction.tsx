@@ -60,7 +60,7 @@ export default function Introduction() {
             href="/tanacsadas"
             size="lg"
             className="shadow-xl text-bold text-secondary font-bold bg-[white]
-            w-48 lg:w-72 text-xl py-8 rounded-3xl"
+            w-54 lg:w-72 text-xl py-8 rounded-3xl"
           >
             ONLINE TANÁCSADÁS
           </Button>

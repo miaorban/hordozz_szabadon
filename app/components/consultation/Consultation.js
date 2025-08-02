@@ -16,7 +16,7 @@ export default function Consultation({ consultation }) {
             <div className='flex items-end'>
               <span className="text-4xl mr-0.5">{consultation.duration}</span>
               <span className='text-sm'>perc</span>
-              </div>
+            </div>
           </div>
           <Divider className='h-1 bg-secondary'/>
           <div className='flex flex-wrap sm:justify-between mt-1'>
