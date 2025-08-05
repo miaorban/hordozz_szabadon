@@ -59,6 +59,10 @@ export default function FitCheck() {
         method: 'POST',
         body: JSON.stringify({ fileNames: files.map(file => file.name) }),
       });
+      if (!res.ok) {
+        console.log('Error fetching file upload URL', res);
+        return;
+      }
       const { fitcheckId, urls } = await res.json();
       setFileUploadUrls(urls);
       setFitcheckId(fitcheckId);
