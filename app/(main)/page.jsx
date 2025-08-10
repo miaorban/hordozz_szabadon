@@ -22,7 +22,7 @@ export default function Home() {
         <Studio />
       </div>
       {/* <div className="bg-[url('/kucko_ala.svg')] h-64 mt-[-100px] bg-cover bg-bottom
-        mb-[-100px] md:mb-[-80px]"></div>
+        mb-[-100px] md:[-80px]"></div>
       <Blog/> */}
     </div>
   );
@@ -34,4 +34,4 @@ export default function Home() {
 //       <FloatingBookingLayout>{page}</FloatingBookingLayout>
 //     </Layout>
 //   );
-// };
+// }; 

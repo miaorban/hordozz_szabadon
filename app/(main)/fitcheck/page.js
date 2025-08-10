@@ -12,6 +12,7 @@ export default function FitCheck() {
 
   const [showError, setShowError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [urlsLoading, setUrlsLoading] = useState(false);
 
   // @ts-expect-error any type
   const onSubmit = async (e) => {
@@ -55,6 +56,7 @@ export default function FitCheck() {
 
   useEffect(() => {
     const fetchFileUploadUrl = async () => {
+      setUrlsLoading(true);
       const res = await fetch('/fitcheck/file-uploader/api/', {
         method: 'POST',
         body: JSON.stringify({ fileNames: files.map(file => file.name) }),
@@ -66,6 +68,7 @@ export default function FitCheck() {
       const { fitcheckId, urls } = await res.json();
       setFileUploadUrls(urls);
       setFitcheckId(fitcheckId);
+      setUrlsLoading(false);
     };
     if (files.length) {
       fetchFileUploadUrl();
@@ -219,7 +222,7 @@ export default function FitCheck() {
           <p>Fizetésnél alkalmazd a <b>FITCHECK20</b> kuponkódot!</p>
           <div className='flex justify-center sm:justify-end w-full'>
             <Button type="submit" color="secondary" size="lg" className='text-[white] shadow-lg hover:shadow-xl text-xl'
-              isLoading={isLoading}>
+              isLoading={isLoading || urlsLoading}>
               Tovább a fizetéshez
             </Button>
           </div>

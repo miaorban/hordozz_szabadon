@@ -39,7 +39,11 @@ export default function Introduction() {
           text-[white] sm:text-secondary 
           text-center md:text-right"
           >
-            Megkönnyítem a kisbabás hétköznapjaid!
+            Megkönnyítem a 
+            <br />
+            kisbabás
+            <br />
+            hétköznapjaid!
           </div>
           <div
             className="hidden md:block text-3xl text-right italic text-primary

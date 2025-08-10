@@ -15,6 +15,7 @@ import { usePathname } from 'next/navigation';
 import { montserrat_real } from '@/app/fonts';
 
 export default function App() {
+  console.log('navbar');
   // eslint-disable-next-line
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathName = usePathname();
