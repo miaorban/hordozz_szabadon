@@ -3,6 +3,9 @@ export const dynamic = 'force-dynamic'
 import nodemailer from 'nodemailer';
 import { NextResponse } from "next/server";
 import { logger } from '@/app/winston';
+import FitcheckService from '@/app/utils/FitcheckService';
+
+const fitcheckService = new FitcheckService();
 
 const transporter = nodemailer.createTransport({
   host: process.env.MAIL_DOMAIN, 
@@ -58,12 +61,23 @@ export const POST = async (req) => {
               `
     };
 
-    await transporter.sendMail(mailOptions);
+    await fitcheckService.create({
+      email,
+      name,
+      babyAge,
+      babyWeight,
+      carrierType,
+      description,
+      photoCount,
+      fitcheckId
+    });
     
+    await transporter.sendMail(mailOptions);
+
     logger.info('Mail sent successfully');
     return NextResponse.json({ fitcheckId });
   } catch (error) {
-    logger.error('Error sending mail:', { error });
+    logger.error('Error creating fitcheck', { error });
     return NextResponse.json({ error }, { status: 500 });
   }
 }
