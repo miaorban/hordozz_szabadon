@@ -5,6 +5,7 @@ import Link from 'next/link';
 export default async function EditFitcheck({ params }) {
   const fitcheckService = new FitcheckService();
   const fitcheck = await fitcheckService.getById(params.id);
+  const images = await fitcheckService.getImages(params.id);
 
   if (!fitcheck) {
     notFound();
@@ -49,17 +50,35 @@ export default async function EditFitcheck({ params }) {
 
           {/* Images Section */}
           <div>
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">Images</h2>
+            <h2 className="text-xl font-semibold text-gray-900 mb-4">Images ({images.length})</h2>
             <div className="grid grid-cols-2 gap-4">
-              {/* Placeholder for 4 images */}
-              {[1, 2, 3, 4].map((index) => (
-                <div key={index} className="aspect-square bg-gray-100 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center">
-                  <div className="text-center text-gray-500">
-                    <p className="text-sm">Image {index}</p>
-                    <p className="text-xs">Placeholder</p>
+              {images.length > 0 ? (
+                images.map((imageUrl, index) => (
+                  <div key={index} className="aspect-square bg-gray-100 rounded-lg border border-gray-300 overflow-hidden">
+                    <img
+                      src={imageUrl}
+                      alt={`Fitcheck image ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="hidden w-full h-full items-center justify-center bg-gray-100">
+                      <div className="text-center text-gray-500">
+                        <p className="text-sm">Image {index + 1}</p>
+                        <p className="text-xs">Failed to load</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))
+              ) : (
+                // Show placeholders if no images
+                [1, 2, 3, 4].map((index) => (
+                  <div key={index} className="aspect-square bg-gray-100 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center">
+                    <div className="text-center text-gray-500">
+                      <p className="text-sm">No Image</p>
+                      <p className="text-xs">Available</p>
+                    </div>
+                  </div>
+                ))
+              )}
             </div>
           </div>
         </div>

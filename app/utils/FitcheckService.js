@@ -1,9 +1,10 @@
 import databaseService from '@/app/utils/databaseService';
 import { logger } from '@/app/winston';
+import BucketService from '@/app/utils/BucketService';
 
 class FitcheckService {
   constructor() {
-    // Initialize any necessary dependencies
+    this.bucketService = new BucketService();
   }
 
   /**
@@ -55,6 +56,38 @@ class FitcheckService {
   async getById(id) {
     const results = await databaseService.query(`SELECT * FROM fitcheck WHERE fitcheck_id = ?`, [id]);
     return results.length > 0 ? results[0] : null;
+  }
+
+  /**
+   * Get images for a fitcheck
+   * @param {string} fitcheckId - The fitcheck ID
+   * @returns {Promise<Array>} Array of image URLs
+   */
+  async getImages(fitcheckId) {
+    try {
+      const imageFiles = await this.bucketService.listImages(fitcheckId);
+      
+      if (imageFiles.length === 0) {
+        return [];
+      }
+
+      // Generate read signed URLs for each image
+      const imageUrls = await Promise.all(
+        imageFiles.map(fileName => 
+          this.bucketService.generateReadSignedUrl(fitcheckId, fileName)
+        )
+      );
+
+      // Filter out any failed URL generations
+      return imageUrls.filter(url => url !== null);
+    } catch (error) {
+      logger.error('Error getting images:', { 
+        error: error.message, 
+        stack: error.stack,
+        fitcheckId 
+      });
+      return [];
+    }
   }
 }
 
