@@ -89,6 +89,39 @@ class FitcheckService {
       return [];
     }
   }
+
+  /**
+   * Add response URL to a fitcheck
+   * @param {string} fitcheckId - The fitcheck ID
+   * @param {string} responseUrl - The response URL to save
+   * @returns {Promise<Object>} Updated fitcheck data
+   */
+  async addResponseUrl(fitcheckId, responseUrl) {
+    try {
+      logger.info('Adding response URL to fitcheck:', { fitcheckId, responseUrl });
+      
+      const result = await databaseService.query(`
+        UPDATE fitcheck 
+        SET response_url = ? 
+        WHERE fitcheck_id = ?
+      `, [responseUrl, fitcheckId]);
+
+      if (result.affectedRows === 0) {
+        throw new Error('No fitcheck found with the specified ID');
+      }
+
+      logger.info('Response URL added successfully:', { fitcheckId, responseUrl });
+      return { success: true, fitcheckId, responseUrl };
+    } catch (error) {
+      logger.error('Error adding response URL:', { 
+        error: error.message, 
+        stack: error.stack,
+        fitcheckId, 
+        responseUrl 
+      });
+      throw error;
+    }
+  }
 }
 
 export default FitcheckService; 

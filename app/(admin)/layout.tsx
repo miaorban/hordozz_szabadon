@@ -1,4 +1,6 @@
 import "@/app/globals.css";
+import { ToastProvider } from "@heroui/react";
+import { HeroUIProvider } from "@heroui/react";
 
 export const metadata = {
   title: "Next.js",
@@ -12,7 +14,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ToastProvider
+          placement="bottom-center"
+          toastProps={{
+            radius: "lg",
+            color: "primary",
+            variant: "bordered",
+            timeout: 1500,
+            hideIcon: true,
+          }}
+        />
+        <HeroUIProvider>
+          {children}
+        </HeroUIProvider>
+      </body>
     </html>
   );
 }

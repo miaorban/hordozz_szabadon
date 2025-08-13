@@ -1,6 +1,32 @@
 import FitcheckService from '@/app/utils/FitcheckService';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import { revalidatePath } from 'next/cache';
+
+// Server Action
+async function saveResponseUrl(formData) {
+  'use server';
+  
+  const responseUrl = formData.get('responseUrl');
+  const fitcheckId = formData.get('fitcheckId');
+  
+  if (!responseUrl?.trim()) {
+    return { error: 'Kérlek írj be egy linket' };
+  }
+
+  try {
+    const fitcheckService = new FitcheckService();
+    await fitcheckService.addResponseUrl(fitcheckId, responseUrl.trim());
+    
+    // Revalidate the cache for this page
+    revalidatePath(`/admin/fitcheck/${fitcheckId}`);
+    
+    return { success: true };
+  } catch {
+    console.error('Error saving response URL');
+    return { error: 'Hiba történt a link mentése közben' };
+  }
+}
 
 export default async function EditFitcheck({ params }) {
   const fitcheckService = new FitcheckService();
@@ -25,6 +51,29 @@ export default async function EditFitcheck({ params }) {
           </div>
         </div>
       </div>
+
+      {/* Input and Send Button */}
+      {!fitcheck.response_url && (
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+          <form action={saveResponseUrl}>
+            <input type="hidden" name="fitcheckId" value={params.id} />
+            <div className="flex gap-4">
+              <input
+                type="text"
+                name="responseUrl"
+                placeholder="Link"
+                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              />
+              <button 
+                type="submit"
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition-colors"
+              >
+                Küldés
+              </button>
+            </div>
+          </form>
+        </div>
+      )}
 
       {/* Two Column Layout */}
       <div className="flex flex-row gap-8">
@@ -51,34 +100,30 @@ export default async function EditFitcheck({ params }) {
           {/* Images Section */}
           <div>
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Images ({images.length})</h2>
-            <div className="grid grid-cols-2 gap-4">
-              {images.length > 0 ? (
-                images.map((imageUrl, index) => (
-                  <div key={index} className="aspect-square bg-gray-100 rounded-lg border border-gray-300 overflow-hidden">
+            <div className="space-y-4">
+              {images.map((imageUrl, index) => (
+                <div key={index} className="w-full bg-gray-100 rounded-lg border border-gray-300 overflow-hidden">
+                  <a 
+                    href={imageUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block w-full hover:opacity-90 transition-opacity"
+                    title={`View image ${index + 1} in new tab`}
+                  >
                     <img
                       src={imageUrl}
                       alt={`Fitcheck image ${index + 1}`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-auto max-h-96 object-contain"
                     />
-                    <div className="hidden w-full h-full items-center justify-center bg-gray-100">
-                      <div className="text-center text-gray-500">
-                        <p className="text-sm">Image {index + 1}</p>
-                        <p className="text-xs">Failed to load</p>
-                      </div>
-                    </div>
-                  </div>
-                ))
-              ) : (
-                // Show placeholders if no images
-                [1, 2, 3, 4].map((index) => (
-                  <div key={index} className="aspect-square bg-gray-100 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center">
+                  </a>
+                  <div className="hidden w-full h-full items-center justify-center bg-gray-100">
                     <div className="text-center text-gray-500">
-                      <p className="text-sm">No Image</p>
-                      <p className="text-xs">Available</p>
+                      <p className="text-sm">Image {index + 1}</p>
+                      <p className="text-xs">Failed to load</p>
                     </div>
                   </div>
-                ))
-              )}
+                </div>
+              ))}
             </div>
           </div>
         </div>
