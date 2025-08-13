@@ -46,6 +46,16 @@ class FitcheckService {
   async list() {
     return databaseService.query(`SELECT * FROM fitcheck`);
   }
+
+  /**
+   * Get a fitcheck by ID
+   * @param {string|number} id - The fitcheck ID
+   * @returns {Promise<Object|null>} The fitcheck object or null if not found
+   */
+  async getById(id) {
+    const results = await databaseService.query(`SELECT * FROM fitcheck WHERE fitcheck_id = ?`, [id]);
+    return results.length > 0 ? results[0] : null;
+  }
 }
 
 export default FitcheckService; 

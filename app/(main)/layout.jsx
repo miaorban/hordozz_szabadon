@@ -6,7 +6,7 @@ import Footer from "@/app/components/layout/footer";
 // import CalendarFloatingIcon from "@/app/components/layout/CalendarFloatingIcon";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import HotjarInit from "./hotjarInit";
+import HotjarInit from "@/app/hotjarInit";
 import { ToastProvider } from "@heroui/react";
 import { HeroUIProvider } from "@heroui/react";
 
