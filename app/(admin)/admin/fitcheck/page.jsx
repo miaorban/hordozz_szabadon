@@ -1,8 +1,13 @@
 import FitcheckService from '@/app/utils/FitcheckService';
 import Link from 'next/link';
 import { Chip } from '@heroui/react';
+import { verifySession } from '@/app/utils/daj';
 
 export default async function AdminBookings() {
+  const { isAuth } = await verifySession();
+  if (!isAuth) {
+    redirect('/admin');
+  }
   const fitchecks = await new FitcheckService().list();
 
   return (
