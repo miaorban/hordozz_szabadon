@@ -1,6 +1,7 @@
 import databaseService from '@/app/utils/databaseService';
 import { logger } from '@/app/winston';
 import BucketService from '@/app/utils/BucketService';
+import sendFitcheck from '@/app/utils/sendFitcheck';
 
 class FitcheckService {
   constructor() {
@@ -54,7 +55,7 @@ class FitcheckService {
    * @returns {Promise<Object|null>} The fitcheck object or null if not found
    */
   async getById(id) {
-    const results = await databaseService.query(`SELECT * FROM fitcheck WHERE fitcheck_id = ?`, [id]);
+    const results = await databaseService.query(`SELECT * FROM fitcheck WHERE fitcheck_id = ? ORDER BY created_at DESC`, [id]);
     return results.length > 0 ? results[0] : null;
   }
 
@@ -102,12 +103,24 @@ class FitcheckService {
       
       const result = await databaseService.query(`
         UPDATE fitcheck 
-        SET response_url = ? 
+        SET response_url = ?, status = 'done'
         WHERE fitcheck_id = ?
       `, [responseUrl, fitcheckId]);
 
       if (result.affectedRows === 0) {
         throw new Error('No fitcheck found with the specified ID');
+      }
+
+      // Get the fitcheck data to send email
+      const fitcheck = await this.getById(fitcheckId);
+      if (fitcheck) {
+        // Send fitcheck email
+        await sendFitcheck({
+          link: responseUrl,
+          email: fitcheck.email,
+          name: fitcheck.name
+        });
+        logger.info('Fitcheck email sent successfully:', { fitcheckId, email: fitcheck.email });
       }
 
       logger.info('Response URL added successfully:', { fitcheckId, responseUrl });

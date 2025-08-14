@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import sendFitcheck from '../../utils/sendFitcheck';
+import sendFitcheck from '@/app/utils/sendFitcheck';
 
 const PASSWORD = process.env.FITCHECK_RESULT_ROUTE_PASSWORD; // Store your password in an environment
 
