@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { revalidatePath } from 'next/cache';
 import { verifySession } from '@/app/utils/daj';
 import { redirect } from 'next/navigation';
+import { Button } from '@heroui/react';
+import { logger } from '@/app/winston';
 
 async function saveResponseUrl(formData) {
   'use server';
@@ -31,6 +33,28 @@ async function saveResponseUrl(formData) {
   } catch {
     console.error('Error saving response URL');
     return { error: 'Hiba történt a link mentése közben' };
+  }
+}
+
+async function saveResponseScript(formData) {
+  'use server';
+  console.log('saveResponseScript');
+  
+  const { isAuth } = await verifySession();
+  if (!isAuth) {
+    redirect('/admin');
+  }
+
+  const responseScript = formData.get('response_script');
+  const fitcheckId = formData.get('fitcheckId');
+
+  try {
+    const fitcheckService = new FitcheckService();
+    const response = await fitcheckService.saveResponseScript(fitcheckId, responseScript);
+    console.log('response', response);
+  } catch {
+    logger.error('Error saving response script', { fitcheckId, responseScript });
+    return { error: 'Hiba történt a válasz mentése közben' };
   }
 }
 
@@ -135,12 +159,12 @@ LEHETSÉGES TOVÁBBLÉPÉS A JELENLEGI HELYZETÉBŐL
                 placeholder="Link"
                 className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               />
-              <button 
+              <Button 
                 type="submit"
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition-colors"
               >
                 Küldés
-              </button>
+              </Button>
             </div>
           </form>
         </div>
@@ -202,10 +226,11 @@ LEHETSÉGES TOVÁBBLÉPÉS A JELENLEGI HELYZETÉBŐL
         {/* Right Column - Response */}
         <div className="flex-1">
           <h2 className="text-xl font-semibold text-gray-900 mb-4">Response</h2>
-          <form className="space-y-4">
+          <form className="space-y-4" action={saveResponseScript}>
+            <input type="hidden" name="fitcheckId" value={params.id} />
             <textarea
               id="response"
-              name="response"
+              name="response_script"
               rows={20}
               defaultValue={fitcheck.response_script || defaultResponseScript}
               placeholder="Enter your response to this fitcheck..."
@@ -213,17 +238,16 @@ LEHETSÉGES TOVÁBBLÉPÉS A JELENLEGI HELYZETÉBŐL
             />
             
             <div className="flex space-x-4 pt-4">
-              <button
+              <Button
                 type="submit"
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors"
               >
-                Save Response
-              </button>
+                Mentés
+              </Button>
               <Link
                 href="/admin/fitcheck"
                 className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg transition-colors"
               >
-                Back to List
+                Vissza a listához
               </Link>
             </div>
           </form>

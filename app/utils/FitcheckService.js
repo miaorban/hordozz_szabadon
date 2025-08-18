@@ -138,6 +138,15 @@ class FitcheckService {
       throw error;
     }
   }
+
+  async saveResponseScript(fitcheckId, responseScript) {
+    logger.info('Saving response script:', { fitcheckId, responseScript });
+    return databaseService.query(`
+      UPDATE fitcheck
+      SET response_script = ?, status = 'in_progress'
+      WHERE fitcheck_id = ?
+    `, [responseScript, fitcheckId]);
+  }
 }
 
 export default FitcheckService; 
