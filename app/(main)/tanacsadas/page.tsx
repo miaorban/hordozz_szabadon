@@ -1,6 +1,6 @@
 import React from "react";
-import Introduction from "../components/consultation/Introduction";
-import Consultation from "../components/consultation/Consultation";
+import Introduction from "@/app/components/consultation/Introduction";
+import Consultation from "@/app/components/consultation/Consultation";
 
 const consultations = [
   {

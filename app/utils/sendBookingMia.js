@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer';
-import renderEmailTemplate from '../components/email/booking_received_mia';
+import renderEmailTemplate from '@/app/components/email/booking_received_mia';
 import { render } from '@react-email/components';
 
 const sendEmail = async (data) => {

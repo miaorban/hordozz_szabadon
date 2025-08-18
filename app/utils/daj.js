@@ -7,14 +7,12 @@ import { redirect } from 'next/navigation';
 export const verifySession = async () => {
   try {
     const cookie = (await cookies()).get('session')?.value
-    console.log('cookiecookie ', cookie);
     const session = await decrypt(cookie)
-    console.log('sessionsession ', session);
     if (!session.userId) {
       redirect('/admin');
     }
     return { isAuth: true, userId: session.userId }
-  } catch (error) {
+  } catch {
     redirect('/admin');
     return { isAuth: false, userId: null }
   }

@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer';
-import renderEmailTemplate from '../components/email/consultation_confirmation';
+import renderEmailTemplate from '@/app/components/email/consultation_confirmation';
 import { render } from '@react-email/components';
 
 const sendEmail = async (data) => {

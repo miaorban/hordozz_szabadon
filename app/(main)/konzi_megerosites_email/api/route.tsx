@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import sendConsultationConfirmation from '../../utils/sendConsultationConfirmation';
+import sendConsultationConfirmation from '@/app/utils/sendConsultationConfirmation';
 
 const PASSWORD = process.env.FITCHECK_RESULT_ROUTE_PASSWORD; // Store your password in an environment
 
