@@ -55,7 +55,10 @@ class FitcheckService {
    * @returns {Promise<Object|null>} The fitcheck object or null if not found
    */
   async getById(id) {
-    const results = await databaseService.query(`SELECT * FROM fitcheck WHERE fitcheck_id = ? ORDER BY created_at DESC`, [id]);
+    const results = await databaseService.query(
+      `SELECT * FROM fitcheck
+       WHERE fitcheck_id = ? 
+       ORDER BY created_at DESC`, [id]);
     return results.length > 0 ? results[0] : null;
   }
 

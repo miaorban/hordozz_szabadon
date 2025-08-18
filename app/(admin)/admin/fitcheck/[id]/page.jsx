@@ -2,9 +2,16 @@ import FitcheckService from '@/app/utils/FitcheckService';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { revalidatePath } from 'next/cache';
+import { verifySession } from '@/app/utils/daj';
+import { redirect } from 'next/navigation';
 
 async function saveResponseUrl(formData) {
   'use server';
+  
+  const { isAuth } = await verifySession();
+  if (!isAuth) {
+    redirect('/admin');
+  }
   
   const responseUrl = formData.get('responseUrl');
   const fitcheckId = formData.get('fitcheckId');
@@ -28,9 +35,62 @@ async function saveResponseUrl(formData) {
 }
 
 export default async function EditFitcheck({ params }) {
+  const { isAuth } = await verifySession();
+  if (!isAuth) {
+    redirect('/admin');
+  }
+
   const fitcheckService = new FitcheckService();
   const fitcheck = await fitcheckService.getById(params.id);
   const images = await fitcheckService.getImages(params.id);
+  const defaultResponseScript = `🔶 1. Beköszönés és elismerés (fix)-
+
+Szia NÉV!
+Köszönöm, hogy elküldted a képeidet, nagyon örülök, hogy ilyen odafigyeléssel hordozol. Ez tényleg nagyon sokat számít!”
+
+🔶 2. Átvezetés
+
+„Mutatom, miket vettem észre!”
+
+🔶 3. Pozitív kiemelés (opcionális, válassz 1–2)
+
+„Amit külön kiemelnék, hogy nagyon szépen beállítottad a …”
+
+„Nagyon tetszett, ahogy figyeltél arra, hogy …”
+
+„Szuper, hogy már most jól látszik, hogy …”
+
+🔶 4. Tipp vagy finomhangolás (opcionális, válassz 1–3)
+
+„Itt egy kis tipp, ami segíthet ÜGYFÉL PROBLÉMÁJÁNAK LEÍRÁSA”
+
+„Amit érdemes lenne még finomítani, hogy …”
+
+Ellenőrzési pontok:
+
+Szorosság → ne rogyjon bele, ne essen előre a feje, az álla legyen magasan.
+
+Hordozó súlyelosztása → téged se húzzon.
+
+Baba pozíciója → popsi alacsonyan, térdek minimum popsi magasságban, hát domború.
+
+Megtámasztás → maximum tarkóig vagy vállig, hogy ébren tudjon nézelődni.
+
+🔶 5. Összegzés (fix)
+
+„Összességében szuper, nagyon jó úton vagy és még jobb lesz!”
+
+🔶 6. Közösségi rész (opcionális, bátorító)
+
+„Ha van kedved, írd meg, hogy vált be a javaslat – vagy akár küldj egy új fotót, nagyon jó látni a változást!”
+
+„Ha van a környezetedben más is, aki most ismerkedik a hordozással, bátran ajánlj neki is – sokat segítesz ezzel.”
+
+🔶 7. Lezárás (fix)
+
+„És ha bármiben elakadnál, kérdésed lenne, vagy szeretnél továbblépni, nyugodtan keress – mindig szívesen segítek!”
+LEHETSÉGES TOVÁBBLÉPÉS A JELENLEGI HELYZETÉBŐL
+  `
 
   if (!fitcheck) {
     notFound();
@@ -64,7 +124,6 @@ export default async function EditFitcheck({ params }) {
         </div>
       </div>
 
-      {/* Input and Send Button */}
       {!fitcheck.response_url && (
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
           <form action={saveResponseUrl}>
@@ -148,7 +207,7 @@ export default async function EditFitcheck({ params }) {
               id="response"
               name="response"
               rows={20}
-              defaultValue={fitcheck.response || ''}
+              defaultValue={fitcheck.response_script || defaultResponseScript}
               placeholder="Enter your response to this fitcheck..."
               className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none text-sm"
             />

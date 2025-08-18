@@ -1,10 +1,6 @@
 import mysql from 'mysql2/promise';
 
 class DatabaseService {
-  constructor() {
-    this.pool = null;
-  }
-
   /**
    * Getter that returns the connection pool
    * @returns {Promise<mysql.Pool>} The connection pool
