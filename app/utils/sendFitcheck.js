@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer';
-import renderEmailTemplate from '../components/email/fitcheck';
+import renderEmailTemplate from '@/app/components/email/fitcheck';
 import { render } from '@react-email/components';
 
 const sendEmail = async ({ link, email, name, file }) => {

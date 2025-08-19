@@ -1,5 +1,4 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import "@/app/globals.css";
 import { montserrat } from '@/app/fonts';
 import Head from "next/head";
 import Navbar from '@/app/components/layout/navbar';
@@ -7,11 +6,11 @@ import Footer from "@/app/components/layout/footer";
 // import CalendarFloatingIcon from "@/app/components/layout/CalendarFloatingIcon";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import HotjarInit from "./hotjarInit";
+import HotjarInit from "@/app/hotjarInit";
 import { ToastProvider } from "@heroui/react";
 import { HeroUIProvider } from "@heroui/react";
 
-export const metadata: Metadata = {
+export const metadata = {
   title:
     "Babahordozási tanácsadás | Beállítás-ellenőrzés | Hordozóválasztás | Kölcsönzés",
   description:
@@ -33,11 +32,7 @@ export const metadata: Metadata = {
 };
 
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en" className="light">
       <Head>

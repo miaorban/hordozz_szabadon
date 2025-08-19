@@ -1,5 +1,5 @@
 import { ChangeEvent, useRef } from "react";
-import styles from "./CustomFileInput.module.css";
+import styles from "@/app/components/file-input/CustomFileInput.module.css";
 import React from "react";
 
 // @ts-expect-error any type
