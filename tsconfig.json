@@ -30,7 +30,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "build/types/**/*.ts", "app/ingyentanacsadas/page.jsx", "app/page.jsx", "app/(admin)/admin/page.jsx", "app/(admin)/admin/fitcheck/page.jsx", "app/(admin)/admin/layout.jsx", "app/(main)/layout.jsx"],
+    "build/types/**/*.ts", "app/ingyentanacsadas/page.jsx", "app/page.jsx", "app/(admin)/admin/page.jsx", "app/(admin)/admin/fitcheck/page.jsx", "app/(admin)/admin/layout.jsx", "app/(main)/layout.jsx", "app/api/stripe-webhook/route.js"],
   "exclude": [
     "node_modules"
   ]

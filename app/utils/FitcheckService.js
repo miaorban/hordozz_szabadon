@@ -147,6 +147,22 @@ class FitcheckService {
       WHERE fitcheck_id = ?
     `, [responseScript, fitcheckId]);
   }
+
+  async saveBillingAddress(fitcheckId, billingAddress) {
+    logger.info('Saving billing address:', { fitcheckId, billingAddress });
+    return databaseService.query(`
+      UPDATE fitcheck
+      SET billing_country = ?,
+      billing_city = ?,
+      billing_zip = ?,
+      billing_address = ?
+      WHERE fitcheck_id = ?
+    `, [billingAddress.country, 
+        billingAddress.city, 
+        billingAddress.zip, 
+        billingAddress.address, 
+        fitcheckId]);
+  }
 }
 
 export default FitcheckService; 
